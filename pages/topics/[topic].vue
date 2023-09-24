@@ -14,5 +14,17 @@ const { page } = useContent();
 </script>
 
 
-<style scoped>
+<style>
+p {
+  margin: 1rem 0;
+}
+
+.language-python {
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+
+ul {
+  @apply list-disc list-inside;
+}
 </style>
