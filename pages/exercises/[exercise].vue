@@ -113,6 +113,8 @@ function formatText(text) {
   return text;
 }
 
+// Update test file content when code changes so that the line numbers
+// in pytest output match the line numbers in the editor
 const testFileContent = computed(() => {
   return `
 ${code.value}

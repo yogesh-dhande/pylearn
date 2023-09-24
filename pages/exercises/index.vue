@@ -25,9 +25,37 @@
                   {{ exercise.title }}
                 </NuxtLink>
               </h3>
-              <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
+              <p class="my-2 line-clamp-3 text-sm leading-6 text-gray-600">
                 {{ exercise.prompt }}
               </p>
+            </div>
+
+            <div class="flex flex-wrap items-center">
+              <div
+                v-if="exercise.level == 1"
+                class="rounded bg-green-600 text-gray-100 font-medium text-sm px-2 py-0.5 my-1 mr-1"
+              >
+                Beginner
+              </div>
+              <div
+                v-else-if="exercise.level == 2"
+                class="rounded bg-blue-600 text-gray-100 font-medium text-sm px-2 py-0.5 my-1 mr-1"
+              >
+                Advaced
+              </div>
+              <div
+                v-else-if="exercise.level == 3"
+                class="rounded bg-purple-600 text-gray-100 font-medium text-sm px-2 py-0.5 my-1 mr-1"
+              >
+                Expert
+              </div>
+              <div
+                v-for="tag in exercise.tags"
+                :key="tag"
+                class="rounded bg-gray-600 text-gray-100 font-medium text-sm px-2 py-0.5 my-1 mr-1"
+              >
+                {{ tag }}
+              </div>
             </div>
           </article>
         </div>
