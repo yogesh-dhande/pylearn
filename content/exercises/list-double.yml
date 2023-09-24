@@ -1,0 +1,43 @@
+title: List Manipulation
+tags:
+  - loops
+  - lists
+level: 1
+prompt: |-
+  Question:
+  Write a function called `multiply_list` that takes a list of numbers as input and returns a new list where each element is multiplied by 2. Use a while loop to iterate through each element in the list and perform the multiplication.
+
+  Example:
+  Input: [1, 2, 3, 4, 5]
+  Output: [2, 4, 6, 8, 10]
+
+starter: |-
+  def multiply_list(numbers):
+    """
+    Multiplies each element in the given list by 2.
+
+    Args:
+      numbers (list): The input list of numbers.
+
+    Returns:
+      list: A new list with each element multiplied by 2.
+    """
+    # TODO: Implement the multiply_list function
+    pass
+
+solution: |-
+  def multiply_list(numbers):
+      multiplied_list = []
+      index = 0
+      while index < len(numbers):
+          multiplied_list.append(numbers[index] * 2)
+          index += 1
+      return multiplied_list
+
+tests: |-
+  def test_multiply_list():
+    assert multiply_list([1, 2, 3, 4, 5]) == [2, 4, 6, 8, 10]
+    assert multiply_list([0, 10, 20, 30]) == [0, 20, 40, 60]
+    assert multiply_list([-1, -2, -3, -4]) == [-2, -4, -6, -8]
+    assert multiply_list([]) == []
+    print("All test cases pass")

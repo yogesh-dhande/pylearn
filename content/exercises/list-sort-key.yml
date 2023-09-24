@@ -1,0 +1,86 @@
+title: List Sorting with Key
+tags:
+  - loops
+  - lists
+level: 2
+prompt: |-
+  Question:
+  Write a function called `sort_students` that takes a list of dictionaries representing students as input and returns a new list with the students sorted in ascending order based on their age. Use a while loop to iterate through each element in the list and perform the sorting using the `key` argument.
+
+  Example:
+  Input: 
+  [
+    {"name": "Alice", "age": 20},
+    {"name": "Bob", "age": 18},
+    {"name": "Charlie", "age": 22}
+  ]
+  Output: 
+  [
+    {"name": "Bob", "age": 18},
+    {"name": "Alice", "age": 20},
+    {"name": "Charlie", "age": 22}
+  ]
+
+starter: |-
+  def sort_students(students):
+    """
+    Sorts the given list of student dictionaries in ascending order based on their age.
+
+    Args:
+      students (list): The input list of student dictionaries.
+
+    Returns:
+      list: A new list with the students sorted based on their age.
+    """
+    # TODO: Implement the sort_students function
+    pass
+
+solution: |-
+  def sort_students(students):
+      sorted_list = []
+      index = 0
+      while index < len(students):
+          sorted_list.append(students[index])
+          index += 1
+      sorted_list.sort(key=lambda x: x["age"])
+      return sorted_list
+
+tests: |-
+  def test_sort_students():
+    students = [
+      {"name": "Alice", "age": 20},
+      {"name": "Bob", "age": 18},
+      {"name": "Charlie", "age": 22}
+    ]
+    sorted_students = [
+      {"name": "Bob", "age": 18},
+      {"name": "Alice", "age": 20},
+      {"name": "Charlie", "age": 22}
+    ]
+    assert sort_students(students) == sorted_students
+
+    students = [
+      {"name": "John", "age": 25},
+      {"name": "Emily", "age": 19},
+      {"name": "David", "age": 21}
+    ]
+    sorted_students = [
+      {"name": "Emily", "age": 19},
+      {"name": "David", "age": 21},
+      {"name": "John", "age": 25}
+    ]
+    assert sort_students(students) == sorted_students
+
+    students = [
+      {"name": "Sarah", "age": 30},
+      {"name": "Michael", "age": 27},
+      {"name": "Emma", "age": 24}
+    ]
+    sorted_students = [
+      {"name": "Emma", "age": 24},
+      {"name": "Michael", "age": 27},
+      {"name": "Sarah", "age": 30}
+    ]
+    assert sort_students(students) == sorted_students
+
+    print("All test cases pass")

@@ -6,7 +6,7 @@
           Python Exercises
         </h2>
         <p class="mt-2 text-xl leading-8 text-gray-600">
-          Learn to code in python.
+          Practice your Python skills with these interactive exercises.
         </p>
         <div
           class="mt-10 space-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16"

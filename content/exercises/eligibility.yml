@@ -1,0 +1,43 @@
+title: Voting Eligibility
+tags:
+  - conditionals
+level: 1
+prompt: |-
+  Question:
+  Write a function called `check_voting_eligibility` that takes a person's age as input and returns a string indicating whether the person is eligible to vote or not. Use conditional statements (if-else) to perform the eligibility check.
+
+  Consider the following criteria:
+  - If the age is 18 or above, the person is eligible to vote.
+  - If the age is below 18, the person is not eligible to vote.
+
+  Example:
+  Input: 20
+  Output: "Eligible to vote"
+
+starter: |-
+  def check_voting_eligibility(age):
+    """
+    Checks the voting eligibility based on the given age.
+
+    Args:
+      age (int): The person's age.
+
+    Returns:
+      str: A string indicating the voting eligibility.
+    """
+    # TODO: Implement the check_voting_eligibility function
+    pass
+
+solution: |-
+  def check_voting_eligibility(age):
+      if age >= 18:
+          return "Eligible to vote"
+      else:
+          return "Not eligible to vote"
+
+tests: |-
+  def test_check_voting_eligibility():
+    assert check_voting_eligibility(20) == "Eligible to vote"
+    assert check_voting_eligibility(16) == "Not eligible to vote"
+    assert check_voting_eligibility(18) == "Eligible to vote"
+    print("All test cases pass")

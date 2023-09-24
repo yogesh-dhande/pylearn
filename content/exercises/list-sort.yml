@@ -1,0 +1,38 @@
+title: List Ordering
+tags:
+  - loops
+  - lists
+level: 1
+prompt: |-
+  Question:
+  Write a function called `order_list` that takes a list of strings as input and returns a new list with the strings sorted in a reversed alphabetical order.
+
+  Example:
+  Input: ["banana", "apple", "grapes", "melon", "kiwi"]
+  Output: ["apple", "banana", "grapes", "kiwi", "melon"]
+
+starter: |-
+  def order_list(strings):
+    """
+    Orders the given list of strings in alphabetical order.
+
+    Args:
+      strings (list): The input list of strings.
+
+    Returns:
+      list: A new list with the strings sorted in alphabetical order.
+    """
+    # TODO: Implement the order_list function
+    pass
+
+solution: |-
+  def order_list(strings):
+      return sorted(strings, reverse=True)
+
+tests: |-
+  def test_order_list():
+    assert order_list(["banana", "apple", "grapes", "melon", "kiwi"]) == ['melon', 'kiwi', 'grapes', 'banana', 'apple']
+    assert order_list(["zebra", "lion", "tiger", "elephant"]) == ['zebra', 'tiger', 'lion', 'elephant']
+    assert order_list(["orange", "apple", "banana", "grapefruit"]) == ['orange', 'grapefruit', 'banana', 'apple']
+    assert order_list([]) == []
+    print("All test cases pass")
