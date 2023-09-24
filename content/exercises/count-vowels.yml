@@ -1,0 +1,31 @@
+title: Count vowels
+prompt: |-
+  Question:
+  Write a function called count_vowels that takes a string as input and returns the count of vowels (a, e, i, o, u) in the string. Use a for loop to iterate through each character in the string and count the number of vowels. Ignore case sensitivity, meaning 'A' and 'a' should be considered the same vowel.
+
+  Example:
+  Input: "Hello, World!"
+  Output: 3
+
+starter: |-
+  def count_vowels(string):
+      """
+      Counts the number of vowels in a given string.
+
+      Args:
+          string (str): The input string.
+
+      Returns:
+          int: The count of vowels in the string.
+      """
+      # TODO: Implement the count_vowels function
+      pass
+
+tests: |-
+  def test_count_vowels():
+    assert count_vowels("Hello, World!") == 3
+    assert count_vowels("Python is awesome") == 5
+    assert count_vowels("No vowels here") == 0
+    assert count_vowels("AEIOU") == 5
+    assert count_vowels("") == 0
+    print("All test cases pass")
