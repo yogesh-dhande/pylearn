@@ -27,4 +27,12 @@ p {
 ul {
   @apply list-disc list-inside;
 }
+
+li {
+  @apply my-1;
+}
+
+code {
+  @apply text-red-500 rounded-md;
+}
 </style>
