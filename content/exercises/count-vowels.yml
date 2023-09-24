@@ -9,23 +9,23 @@ prompt: |-
 
 starter: |-
   def count_vowels(string):
-      """
-      Counts the number of vowels in a given string.
+    """
+    Counts the number of vowels in a given string.
 
-      Args:
-          string (str): The input string.
+    Args:
+      string (str): The input string.
 
-      Returns:
-          int: The count of vowels in the string.
-      """
-      # TODO: Implement the count_vowels function
-      pass
+    Returns:
+      int: The count of vowels in the string.
+    """
+    # TODO: Implement the count_vowels function
+    pass
 
 tests: |-
   def test_count_vowels():
     assert count_vowels("Hello, World!") == 3
-    assert count_vowels("Python is awesome") == 5
-    assert count_vowels("No vowels here") == 0
+    assert count_vowels("Python is awesome") == 6
+    assert count_vowels("No vowels here") == 5
     assert count_vowels("AEIOU") == 5
     assert count_vowels("") == 0
     print("All test cases pass")

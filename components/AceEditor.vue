@@ -3,9 +3,10 @@
     v-model:value="code"
     lang="python"
     theme="dracula"
-    :minLines="20"
+    :minLines="10"
     :maxLines="40"
     :options="{
+      useWorker: true,
       fontSize: '12pt',
     }"
     :readonly="readonly"
@@ -14,6 +15,8 @@
 
 <script setup>
 import { VAceEditor } from "vue3-ace-editor";
+import "ace-builds/src-noconflict/mode-python";
+import "ace-builds/src-noconflict/theme-dracula";
 
 const props = defineProps({
   modelValue: {
