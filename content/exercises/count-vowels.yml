@@ -21,6 +21,14 @@ starter: |-
     # TODO: Implement the count_vowels function
     pass
 
+solution: |-
+  def count_vowels(string):
+      count = 0
+      for char in string.lower():
+          if char in 'aeiou':
+              count += 1
+      return count
+
 tests: |-
   def test_count_vowels():
     assert count_vowels("Hello, World!") == 3

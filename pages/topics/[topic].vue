@@ -3,7 +3,7 @@
     <h1 class="text-3xl font-bold my-8">{{ page.title }}</h1>
     <ContentDoc>
       <template #not-found>
-        <h2>Topic ({{ $route.params.slug }}) not found</h2>
+        <h2>Topic ({{ $route.params.topic }}) not found</h2>
       </template>
     </ContentDoc>
   </div>
