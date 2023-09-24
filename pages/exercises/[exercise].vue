@@ -9,18 +9,41 @@
         class="hidden"
         v-model="testOutput"
       />
-      <AceEditor
-        v-if="testOutput"
-        v-model="testOutput"
-        :key="testOutput"
-        readonly
-      />
-      <Submit
-        @click="runCode"
-        class="my-2"
-        :is-loading="loading"
-        :errors="errors"
-      />
+      <div v-if="testOutput && !success">
+        <p
+          class="bg-red-500 text-gray-100 font-bold text-center px-3 py-2 my-2"
+        >
+          Tests failed!
+        </p>
+        <AceEditor
+          v-model="testOutput"
+          :key="testOutput"
+          readonly
+          :showLineNumbers="false"
+        />
+      </div>
+
+      <div v-else-if="success">
+        <p
+          class="bg-green-500 text-gray-100 font-bold text-center px-3 py-2 my-2"
+        >
+          All tests passed!
+        </p>
+      </div>
+      <div class="flex justify-between my-2">
+        <Submit
+          v-if="!success"
+          @click="runCode"
+          :is-loading="loading"
+          :errors="errors"
+          label="Run"
+        />
+        <div v-else></div>
+        <div class="flex justify-end space-x-2">
+          <Submit label="Next" />
+        </div>
+      </div>
+
       <TabGroup>
         <TabList class="flex space-x-1 rounded-xl bg-blue-900/20 p-1">
           <Tab as="template" v-slot="{ selected }">
@@ -81,6 +104,7 @@ const { page } = useContent();
 const prompt = formatText(page.value.prompt);
 const code = ref(page.value.starter);
 const testOutput = ref("");
+const success = ref(false);
 
 function formatText(text) {
   text = text.replaceAll("\n", "<br>");
@@ -106,13 +130,9 @@ import sys
 import pyodide
 filename = "${filename}"
 
-content = '''
-${code.value}
-
+content = '''${code.value}
 ${page.value.tests}
 '''
-
-print(content)
 
 with open(filename, "w") as f:
     f.write(content)
@@ -134,7 +154,13 @@ sys.stdout = sys.__stdout__
 js.document.getElementById("pytest-output").value = captured_output
                     
 `);
-  testOutput.value = document.getElementById("pytest-output").value;
+  const result = document.getElementById("pytest-output").value;
+  if (result.split("\n")[0].includes("F")) {
+    success.value = false;
+    testOutput.value = result;
+  } else {
+    success.value = true;
+  }
 });
 </script>
 

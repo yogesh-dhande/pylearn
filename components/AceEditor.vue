@@ -8,6 +8,7 @@
     :options="{
       useWorker: true,
       fontSize: '12pt',
+      showLineNumbers: showLineNumbers,
     }"
     :readonly="readonly"
   />
@@ -24,6 +25,10 @@ const props = defineProps({
     default: "",
   },
   readonly: {
+    type: Boolean,
+    default: true,
+  },
+  showLineNumbers: {
     type: Boolean,
     default: true,
   },
