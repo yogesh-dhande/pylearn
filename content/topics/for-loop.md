@@ -1,9 +1,10 @@
 ---
 title: For Loops in Python
+description: A for loop is a way to repeat a block of code multiple times. It allows you to perform a set of instructions for each item in a sequence, such as a list or a string.
 ---
 
 A for loop is a way to repeat a block of code multiple times. It allows you to perform a set of instructions for each item in a sequence, such as a list or a string.
-<br/>
+
 Here's the basic structure of a for loop:
 
 ```python
