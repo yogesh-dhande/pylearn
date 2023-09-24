@@ -89,7 +89,7 @@
               'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
             ]"
           >
-            <AceEditor v-model="page.tests" readonly></AceEditor>
+            <AceEditor v-model="testFileContent" readonly></AceEditor>
           </TabPanel>
         </TabPanels>
       </TabGroup>
@@ -113,6 +113,14 @@ function formatText(text) {
   return text;
 }
 
+const testFileContent = computed(() => {
+  return `
+${code.value}
+
+${page.value.tests}
+`;
+});
+
 const {
   loading,
   errors,
@@ -130,12 +138,9 @@ import sys
 import pyodide
 filename = "${filename}"
 
-content = '''${code.value}
-${page.value.tests}
-'''
 
 with open(filename, "w") as f:
-    f.write(content)
+    f.write('''${testFileContent.value}''')
 
 
 # Capture the output
