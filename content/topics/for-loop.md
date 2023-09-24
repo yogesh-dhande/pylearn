@@ -1,0 +1,43 @@
+---
+title: For Loops in Python
+---
+
+A for loop is a way to repeat a block of code multiple times. It allows you to perform a set of instructions for each item in a sequence, such as a list or a string.
+<br/>
+Here's the basic structure of a for loop:
+
+```python
+for item in sequence:
+    # code to be executed
+```
+
+Let's break it down:
+
+- `for` is a keyword that tells Python we want to start a for loop.
+- `item` is a variable that represents each item in the sequence. You can choose any name you like for this variable.
+- `sequence` is the collection of items over which the loop will iterate. It can be a list, string, tuple, or any other iterable object.
+- The colon `:` at the end of the line indicates the start of the loop block.
+- The indented code below the `for` statement is the body of the loop. It will be executed for each item in the sequence.
+
+Here's an example that demonstrates how a for loop works:
+
+```python
+fruits = ["apple", "banana", "orange"]
+
+for fruit in fruits:
+    print(fruit)
+```
+
+In this example, we have a list of fruits. The for loop iterates over each fruit in the list and prints it. The output will be:
+
+```python
+apple
+banana
+orange
+```
+
+The loop starts with the first item in the list (`"apple"`), executes the code inside the loop block (printing the fruit), and then moves to the next item (`"banana"`) and repeats the process until all items have been processed.
+
+You can use for loops to perform various operations, such as calculating sums, counting occurrences, or modifying elements in a sequence. The possibilities are endless!
+
+Remember, indentation is crucial in Python. Make sure to indent the code inside the loop block consistently to indicate that it belongs to the loop.
