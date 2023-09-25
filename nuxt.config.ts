@@ -1,8 +1,10 @@
+const BASE_URL = "https://pythonexercises.com";
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
   runtimeConfig: {
-    siteUrl: "https://pythonexercises.com",
+    siteUrl: BASE_URL,
   },
   app: {
     head: {
@@ -34,7 +36,7 @@ export default defineNuxtConfig({
       ],
     },
   },
-  modules: ["@nuxt/content", "@nuxtjs/tailwindcss", "@nuxtjs/robots"],
+  modules: ["@nuxt/content", "@nuxtjs/tailwindcss", "nuxt-simple-robots"],
   content: {
     documentDriven: true,
     markdown: {},
@@ -54,5 +56,17 @@ export default defineNuxtConfig({
     prerender: {
       routes: ["/sitemap.xml"],
     },
+  },
+  robots: {
+    /* module options */
+    rules: [
+      { UserAgent: "*" },
+      { Disallow: "/" },
+      { BlankLine: true },
+      { Comment: "Comment here" },
+
+      // Be aware that this will NOT work on target: 'static' mode
+      { Sitemap: `${BASE_URL}/sitemap.xml` },
+    ],
   },
 });
