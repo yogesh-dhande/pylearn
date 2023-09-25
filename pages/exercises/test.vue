@@ -33,7 +33,6 @@ ${exercise.solution}
 
 ${exercise.tests}
 `;
-      console.log(exercise._path);
       const { result, pass } = await useTestRunner(testFileContent, exercise);
 
       outputs.value.push({
