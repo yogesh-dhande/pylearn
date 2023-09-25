@@ -2,6 +2,7 @@ const BASE_URL = "https://pythonexercises.com";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  ssr: true,
   devtools: { enabled: true },
   runtimeConfig: {
     siteUrl: BASE_URL,
@@ -56,17 +57,5 @@ export default defineNuxtConfig({
     prerender: {
       routes: ["/sitemap.xml"],
     },
-  },
-  robots: {
-    /* module options */
-    rules: [
-      { UserAgent: "*" },
-      { Disallow: "/" },
-      { BlankLine: true },
-      { Comment: "Comment here" },
-
-      // Be aware that this will NOT work on target: 'static' mode
-      { Sitemap: `${BASE_URL}/sitemap.xml` },
-    ],
   },
 });
