@@ -30,18 +30,28 @@
           All tests passed!
         </p>
       </div>
-      <div class="flex justify-between my-2">
+      <div class="flex justify-between space-x-2 my-2">
+        <NuxtLink
+          v-if="prev"
+          :to="prev._path"
+          class="bg-gray-700 text-gray-100 px-6 py-2 rounded shadow text-lg font-bold"
+          >Previous</NuxtLink
+        >
         <Submit
           v-if="!success"
           @click="runCode"
           :is-loading="loading"
           :errors="errors"
           label="Run"
+          class="grow"
         />
         <div v-else></div>
-        <div class="flex justify-end space-x-2">
-          <Submit label="Next" />
-        </div>
+        <NuxtLink
+          v-if="next"
+          :to="next._path"
+          class="bg-gray-700 text-gray-100 px-6 py-2 rounded shadow text-lg font-bold"
+          >Next</NuxtLink
+        >
       </div>
 
       <TabGroup>
@@ -135,6 +145,20 @@ const {
   testOutput.value = result;
   success.value = pass;
 });
+
+const exercises = await queryContent("/exercises").find();
+const index = exercises.findIndex((obj) => obj._path == page.value._path);
+
+let prev, next;
+if (index === -1) {
+  // Object with given path not found
+  prev = null;
+  next = null;
+} else {
+  prev = exercises[index - 1] || null;
+  next = exercises[index + 1] || null;
+}
+console.log(next);
 </script>
 
 
