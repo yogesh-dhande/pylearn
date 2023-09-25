@@ -14,11 +14,11 @@
     "@nuxt/devtools": "latest",
     "@nuxtjs/robots": "^3.0.0",
     "@nuxtjs/tailwindcss": "^6.8.0",
-    "nuxt": "^3.7.3",
-    "vite-plugin-monaco-editor": "^1.1.0"
+    "nuxt": "^3.7.3"
   },
   "dependencies": {
     "@headlessui/vue": "^1.7.16",
+    "sitemap": "^7.1.1",
     "vue3-ace-editor": "^2.2.3"
   }
 }

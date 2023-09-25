@@ -1,10 +1,9 @@
-import monacoEditorPlugin from "vite-plugin-monaco-editor";
-
-const prefix = "monaco-editor/esm/vs";
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  runtimeConfig: {
+    siteUrl: "https://pythonexercises.com",
+  },
   app: {
     head: {
       title: "Python Excercises",
@@ -51,16 +50,9 @@ export default defineNuxtConfig({
       },
     },
   },
-  vite: {
-    optimizeDeps: {
-      include: [
-        `monaco-editor/esm/vs/language/json/json.worker`,
-        `monaco-editor/esm/vs/language/css/css.worker`,
-        `monaco-editor/esm/vs/language/html/html.worker`,
-        `monaco-editor/esm/vs/language/typescript/ts.worker`,
-        `monaco-editor/esm/vs/editor/editor.worker`,
-      ],
+  nitro: {
+    prerender: {
+      routes: ["/sitemap.xml"],
     },
-    plugins: [monacoEditorPlugin({})],
   },
 });
