@@ -8,38 +8,32 @@
         <p class="mt-2 text-xl leading-8 text-gray-600">
           Learn to code in python.
         </p>
-        <div
-          class="mt-10 space-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16"
-        >
-          <article
-            v-for="(topic, i) in topics"
-            :key="i"
-            class="flex max-w-xl flex-col items-start justify-between"
+        <ContentList path="/topics" v-slot="{ list }">
+          <div
+            class="mt-4 space-y-8 border-t border-gray-200 pt-4 sm:mt-8 sm:pt-8"
           >
-            <div class="group relative">
-              <h3
-                class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600"
-              >
-                <NuxtLink :to="topic._path">
-                  <span class="absolute inset-0" />
-                  {{ topic.title }}
-                </NuxtLink>
-              </h3>
-              <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
-                {{ topic.description }}
-              </p>
-            </div>
-          </article>
-        </div>
+            <article
+              v-for="topic in list"
+              :key="topic._path"
+              class="flex max-w-xl flex-col items-start justify-between"
+            >
+              <div class="group relative">
+                <h3
+                  class="mt-2 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600"
+                >
+                  <NuxtLink :to="topic._path">
+                    <span class="absolute inset-0" />
+                    {{ topic.title }}
+                  </NuxtLink>
+                </h3>
+                <p class="mt-3 line-clamp-3 text-sm leading-6 text-gray-600">
+                  {{ topic.description }}
+                </p>
+              </div>
+            </article>
+          </div>
+        </ContentList>
       </div>
     </div>
   </div>
 </template>
-
-<script setup >
-const { data: topics } = await useAsyncData("topics", () =>
-  queryContent("/topics")
-    .where({ _partial: false }) // exclude the Partial files
-    .find()
-);
-</script>

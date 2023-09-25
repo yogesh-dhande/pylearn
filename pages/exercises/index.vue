@@ -8,66 +8,60 @@
         <p class="mt-2 text-xl leading-8 text-gray-600">
           Practice your Python skills with these interactive exercises.
         </p>
-        <div
-          class="mt-10 space-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16"
-        >
-          <article
-            v-for="(exercise, i) in exercises"
-            :key="i"
-            class="flex max-w-xl flex-col items-start justify-between"
+        <ContentList path="/exercises" v-slot="{ list }">
+          <div
+            class="mt-4 space-y-16 border-t border-gray-200 pt-4 sm:mt-8 sm:pt-8"
           >
-            <div class="group relative">
-              <h3
-                class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600"
-              >
-                <NuxtLink :to="exercise._path">
-                  <span class="absolute inset-0" />
-                  {{ exercise.title }}
-                </NuxtLink>
-              </h3>
-              <p class="my-2 line-clamp-3 text-sm leading-6 text-gray-600">
-                {{ exercise.prompt }}
-              </p>
-            </div>
+            <article
+              v-for="(exercise, i) in list"
+              :key="i"
+              class="flex max-w-xl flex-col items-start justify-between"
+            >
+              <div class="group relative">
+                <h3
+                  class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600"
+                >
+                  <NuxtLink :to="exercise._path">
+                    <span class="absolute inset-0" />
+                    {{ exercise.title }}
+                  </NuxtLink>
+                </h3>
+                <p class="my-2 line-clamp-3 text-sm leading-6 text-gray-600">
+                  {{ exercise.prompt }}
+                </p>
+              </div>
 
-            <div class="flex flex-wrap items-center">
-              <div
-                v-if="exercise.level == 1"
-                class="rounded bg-green-600 text-gray-100 font-medium text-sm px-2 py-0.5 my-1 mr-1"
-              >
-                Beginner
+              <div class="flex flex-wrap items-center">
+                <div
+                  v-if="exercise.level == 1"
+                  class="rounded bg-green-600 text-gray-100 font-medium text-sm px-2 py-0.5 my-1 mr-1"
+                >
+                  Beginner
+                </div>
+                <div
+                  v-else-if="exercise.level == 2"
+                  class="rounded bg-blue-600 text-gray-100 font-medium text-sm px-2 py-0.5 my-1 mr-1"
+                >
+                  Advaced
+                </div>
+                <div
+                  v-else-if="exercise.level == 3"
+                  class="rounded bg-purple-600 text-gray-100 font-medium text-sm px-2 py-0.5 my-1 mr-1"
+                >
+                  Expert
+                </div>
+                <div
+                  v-for="tag in exercise.tags"
+                  :key="tag"
+                  class="rounded bg-gray-600 text-gray-100 font-medium text-sm px-2 py-0.5 my-1 mr-1"
+                >
+                  {{ tag }}
+                </div>
               </div>
-              <div
-                v-else-if="exercise.level == 2"
-                class="rounded bg-blue-600 text-gray-100 font-medium text-sm px-2 py-0.5 my-1 mr-1"
-              >
-                Advaced
-              </div>
-              <div
-                v-else-if="exercise.level == 3"
-                class="rounded bg-purple-600 text-gray-100 font-medium text-sm px-2 py-0.5 my-1 mr-1"
-              >
-                Expert
-              </div>
-              <div
-                v-for="tag in exercise.tags"
-                :key="tag"
-                class="rounded bg-gray-600 text-gray-100 font-medium text-sm px-2 py-0.5 my-1 mr-1"
-              >
-                {{ tag }}
-              </div>
-            </div>
-          </article>
-        </div>
+            </article>
+          </div>
+        </ContentList>
       </div>
     </div>
   </div>
 </template>
-
-<script setup>
-const { data: exercises } = await useAsyncData("exercises", () =>
-  queryContent("/exercises")
-    .where({ _partial: false }) // exclude the Partial files
-    .find()
-);
-</script>
