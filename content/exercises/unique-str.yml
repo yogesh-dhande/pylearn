@@ -1,0 +1,38 @@
+title: Unique Characters in a String
+tags:
+  - sets
+  - strings
+level: 2
+prompt: |-
+  Question:
+  Write a function called `find_unique_characters` that takes a string as input and returns a new string containing the unique characters from the input string. Use sets to find the unique characters.
+
+  Example:
+  Input: "hello"
+  Output: "helo"
+
+starter: |-
+  def find_unique_characters(string):
+    """
+    Finds the unique characters in a given string.
+
+    Args:
+      string (str): The input string.
+
+    Returns:
+      str: A new string with the unique characters.
+    """
+    # TODO: Implement the find_unique_characters function
+    pass
+
+solution: |-
+  def find_unique_characters(string):
+      return ''.join(set(string))
+
+tests: |-
+  def test_find_unique_characters():
+    assert find_unique_characters("hello") == "helo"
+    assert find_unique_characters("mississippi") == "misp"
+    assert find_unique_characters("abcde") == "abcde"
+    assert find_unique_characters("") == ""
+    print("All test cases pass")

@@ -1,0 +1,42 @@
+title: Counting Element Frequency
+tags:
+  - loops
+  - Counter
+level: 2
+prompt: |-
+  Question:
+  Write a function called `count_element_frequency` that takes a list as input and returns a dictionary containing the frequency of each element in the list. Use a for loop with `Counter` from the `collections` module to perform the counting.
+
+  Example:
+  Input: [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
+  Output: {1: 1, 2: 2, 3: 3, 4: 4}
+
+starter: |-
+  from collections import Counter
+
+  def count_element_frequency(lst):
+    """
+    Counts the frequency of each element in the given list.
+
+    Args:
+      lst (list): The input list.
+
+    Returns:
+      dict: A dictionary containing the frequency of each element.
+    """
+    # TODO: Implement the count_element_frequency function
+    pass
+
+solution: |-
+  from collections import Counter
+
+  def count_element_frequency(lst):
+      return dict(Counter(lst))
+
+tests: |-
+  def test_count_element_frequency():
+    assert count_element_frequency([1, 2, 2, 3, 3, 3, 4, 4, 4, 4]) == {1: 1, 2: 2, 3: 3, 4: 4}
+    assert count_element_frequency([1, 1, 1, 1, 1]) == {1: 5}
+    assert count_element_frequency([]) == {}
+    assert count_element_frequency(["apple", "banana", "apple", "banana", "cherry"]) == {"apple": 2, "banana": 2, "cherry": 1}
+    print("All test cases pass")

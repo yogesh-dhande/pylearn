@@ -1,0 +1,44 @@
+title: Common Elements with Sets
+tags:
+  - sets
+  - lists
+level: 3
+prompt: |-
+  Question:
+  Write a function called `find_common_elements` that takes multiple lists as input and returns a new list containing the common elements across all the input lists. Use sets to find the common elements.
+
+  Example:
+  Input:
+  List 1: [1, 2, 3, 4, 5]
+  List 2: [4, 5, 6, 7, 8]
+  List 3: [3, 4, 5, 9, 10]
+  Output: [4, 5]
+
+starter: |-
+  def find_common_elements(*lists):
+    """
+    Finds the common elements across multiple lists.
+
+    Args:
+      *lists (list): The input lists.
+
+    Returns:
+      list: A new list with the common elements.
+    """
+    # TODO: Implement the find_common_elements function
+    pass
+
+solution: |-
+  def find_common_elements(*lists):
+      common_elements = set(lists[0])
+      for lst in lists[1:]:
+          common_elements.intersection_update(lst)
+      return list(common_elements)
+
+tests: |-
+  def test_find_common_elements():
+    assert find_common_elements([1, 2, 3, 4, 5], [4, 5, 6, 7, 8], [3, 4, 5, 9, 10]) == [4, 5]
+    assert find_common_elements([1, 2, 3], [4, 5, 6], [7, 8, 9]) == []
+    assert find_common_elements([1, 2, 3, 4, 5], [1, 2, 3, 4, 5], [1, 2, 3, 4, 5]) == [1, 2, 3, 4, 5]
+    assert find_common_elements([], [], []) == []
+    print("All test cases pass")

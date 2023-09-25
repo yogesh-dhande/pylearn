@@ -1,0 +1,71 @@
+title: Analyze CSV Data
+tags:
+  - files
+  - CSV
+  - statistics
+level: 3
+prompt: |-
+  Question:
+  Write a function called `analyze_csv_data` that takes a file path as input and performs analysis on the data in the CSV file. The function should read the CSV file, extract the numeric data, calculate the mean and standard deviation of each numeric column, and find the most frequent value in a specific column.
+
+  Example:
+  Input: "data.csv"
+  Output: {"Column1": {"mean": 10.5, "std_dev": 2.5}, "Column2": {"mean": 20.0, "std_dev": 0.0}, "Column3": {"most_frequent": "red"}}
+
+starter: |-
+  import csv
+  import statistics
+
+  def analyze_csv_data(file_path, column_name):
+    """
+    Analyzes the data in a CSV file, calculating statistics and finding the most frequent value.
+
+    Args:
+      file_path (str): The path to the CSV file.
+      column_name (str): The name of the column to find the most frequent value.
+
+    Returns:
+      dict: A dictionary containing the statistics and most frequent value for each numeric column.
+    """
+    # TODO: Implement the analyze_csv_data function
+    pass
+
+solution: |-
+  import csv
+  import statistics
+
+  def analyze_csv_data(file_path, column_name):
+      data = {}
+      with open(file_path, 'r') as file:
+          reader = csv.DictReader(file)
+          for row in reader:
+              for column, value in row.items():
+                  if column not in data:
+                      data[column] = []
+                  try:
+                      data[column].append(float(value))
+                  except ValueError:
+                      pass
+
+      result = {}
+      for column, values in data.items():
+          if column == column_name:
+              result[column] = {"most_frequent": max(set(values), key=values.count)}
+          else:
+              result[column] = {"mean": statistics.mean(values), "std_dev": statistics.stdev(values) if len(values) > 1 else 0.0}
+      return result
+
+tests: |-
+  def test_analyze_csv_data(tmp_path):
+    file_path = tmp_path / "data.csv"
+    with open(file_path, "w", newline="") as file:
+        writer = csv.writer(file)
+        writer.writerow(["Column1", "Column2", "Column3"])
+        writer.writerow([10, 20, "red"])
+        writer.writerow([11, 20, "blue"])
+        writer.writerow([12, 20, "red"])
+        writer.writerow([9, 20, "green"])
+
+    analysis = analyze_csv_data(file_path, "Column3")
+    assert analysis == {"Column1": {"mean": 10.5, "std_dev": 1.118033988749895}, "Column2": {"mean": 20.0, "std_dev": 0.0}, "Column3": {"most_frequent": "red"}}
+    print("All test cases pass")

@@ -1,0 +1,45 @@
+title: Square Root Calculation
+tags:
+  - loops
+  - math
+level: 2
+prompt: |-
+  Question:
+  Write a function called `calculate_square_root` that takes a list of numbers as input and returns a new list where each element is the square root of the corresponding element in the input list. Use a for loop with the `math` library to perform the square root calculation.
+
+  Example:
+  Input: [4, 9, 16, 25]
+  Output: [2.0, 3.0, 4.0, 5.0]
+
+starter: |-
+  import math
+
+  def calculate_square_root(numbers):
+    """
+    Calculates the square root of each element in the given list.
+
+    Args:
+      numbers (list): The input list of numbers.
+
+    Returns:
+      list: A new list with the square root of each element.
+    """
+    # TODO: Implement the calculate_square_root function
+    pass
+
+solution: |-
+  import math
+
+  def calculate_square_root(numbers):
+      square_root_list = []
+      for num in numbers:
+          square_root_list.append(math.sqrt(num))
+      return square_root_list
+
+tests: |-
+  def test_calculate_square_root():
+    assert calculate_square_root([4, 9, 16, 25]) == [2.0, 3.0, 4.0, 5.0]
+    assert calculate_square_root([1, 2, 3, 4, 5]) == [1.0, 1.4142135623730951, 1.7320508075688772, 2.0, 2.23606797749979]
+    assert calculate_square_root([0, 10, 20, 30]) == [0.0, 3.1622776601683795, 4.47213595499958, 5.477225575051661]
+    assert calculate_square_root([]) == []
+    print("All test cases pass")

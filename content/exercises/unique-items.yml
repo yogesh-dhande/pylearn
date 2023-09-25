@@ -1,0 +1,38 @@
+title: Unique Elements with Sets
+tags:
+  - sets
+  - lists
+level: 2
+prompt: |-
+  Question:
+  Write a function called `find_unique_elements` that takes a list as input and returns a new list containing the unique elements from the input list. Use sets to find the unique elements.
+
+  Example:
+  Input: [1, 2, 2, 3, 4, 4, 5]
+  Output: [1, 2, 3, 4, 5]
+
+starter: |-
+  def find_unique_elements(lst):
+    """
+    Finds the unique elements in a given list.
+
+    Args:
+      lst (list): The input list.
+
+    Returns:
+      list: A new list with the unique elements.
+    """
+    # TODO: Implement the find_unique_elements function
+    pass
+
+solution: |-
+  def find_unique_elements(lst):
+      return list(set(lst))
+
+tests: |-
+  def test_find_unique_elements():
+    assert find_unique_elements([1, 2, 2, 3, 4, 4, 5]) == [1, 2, 3, 4, 5]
+    assert find_unique_elements([1, 1, 1, 1, 1]) == [1]
+    assert find_unique_elements([]) == []
+    assert find_unique_elements(["apple", "banana", "apple", "banana", "cherry"]) == ["apple", "banana", "cherry"]
+    print("All test cases pass")

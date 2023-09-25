@@ -1,0 +1,51 @@
+title: Email Address Validation (Regex)
+tags:
+  - regex
+  - strings
+level: 2
+prompt: |-
+  Question:
+  Write a function called `validate_email_address` that takes a string as input and returns `True` if the input string is a valid email address, and `False` otherwise. A valid email address must satisfy the following criteria:
+  - Starts with one or more alphanumeric characters
+  - Contains an @ symbol
+  - Followed by one or more alphanumeric characters
+  - Followed by a period (.)
+  - Ends with two or more alphabetical characters
+
+  Use regular expressions (regex) to validate the email address.
+
+  Example:
+  Input: "info@example.com"
+  Output: True
+
+starter: |-
+  import re
+
+  def validate_email_address(email):
+    """
+    Validates an email address based on certain criteria using regex.
+
+    Args:
+      email (str): The input email address.
+
+    Returns:
+      bool: True if the email address is valid, False otherwise.
+    """
+    # TODO: Implement the validate_email_address function
+    pass
+
+solution: |-
+  import re
+
+  def validate_email_address(email):
+      pattern = r"^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$"
+      return bool(re.match(pattern, email))
+
+tests: |-
+  def test_validate_email_address():
+    assert validate_email_address("info@example.com") == True
+    assert validate_email_address("user@domain") == False
+    assert validate_email_address("user@domain.") == False
+    assert validate_email_address("user@domain.c") == False
+    assert validate_email_address("user@domain.com") == True
+    print("All test cases pass")

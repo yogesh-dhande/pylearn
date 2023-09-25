@@ -1,0 +1,38 @@
+title: List Comprehension with Condition
+tags:
+  - comprehension
+  - lists
+level: 2
+prompt: |-
+  Question:
+  Write a function called `filter_positive_numbers` that takes a list of integers as input and returns a new list containing only the positive numbers from the input list. Use list comprehension to create the new list.
+
+  Example:
+  Input: [-2, -1, 0, 1, 2, 3, 4, 5]
+  Output: [1, 2, 3, 4, 5]
+
+starter: |-
+  def filter_positive_numbers(numbers):
+    """
+    Filters a list to include only the positive numbers.
+
+    Args:
+      numbers (list): The input list of integers.
+
+    Returns:
+      list: A new list with the positive numbers.
+    """
+    # TODO: Implement the filter_positive_numbers function
+    pass
+
+solution: |-
+  def filter_positive_numbers(numbers):
+      return [num for num in numbers if num > 0]
+
+tests: |-
+  def test_filter_positive_numbers():
+    assert filter_positive_numbers([-2, -1, 0, 1, 2, 3, 4, 5]) == [1, 2, 3, 4, 5]
+    assert filter_positive_numbers([-1, -2, -3, -4, -5]) == []
+    assert filter_positive_numbers([0, 0, 0, 0, 0]) == []
+    assert filter_positive_numbers([1, 2, 3, 4, 5]) == [1, 2, 3, 4, 5]
+    print("All test cases pass")

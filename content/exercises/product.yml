@@ -1,0 +1,42 @@
+title: Product Calculation
+tags:
+  - loops
+  - functools
+level: 2
+prompt: |-
+  Question:
+  Write a function called `calculate_product` that takes a list of numbers as input and returns the product of all the elements in the list. Use a for loop with the `functools` module to perform the product calculation.
+
+  Example:
+  Input: [2, 3, 4, 5]
+  Output: 120
+
+starter: |-
+  import functools
+
+  def calculate_product(numbers):
+    """
+    Calculates the product of all elements in the given list.
+
+    Args:
+      numbers (list): The input list of numbers.
+
+    Returns:
+      int: The product of all elements.
+    """
+    # TODO: Implement the calculate_product function
+    pass
+
+solution: |-
+  import functools
+
+  def calculate_product(numbers):
+      return functools.reduce(lambda x, y: x * y, numbers)
+
+tests: |-
+  def test_calculate_product():
+    assert calculate_product([2, 3, 4, 5]) == 120
+    assert calculate_product([1, 2, 3, 4, 5]) == 120
+    assert calculate_product([0, 10, 20, 30]) == 0
+    assert calculate_product([]) == 1
+    print("All test cases pass")
