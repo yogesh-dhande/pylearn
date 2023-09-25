@@ -19,13 +19,15 @@
 
 <script setup>
 const outputs = ref([]);
-const exercises = await queryContent("/exercises")
-  .where({ _partial: false }) // exclude the Partial files
-  .find();
+const { data: exercises } = await useAsyncData("exercises", () =>
+  queryContent("/exercises")
+    .where({ _partial: false }) // exclude the Partial files
+    .find()
+);
 
 onMounted(() => {
   if (process.client) {
-    exercises.forEach(async (exercise) => {
+    exercises.value.forEach(async (exercise) => {
       const testFileContent = `
 ${exercise.solution}
 

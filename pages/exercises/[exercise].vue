@@ -146,19 +146,12 @@ const {
   success.value = pass;
 });
 
-const exercises = await queryContent("/exercises").find();
-const index = exercises.findIndex((obj) => obj._path == page.value._path);
-
-let prev, next;
-if (index === -1) {
-  // Object with given path not found
-  prev = null;
-  next = null;
-} else {
-  prev = exercises[index - 1] || null;
-  next = exercises[index + 1] || null;
-}
-console.log(next);
+const { data } = await useAsyncData(() =>
+  queryContent("exercises")
+    .only(["_path", "title"])
+    .findSurround(page.value._path)
+);
+const [prev, next] = data.value;
 </script>
 
 

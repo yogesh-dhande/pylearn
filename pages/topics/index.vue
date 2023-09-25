@@ -37,8 +37,9 @@
 </template>
 
 <script setup >
-const topics = await queryContent("/topics")
-  .sort({ date: -1 }) // show latest articles first
-  .where({ _partial: false }) // exclude the Partial files
-  .find();
+const { data: topics } = await useAsyncData("topics", () =>
+  queryContent("/topics")
+    .where({ _partial: false }) // exclude the Partial files
+    .find()
+);
 </script>

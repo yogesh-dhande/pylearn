@@ -65,7 +65,9 @@
 </template>
 
 <script setup>
-const exercises = await queryContent("/exercises")
-  .where({ _partial: false }) // exclude the Partial files
-  .find();
+const { data: exercises } = await useAsyncData("exercises", () =>
+  queryContent("/exercises")
+    .where({ _partial: false }) // exclude the Partial files
+    .find()
+);
 </script>

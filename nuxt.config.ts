@@ -53,6 +53,15 @@ export default defineNuxtConfig({
       },
     },
   },
+  router: {
+    options: {
+      strict: true,
+    },
+  },
+  routeRules: {
+    // Static page generated on-demand once (SSG - or at least mighty close)
+    "/exercises/test/": { ssr: false },
+  },
   nitro: {
     prerender: {
       routes: ["/sitemap.xml"],
