@@ -34,7 +34,7 @@
         <NuxtLink
           v-if="prev"
           :to="prev._path"
-          class="bg-gray-700 text-gray-100 px-6 py-2 rounded shadow text-lg font-bold"
+          class="bg-gray-700 hover:bg-gray-900 text-gray-100 px-6 py-2 rounded shadow text-lg font-bold"
           >Previous</NuxtLink
         >
         <Submit
@@ -49,21 +49,21 @@
         <NuxtLink
           v-if="next"
           :to="next._path"
-          class="bg-gray-700 text-gray-100 px-6 py-2 rounded shadow text-lg font-bold"
+          class="bg-gray-700 hover:bg-gray-900 text-gray-100 px-6 py-2 rounded shadow text-lg font-bold"
           >Next</NuxtLink
         >
       </div>
 
       <TabGroup>
-        <TabList class="flex space-x-1 rounded-xl bg-blue-900/20 p-1">
+        <TabList class="flex space-x-1 rounded-xl bg-cyan-900/20 p-1">
           <Tab as="template" v-slot="{ selected }">
             <button
               :class="[
-                'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700',
-                'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
+                'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-cyan-700',
+                'ring-white ring-opacity-60 ring-offset-2 ring-offset-cyan-400 focus:outline-none focus:ring-2',
                 selected
                   ? 'bg-white shadow'
-                  : 'text-blue-100 hover:bg-white/[0.12] hover:text-white',
+                  : 'text-cyan-100 hover:bg-white/[0.12] hover:text-cyan-400',
               ]"
             >
               Code
@@ -72,11 +72,11 @@
           <Tab as="template" v-slot="{ selected }">
             <button
               :class="[
-                'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700',
-                'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
+                'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-cyan-700',
+                'ring-white ring-opacity-60 ring-offset-2 ring-offset-cyan-400 focus:outline-none focus:ring-2',
                 selected
                   ? 'bg-white shadow'
-                  : 'text-blue-100 hover:bg-white/[0.12] hover:text-white',
+                  : 'text-cyan-100 hover:bg-white/[0.12] hover:text-cyan-400',
               ]"
             >
               Tests
@@ -88,7 +88,7 @@
           <TabPanel
             :class="[
               'rounded-xl bg-white ',
-              'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
+              'ring-white ring-opacity-60 ring-offset-2 ring-offset-cyan-400 focus:outline-none focus:ring-2',
             ]"
           >
             <AceEditor v-model="code" :readonly="false"></AceEditor>
@@ -96,7 +96,7 @@
           <TabPanel
             :class="[
               'rounded-xl bg-white ',
-              'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
+              'ring-white ring-opacity-60 ring-offset-2 ring-offset-cyan-400 focus:outline-none focus:ring-2',
             ]"
           >
             <AceEditor v-model="testFileContent" readonly></AceEditor>
@@ -126,8 +126,7 @@ function formatText(text) {
 // Update test file content when code changes so that the line numbers
 // in pytest output match the line numbers in the editor
 const testFileContent = computed(() => {
-  return `
-${code.value}
+  return `${code.value}
 
 ${page.value.tests}
 `;

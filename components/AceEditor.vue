@@ -11,6 +11,7 @@
       showLineNumbers: showLineNumbers,
     }"
     :readonly="readonly"
+    @init="editorInit"
   />
 </template>
 
@@ -33,6 +34,10 @@ const props = defineProps({
     default: true,
   },
 });
+
+function editorInit(editor) {
+  editor.renderer.setScrollMargin(24, 24, 24, 24);
+}
 
 const emit = defineEmits(["update:modelValue"]);
 const code = useVModel(props, emit);

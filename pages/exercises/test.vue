@@ -28,8 +28,7 @@ const { data: exercises } = await useAsyncData("exercises", () =>
 onMounted(() => {
   if (process.client) {
     exercises.value.forEach(async (exercise) => {
-      const testFileContent = `
-${exercise.solution}
+      const testFileContent = `${exercise.solution}
 
 ${exercise.tests}
 `;
