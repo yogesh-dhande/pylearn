@@ -1,58 +1,55 @@
 title: Read CSV File
 tags:
-  - files
-  - CSV
+    - files
+    - CSV
 level: 3
 prompt: |-
-  Question:
-  Write a function called `read_csv_file` that takes a file path and a list of column names as input, and returns a list of dictionaries containing the data from the specified columns in the CSV file. The function should read the CSV file, extract the data from the specified columns, and return a list of dictionaries where each dictionary represents a row of data.
+    Question:
+    Write a function called `read_csv_file` that takes a file path and a list of column names as input, and returns a list of dictionaries containing the data from the specified columns in the CSV file. The function should read the CSV file, extract the data from the specified columns, and return a list of dictionaries where each dictionary represents a row of data.
 
-  Example:
-  Input:
-  File Path: "data.csv"
-  Columns: ["Name", "Age", "City"]
-  Output: [{"Name": "John", "Age": "25", "City": "New York"}, {"Name": "Emma", "Age": "30", "City": "London"}]
-
+    Example:
+    Input:
+    File Path: "data.csv"
+    Columns: ["Name", "Age", "City"]
+    Output: [{"Name": "John", "Age": "25", "City": "New York"}, {"Name": "Emma", "Age": "30", "City": "London"}]
 starter: |-
-  import csv
+    import csv
 
-  def read_csv_file(file_path, columns):
-    """
-    Reads a CSV file and extracts data from specific columns.
+    def read_csv_file(file_path, columns):
+        """
+        Reads a CSV file and extracts data from specific columns.
 
-    Args:
-      file_path (str): The path to the CSV file.
-      columns (list): The list of column names to extract data from.
+        Args:
+        file_path (str): The path to the CSV file.
+        columns (list): The list of column names to extract data from.
 
-    Returns:
-      list: A list of dictionaries containing the data from the specified columns.
-    """
-    # TODO: Implement the read_csv_file function
-    pass
-
+        Returns:
+        list: A list of dictionaries containing the data from the specified columns.
+        """
+        # TODO: Implement the read_csv_file function
+        pass
 solution: |-
-  import csv
+    import csv
 
-  def read_csv_file(file_path, columns):
-      data = []
-      with open(file_path, 'r') as file:
-          reader = csv.DictReader(file)
-          for row in reader:
-              data_row = {}
-              for column in columns:
-                  data_row[column] = row[column]
-              data.append(data_row)
-      return data
-
+    def read_csv_file(file_path, columns):
+        data = []
+        with open(file_path, 'r') as file:
+            reader = csv.DictReader(file)
+            for row in reader:
+                data_row = {}
+                for column in columns:
+                    data_row[column] = row[column]
+                data.append(data_row)
+        return data
 tests: |-
-  def test_read_csv_file(tmp_path):
-    file_path = tmp_path / "data.csv"
-    with open(file_path, "w", newline="") as file:
-        writer = csv.DictWriter(file, fieldnames=["Name", "Age", "City"])
-        writer.writeheader()
-        writer.writerow({"Name": "John", "Age": "25", "City": "New York"})
-        writer.writerow({"Name": "Emma", "Age": "30", "City": "London"})
+    def test_read_csv_file(tmp_path):
+        file_path = tmp_path / "data.csv"
+        with open(file_path, "w", newline="") as file:
+            writer = csv.DictWriter(file, fieldnames=["Name", "Age", "City"])
+            writer.writeheader()
+            writer.writerow({"Name": "John", "Age": "25", "City": "New York"})
+            writer.writerow({"Name": "Emma", "Age": "30", "City": "London"})
 
-    data = read_csv_file(file_path, ["Name", "Age", "City"])
-    assert data == [{"Name": "John", "Age": "25", "City": "New York"}, {"Name": "Emma", "Age": "30", "City": "London"}]
-    print("All test cases pass")
+        data = read_csv_file(file_path, ["Name", "Age", "City"])
+        assert data == [{"Name": "John", "Age": "25", "City": "New York"}, {"Name": "Emma", "Age": "30", "City": "London"}]
+        print("All test cases pass")

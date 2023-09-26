@@ -1,45 +1,42 @@
 title: Factorial Calculation
 tags:
-  - loops
-  - math
+    - loops
+    - math
 level: 2
 prompt: |-
-  Question:
-  Write a function called `calculate_factorial` that takes an integer as input and returns the factorial of that number. Use a for loop with the `math` library to perform the factorial calculation.
+    Question:
+    Write a function called `calculate_factorial` that takes an integer as input and returns the factorial of that number. Use a for loop with the `math` library to perform the factorial calculation.
 
-  Example:
-  Input: 5
-  Output: 120
-
+    Example:
+    Input: 5
+    Output: 120
 starter: |-
-  import math
+    import math
 
-  def calculate_factorial(number):
-    """
-    Calculates the factorial of the given number.
+    def calculate_factorial(number):
+        """
+        Calculates the factorial of the given number.
 
-    Args:
-      number (int): The input number.
+        Args:
+            number (int): The input number.
 
-    Returns:
-      int: The factorial of the number.
-    """
-    # TODO: Implement the calculate_factorial function
-    pass
-
+        Returns:
+            int: The factorial of the number.
+        """
+        # TODO: Implement the calculate_factorial function
+        pass
 solution: |-
-  import math
+    import math
 
-  def calculate_factorial(number):
-      factorial = 1
-      for num in range(1, number + 1):
-          factorial *= num
-      return factorial
-
+    def calculate_factorial(number):
+        factorial = 1
+        for num in range(1, number + 1):
+            factorial *= num
+        return factorial
 tests: |-
-  def test_calculate_factorial():
-    assert calculate_factorial(5) == 120
-    assert calculate_factorial(0) == 1
-    assert calculate_factorial(1) == 1
-    assert calculate_factorial(10) == 3628800
-    print("All test cases pass")
+    def test_calculate_factorial():
+        assert calculate_factorial(5) == 120
+        assert calculate_factorial(0) == 1
+        assert calculate_factorial(1) == 1
+        assert calculate_factorial(10) == 3628800
+        print("All test cases pass")

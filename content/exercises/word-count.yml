@@ -1,63 +1,60 @@
 title: Word Frequency from File
 tags:
-  - files
-  - strings
+    - files
+    - strings
 level: 2
 prompt: |-
-  Question:
-  Write a function called `count_word_frequency` that takes a file path as input and returns a dictionary containing the frequency of each word in the file. The function should read the file, tokenize the words, and count their occurrences.
+    Question:
+    Write a function called `count_word_frequency` that takes a file path as input and returns a dictionary containing the frequency of each word in the file. The function should read the file, tokenize the words, and count their occurrences.
 
-  Example:
-  Input: "sample.txt"
-  Output: {"Hello": 2, "world": 1, "Python": 3}
-
+    Example:
+    Input: "sample.txt"
+    Output: {"Hello": 2, "world": 1, "Python": 3}
 starter: |-
-  def count_word_frequency(file_path):
-    """
-    Counts the frequency of each word in a file.
+    def count_word_frequency(file_path):
+        """
+        Counts the frequency of each word in a file.
 
-    Args:
-      file_path (str): The path to the input file.
+        Args:
+            file_path (str): The path to the input file.
 
-    Returns:
-      dict: A dictionary containing the word frequency.
-    """
-    # TODO: Implement the count_word_frequency function
-    pass
-
+        Returns:
+            dict: A dictionary containing the word frequency.
+        """
+        # TODO: Implement the count_word_frequency function
+        pass
 solution: |-
-  def count_word_frequency(file_path):
-      word_frequency = {}
-      with open(file_path, 'r') as file:
-          for line in file:
-              words = line.strip().split()
-              for word in words:
-                  word_frequency[word] = word_frequency.get(word, 0) + 1
-      return word_frequency
-
+    def count_word_frequency(file_path):
+        word_frequency = {}
+        with open(file_path, 'r') as file:
+            for line in file:
+                words = line.strip().split()
+                for word in words:
+                    word_frequency[word] = word_frequency.get(word, 0) + 1
+        return word_frequency
 tests: |-
-  def test_count_word_frequency(tmp_path):
-    file_path = tmp_path / "sample.txt"
-    with open(file_path, "w") as file:
-        file.write("Hello world! Hello Python Python Python")
+    def test_count_word_frequency(tmp_path):
+        file_path = tmp_path / "sample.txt"
+        with open(file_path, "w") as file:
+            file.write("Hello world! Hello Python Python Python")
 
-    word_frequency = count_word_frequency(file_path)
-    assert word_frequency == {"Hello": 2, "world!": 1, "Python": 3}
+        word_frequency = count_word_frequency(file_path)
+        assert word_frequency == {"Hello": 2, "world!": 1, "Python": 3}
 
-    # Additional test cases
-    with open(file_path, "w") as file:
-        file.write("Hello Hello Hello")
-    word_frequency = count_word_frequency(file_path)
-    assert word_frequency == {"Hello": 3}
+        # Additional test cases
+        with open(file_path, "w") as file:
+            file.write("Hello Hello Hello")
+        word_frequency = count_word_frequency(file_path)
+        assert word_frequency == {"Hello": 3}
 
-    with open(file_path, "w") as file:
-        file.write("Python python PYTHON")
-    word_frequency = count_word_frequency(file_path)
-    assert word_frequency == {"Python": 1, "python": 1, "PYTHON": 1}
+        with open(file_path, "w") as file:
+            file.write("Python python PYTHON")
+        word_frequency = count_word_frequency(file_path)
+        assert word_frequency == {"Python": 1, "python": 1, "PYTHON": 1}
 
-    with open(file_path, "w") as file:
-        file.write("")
-    word_frequency = count_word_frequency(file_path)
-    assert word_frequency == {}
+        with open(file_path, "w") as file:
+            file.write("")
+        word_frequency = count_word_frequency(file_path)
+        assert word_frequency == {}
 
-    print("All test cases pass")
+        print("All test cases pass")

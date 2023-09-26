@@ -1,47 +1,44 @@
 title: Words Starting with Prefix (Regex)
 tags:
-  - regex
-  - strings
+    - regex
+    - strings
 level: 3
 prompt: |-
-  Question:
-  Write a function called `find_words_with_prefix` that takes a string and a prefix as input and returns a new list containing the words from the input string that start with the given prefix. Use regular expressions (regex) to find the words.
+    Question:
+    Write a function called `find_words_with_prefix` that takes a string and a prefix as input and returns a new list containing the words from the input string that start with the given prefix. Use regular expressions (regex) to find the words.
 
-  Example:
-  Input:
-  String: "Hello world! How are you doing today?"
-  Prefix: "H"
-  Output: ["Hello", "How"]
-
+    Example:
+    Input:
+    String: "Hello world! How are you doing today?"
+    Prefix: "H"
+    Output: ["Hello", "How"]
 starter: |-
-  import re
+    import re
 
-  def find_words_with_prefix(string, prefix):
-    """
-    Finds the words starting with a specific prefix in a given string using regex.
+    def find_words_with_prefix(string, prefix):
+        """
+        Finds the words starting with a specific prefix in a given string using regex.
 
-    Args:
-      string (str): The input string.
-      prefix (str): The prefix to search for.
+        Args:
+        string (str): The input string.
+        prefix (str): The prefix to search for.
 
-    Returns:
-      list: A new list with the words starting with the prefix.
-    """
-    # TODO: Implement the find_words_with_prefix function
-    pass
-
+        Returns:
+        list: A new list with the words starting with the prefix.
+        """
+        # TODO: Implement the find_words_with_prefix function
+        pass
 solution: |-
-  import re
+    import re
 
-  def find_words_with_prefix(string, prefix):
-      pattern = r"\b" + prefix + r"\w+"
-      matches = re.findall(pattern, string)
-      return matches
-
+    def find_words_with_prefix(string, prefix):
+        pattern = r"\b" + prefix + r"\w+"
+        matches = re.findall(pattern, string)
+        return matches
 tests: |-
-  def test_find_words_with_prefix():
-    assert find_words_with_prefix("Hello world! How are you doing today?", "H") == ["Hello", "How"]
-    assert find_words_with_prefix("The quick brown fox jumps over the lazy dog.", "j") == ["jumps"]
-    assert find_words_with_prefix("Python is a powerful programming language.", "P") == ["Python", "powerful", "programming"]
-    assert find_words_with_prefix("", "A") == []
-    print("All test cases pass")
+    def test_find_words_with_prefix():
+        assert find_words_with_prefix("Hello world! How are you doing today?", "H") == ["Hello", "How"]
+        assert find_words_with_prefix("The quick brown fox jumps over the lazy dog.", "j") == ["jumps"]
+        assert find_words_with_prefix("Python is a powerful programming language.", "P") == ["Python", "powerful", "programming"]
+        assert find_words_with_prefix("", "A") == []
+        print("All test cases pass")

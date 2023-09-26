@@ -1,41 +1,38 @@
 title: Finding Common Elements with Zip
 tags:
-  - zip
-  - lists
+    - zip
+    - lists
 level: 2
 prompt: |-
-  Question:
-  Write a function called `find_common_elements` that takes two lists as input and returns a new list containing the common elements between the two input lists. Use `zip` to pair the elements and find the common elements.
+    Question:
+    Write a function called `find_common_elements` that takes two lists as input and returns a new list containing the common elements between the two input lists. Use `zip` to pair the elements and find the common elements.
 
-  Example:
-  Input:
-  List 1: [1, 2, 3, 4, 5]
-  List 2: [4, 5, 6, 7, 8]
-  Output: [4, 5]
-
+    Example:
+    Input:
+    List 1: [1, 2, 3, 4, 5]
+    List 2: [4, 5, 6, 7, 8]
+    Output: [4, 5]
 starter: |-
-  def find_common_elements(list1, list2):
-    """
-    Finds the common elements between two lists.
+    def find_common_elements(list1, list2):
+        """
+        Finds the common elements between two lists.
 
-    Args:
-      list1 (list): The first input list.
-      list2 (list): The second input list.
+        Args:
+            list1 (list): The first input list.
+            list2 (list): The second input list.
 
-    Returns:
-      list: A new list with the common elements.
-    """
-    # TODO: Implement the find_common_elements function
-    pass
-
+        Returns:
+            list: A new list with the common elements.
+        """
+        # TODO: Implement the find_common_elements function
+        pass
 solution: |-
-  def find_common_elements(list1, list2):
-      return [x for x, y in zip(list1, list2) if x == y]
-
+    def find_common_elements(list1, list2):
+        return [x for x, y in zip(list1, list2) if x == y]
 tests: |-
-  def test_find_common_elements():
-    assert find_common_elements([1, 2, 3, 4, 5], [4, 5, 6, 7, 8]) == [4, 5]
-    assert find_common_elements([1, 2, 3], [4, 5, 6]) == []
-    assert find_common_elements([1, 2, 3, 4, 5], [1, 2, 3, 4, 5]) == [1, 2, 3, 4, 5]
-    assert find_common_elements([], []) == []
-    print("All test cases pass")
+    def test_find_common_elements():
+        assert find_common_elements([1, 2, 3, 4, 5], [4, 5, 6, 7, 8]) == [4, 5]
+        assert find_common_elements([1, 2, 3], [4, 5, 6]) == []
+        assert find_common_elements([1, 2, 3, 4, 5], [1, 2, 3, 4, 5]) == [1, 2, 3, 4, 5]
+        assert find_common_elements([], []) == []
+        print("All test cases pass")

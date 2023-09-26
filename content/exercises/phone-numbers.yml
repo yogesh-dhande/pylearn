@@ -1,44 +1,41 @@
 title: Extract Phone Numbers (Regex)
 tags:
-  - regex
-  - strings
+    - regex
+    - strings
 level: 2
 prompt: |-
-  Question:
-  Write a function called `extract_phone_numbers` that takes a string as input and returns a new list containing all the phone numbers found in the input string. Use regular expressions (regex) to extract the phone numbers.
+    Question:
+    Write a function called `extract_phone_numbers` that takes a string as input and returns a new list containing all the phone numbers found in the input string. Use regular expressions (regex) to extract the phone numbers.
 
-  Example:
-  Input: "Please contact us at +1 (123) 456-7890 or email support@example.com."
-  Output: ["+1 (123) 456-7890"]
-
+    Example:
+    Input: "Please contact us at +1 (123) 456-7890 or email support@example.com."
+    Output: ["+1 (123) 456-7890"]
 starter: |-
-  import re
+    import re
 
-  def extract_phone_numbers(string):
-    """
-    Extracts phone numbers from a given string using regex.
+    def extract_phone_numbers(string):
+        """
+        Extracts phone numbers from a given string using regex.
 
-    Args:
-      string (str): The input string.
+        Args:
+            string (str): The input string.
 
-    Returns:
-      list: A new list with the extracted phone numbers.
-    """
-    # TODO: Implement the extract_phone_numbers function
-    pass
-
+        Returns:
+            list: A new list with the extracted phone numbers.
+        """
+        # TODO: Implement the extract_phone_numbers function
+        pass
 solution: |-
-  import re
+    import re
 
-  def extract_phone_numbers(string):
-      pattern = r"\+\d{1,3}\s?\(\d{3}\)\s?\d{3}-\d{4}"
-      matches = re.findall(pattern, string)
-      return matches
-
+    def extract_phone_numbers(string):
+        pattern = r"\+\d{1,3}\s?\(\d{3}\)\s?\d{3}-\d{4}"
+        matches = re.findall(pattern, string)
+        return matches
 tests: |-
-  def test_extract_phone_numbers():
-    assert extract_phone_numbers("Please contact us at +1 (123) 456-7890 or email support@example.com.") == ["+1 (123) 456-7890"]
-    assert extract_phone_numbers("Call us at (555) 123-4567 or (555) 987-6543.") == ["(555) 123-4567", "(555) 987-6543"]
-    assert extract_phone_numbers("No phone numbers in this string.") == []
-    assert extract_phone_numbers("") == []
-    print("All test cases pass")
+    def test_extract_phone_numbers():
+        assert extract_phone_numbers("Please contact us at +1 (123) 456-7890 or email support@example.com.") == ["+1 (123) 456-7890"]
+        assert extract_phone_numbers("Call us at (555) 123-4567 or (555) 987-6543.") == ["(555) 123-4567", "(555) 987-6543"]
+        assert extract_phone_numbers("No phone numbers in this string.") == []
+        assert extract_phone_numbers("") == []
+        print("All test cases pass")

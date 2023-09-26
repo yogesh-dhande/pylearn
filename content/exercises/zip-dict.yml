@@ -1,41 +1,38 @@
 title: Zip and Dictionary Creation
 tags:
-  - zip
-  - dictionaries
+    - zip
+    - dictionaries
 level: 2
 prompt: |-
-  Question:
-  Write a function called `create_dictionary` that takes two lists, one containing keys and the other containing values, as input and returns a dictionary by combining the elements from both lists. Use `zip` to pair the elements and create the dictionary.
+    Question:
+    Write a function called `create_dictionary` that takes two lists, one containing keys and the other containing values, as input and returns a dictionary by combining the elements from both lists. Use `zip` to pair the elements and create the dictionary.
 
-  Example:
-  Input:
-  Keys: ["a", "b", "c"]
-  Values: [1, 2, 3]
-  Output: {"a": 1, "b": 2, "c": 3}
-
+    Example:
+    Input:
+    Keys: ["a", "b", "c"]
+    Values: [1, 2, 3]
+    Output: {"a": 1, "b": 2, "c": 3}
 starter: |-
-  def create_dictionary(keys, values):
-    """
-    Creates a dictionary by combining elements from two lists.
+    def create_dictionary(keys, values):
+        """
+        Creates a dictionary by combining elements from two lists.
 
-    Args:
-      keys (list): The list of keys.
-      values (list): The list of values.
+        Args:
+            keys (list): The list of keys.
+            values (list): The list of values.
 
-    Returns:
-      dict: A dictionary created by pairing the elements from both lists.
-    """
-    # TODO: Implement the create_dictionary function
-    pass
-
+        Returns:
+            dict: A dictionary created by pairing the elements from both lists.
+        """
+        # TODO: Implement the create_dictionary function
+        pass
 solution: |-
-  def create_dictionary(keys, values):
-      return dict(zip(keys, values))
-
+    def create_dictionary(keys, values):
+        return dict(zip(keys, values))
 tests: |-
-  def test_create_dictionary():
-    assert create_dictionary(["a", "b", "c"], [1, 2, 3]) == {"a": 1, "b": 2, "c": 3}
-    assert create_dictionary(["x", "y", "z"], [10, 20, 30]) == {"x": 10, "y": 20, "z": 30}
-    assert create_dictionary([], []) == {}
-    assert create_dictionary(["key"], [100]) == {"key": 100}
-    print("All test cases pass")
+    def test_create_dictionary():
+        assert create_dictionary(["a", "b", "c"], [1, 2, 3]) == {"a": 1, "b": 2, "c": 3}
+        assert create_dictionary(["x", "y", "z"], [10, 20, 30]) == {"x": 10, "y": 20, "z": 30}
+        assert create_dictionary([], []) == {}
+        assert create_dictionary(["key"], [100]) == {"key": 100}
+        print("All test cases pass")

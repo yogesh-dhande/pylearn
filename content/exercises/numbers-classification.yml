@@ -1,41 +1,38 @@
 title: Number Classification
 tags:
-  - conditionals
+    - conditionals
 level: 1
 prompt: |-
-  Question:
-  Write a function called `classify_number` that takes an integer as input and returns a string indicating whether the number is positive, negative, or zero. Use conditional statements (if-elif-else) to perform the classification.
+    Question:
+    Write a function called `classify_number` that takes an integer as input and returns a string indicating whether the number is positive, negative, or zero. Use conditional statements (if-elif-else) to perform the classification.
 
-  Example:
-  Input: 5
-  Output: "Positive"
-
+    Example:
+    Input: 5
+    Output: "Positive"
 starter: |-
-  def classify_number(number):
-    """
-    Classifies the given number as positive, negative, or zero.
+    def classify_number(number):
+        """
+        Classifies the given number as positive, negative, or zero.
 
-    Args:
-      number (int): The input number.
+        Args:
+            number (int): The input number.
 
-    Returns:
-      str: A string indicating the classification of the number.
-    """
-    # TODO: Implement the classify_number function
-    pass
-
+        Returns:
+            str: A string indicating the classification of the number.
+        """
+        # TODO: Implement the classify_number function
+        pass
 solution: |-
-  def classify_number(number):
-      if number > 0:
-          return "Positive"
-      elif number < 0:
-          return "Negative"
-      else:
-          return "Zero"
-
+    def classify_number(number):
+        if number > 0:
+            return "Positive"
+        elif number < 0:
+            return "Negative"
+        else:
+            return "Zero"
 tests: |-
-  def test_classify_number():
-    assert classify_number(5) == "Positive"
-    assert classify_number(-10) == "Negative"
-    assert classify_number(0) == "Zero"
-    print("All test cases pass")
+    def test_classify_number():
+        assert classify_number(5) == "Positive"
+        assert classify_number(-10) == "Negative"
+        assert classify_number(0) == "Zero"
+        print("All test cases pass")

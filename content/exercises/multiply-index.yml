@@ -1,41 +1,38 @@
 title: Multiply List Elements by Index
 tags:
-  - loops
-  - enumerate
+    - loops
+    - enumerate
 level: 2
 prompt: |-
-  Question:
-  Write a function called `multiply_list_by_index` that takes a list of numbers as input and returns a new list where each element is multiplied by its index. Use a for loop with `enumerate` to iterate over the list and perform the multiplication.
+    Question:
+    Write a function called `multiply_list_by_index` that takes a list of numbers as input and returns a new list where each element is multiplied by its index. Use a for loop with `enumerate` to iterate over the list and perform the multiplication.
 
-  Example:
-  Input: [1, 2, 3, 4, 5]
-  Output: [0, 2, 6, 12, 20]
-
+    Example:
+    Input: [1, 2, 3, 4, 5]
+    Output: [0, 2, 6, 12, 20]
 starter: |-
-  def multiply_list_by_index(numbers):
-    """
-    Multiplies each element in the given list by its index.
+    def multiply_list_by_index(numbers):
+        """
+        Multiplies each element in the given list by its index.
 
-    Args:
-      numbers (list): The input list of numbers.
+        Args:
+            numbers (list): The input list of numbers.
 
-    Returns:
-      list: A new list with each element multiplied by its index.
-    """
-    # TODO: Implement the multiply_list_by_index function
-    pass
-
+        Returns:
+            list: A new list with each element multiplied by its index.
+        """
+        # TODO: Implement the multiply_list_by_index function
+        pass
 solution: |-
-  def multiply_list_by_index(numbers):
-      multiplied_list = []
-      for index, element in enumerate(numbers):
-          multiplied_list.append(index * element)
-      return multiplied_list
-
+    def multiply_list_by_index(numbers):
+        multiplied_list = []
+        for index, element in enumerate(numbers):
+            multiplied_list.append(index * element)
+        return multiplied_list
 tests: |-
-  def test_multiply_list_by_index():
-    assert multiply_list_by_index([1, 2, 3, 4, 5]) == [0, 2, 6, 12, 20]
-    assert multiply_list_by_index([0, 10, 20, 30]) == [0, 10, 40, 90]
-    assert multiply_list_by_index([-1, -2, -3, -4]) == [0, -2, -6, -12]
-    assert multiply_list_by_index([]) == []
-    print("All test cases pass")
+    def test_multiply_list_by_index():
+        assert multiply_list_by_index([1, 2, 3, 4, 5]) == [0, 2, 6, 12, 20]
+        assert multiply_list_by_index([0, 10, 20, 30]) == [0, 10, 40, 90]
+        assert multiply_list_by_index([-1, -2, -3, -4]) == [0, -2, -6, -12]
+        assert multiply_list_by_index([]) == []
+        print("All test cases pass")

@@ -1,41 +1,38 @@
 title: List Comprehension with Combination
 tags:
-  - comprehension
-  - lists
+    - comprehension
+    - lists
 level: 2
 prompt: |-
-  Question:
-  Write a function called `combine_lists` that takes two lists of integers as input and returns a new list by combining the elements from both lists. The new list should contain the sum of corresponding elements from the input lists. Use list comprehension to create the new list.
+    Question:
+    Write a function called `combine_lists` that takes two lists of integers as input and returns a new list by combining the elements from both lists. The new list should contain the sum of corresponding elements from the input lists. Use list comprehension to create the new list.
 
-  Example:
-  Input:
-  List 1: [1, 2, 3, 4, 5]
-  List 2: [10, 20, 30, 40, 50]
-  Output: [11, 22, 33, 44, 55]
-
+    Example:
+    Input:
+    List 1: [1, 2, 3, 4, 5]
+    List 2: [10, 20, 30, 40, 50]
+    Output: [11, 22, 33, 44, 55]
 starter: |-
-  def combine_lists(list1, list2):
-    """
-    Combines two lists by summing corresponding elements.
+    def combine_lists(list1, list2):
+        """
+        Combines two lists by summing corresponding elements.
 
-    Args:
-      list1 (list): The first input list of integers.
-      list2 (list): The second input list of integers.
+        Args:
+            list1 (list): The first input list of integers.
+            list2 (list): The second input list of integers.
 
-    Returns:
-      list: A new list with the sum of corresponding elements.
-    """
-    # TODO: Implement the combine_lists function
-    pass
-
+        Returns:
+            list: A new list with the sum of corresponding elements.
+        """
+        # TODO: Implement the combine_lists function
+        pass
 solution: |-
-  def combine_lists(list1, list2):
-      return [x + y for x, y in zip(list1, list2)]
-
+    def combine_lists(list1, list2):
+        return [x + y for x, y in zip(list1, list2)]
 tests: |-
-  def test_combine_lists():
-    assert combine_lists([1, 2, 3, 4, 5], [10, 20, 30, 40, 50]) == [11, 22, 33, 44, 55]
-    assert combine_lists([0, 0, 0, 0, 0], [1, 2, 3, 4, 5]) == [1, 2, 3, 4, 5]
-    assert combine_lists([-1, -2, -3, -4, -5], [1, 2, 3, 4, 5]) == [0, 0, 0, 0, 0]
-    assert combine_lists([], []) == []
-    print("All test cases pass")
+    def test_combine_lists():
+        assert combine_lists([1, 2, 3, 4, 5], [10, 20, 30, 40, 50]) == [11, 22, 33, 44, 55]
+        assert combine_lists([0, 0, 0, 0, 0], [1, 2, 3, 4, 5]) == [1, 2, 3, 4, 5]
+        assert combine_lists([-1, -2, -3, -4, -5], [1, 2, 3, 4, 5]) == [0, 0, 0, 0, 0]
+        assert combine_lists([], []) == []
+        print("All test cases pass")

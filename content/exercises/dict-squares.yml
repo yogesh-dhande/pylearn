@@ -1,38 +1,35 @@
 title: Dictionary Comprehension
 tags:
-  - comprehension
-  - dictionaries
+    - comprehension
+    - dictionaries
 level: 2
 prompt: |-
-  Question:
-  Write a function called `square_dict_values` that takes a dictionary as input and returns a new dictionary where the values are the squares of the original values. Use dictionary comprehension to create the new dictionary.
+    Question:
+    Write a function called `square_dict_values` that takes a dictionary as input and returns a new dictionary where the values are the squares of the original values. Use dictionary comprehension to create the new dictionary.
 
-  Example:
-  Input: {"a": 2, "b": 3, "c": 4}
-  Output: {"a": 4, "b": 9, "c": 16}
-
+    Example:
+    Input: {"a": 2, "b": 3, "c": 4}
+    Output: {"a": 4, "b": 9, "c": 16}
 starter: |-
-  def square_dict_values(dictionary):
-    """
-    Creates a new dictionary where the values are the squares of the original values.
+    def square_dict_values(dictionary):
+        """
+        Creates a new dictionary where the values are the squares of the original values.
 
-    Args:
-      dictionary (dict): The input dictionary.
+        Args:
+        dictionary (dict): The input dictionary.
 
-    Returns:
-      dict: A new dictionary with the squared values.
-    """
-    # TODO: Implement the square_dict_values function
-    pass
-
+        Returns:
+        dict: A new dictionary with the squared values.
+        """
+        # TODO: Implement the square_dict_values function
+        pass
 solution: |-
-  def square_dict_values(dictionary):
-      return {key: value ** 2 for key, value in dictionary.items()}
-
+    def square_dict_values(dictionary):
+        return {key: value ** 2 for key, value in dictionary.items()}
 tests: |-
-  def test_square_dict_values():
-    assert square_dict_values({"a": 2, "b": 3, "c": 4}) == {"a": 4, "b": 9, "c": 16}
-    assert square_dict_values({"x": 0, "y": 1, "z": 2}) == {"x": 0, "y": 1, "z": 4}
-    assert square_dict_values({}) == {}
-    assert square_dict_values({"p": 5, "q": 6, "r": 7}) == {"p": 25, "q": 36, "r": 49}
-    print("All test cases pass")
+    def test_square_dict_values():
+        assert square_dict_values({"a": 2, "b": 3, "c": 4}) == {"a": 4, "b": 9, "c": 16}
+        assert square_dict_values({"x": 0, "y": 1, "z": 2}) == {"x": 0, "y": 1, "z": 4}
+        assert square_dict_values({}) == {}
+        assert square_dict_values({"p": 5, "q": 6, "r": 7}) == {"p": 25, "q": 36, "r": 49}
+        print("All test cases pass")

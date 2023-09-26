@@ -1,42 +1,39 @@
 title: Exponential Power Calculation
 tags:
-  - loops
-  - math
+    - loops
+    - math
 level: 2
 prompt: |-
-  Question:
-  Write a function called `calculate_exponential_power` that takes an integer as input and returns the result of raising that number to the power of 2. Use a for loop with the `math` library to perform the exponential power calculation.
+    Question:
+    Write a function called `calculate_exponential_power` that takes an integer as input and returns the result of raising that number to the power of 2. Use a for loop with the `math` library to perform the exponential power calculation.
 
-  Example:
-  Input: 5
-  Output: 25
-
+    Example:
+    Input: 5
+    Output: 25
 starter: |-
-  import math
+    import math
 
-  def calculate_exponential_power(number):
-    """
-    Calculates the exponential power of the given number.
+    def calculate_exponential_power(number):
+        """
+        Calculates the exponential power of the given number.
 
-    Args:
-      number (int): The input number.
+        Args:
+        number (int): The input number.
 
-    Returns:
-      int: The result of raising the number to the power of 2.
-    """
-    # TODO: Implement the calculate_exponential_power function
-    pass
-
+        Returns:
+        int: The result of raising the number to the power of 2.
+        """
+        # TODO: Implement the calculate_exponential_power function
+        pass
 solution: |-
-  import math
+    import math
 
-  def calculate_exponential_power(number):
-      return math.pow(number, 2)
-
+    def calculate_exponential_power(number):
+        return math.pow(number, 2)
 tests: |-
-  def test_calculate_exponential_power():
-    assert calculate_exponential_power(5) == 25
-    assert calculate_exponential_power(0) == 0
-    assert calculate_exponential_power(1) == 1
-    assert calculate_exponential_power(10) == 100
-    print("All test cases pass")
+    def test_calculate_exponential_power():
+        assert calculate_exponential_power(5) == 25
+        assert calculate_exponential_power(0) == 0
+        assert calculate_exponential_power(1) == 1
+        assert calculate_exponential_power(10) == 100
+        print("All test cases pass")
