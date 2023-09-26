@@ -6,25 +6,49 @@
         <h2>Topic ({{ $route.params.topic }}) not found</h2>
       </template>
     </ContentDoc>
-    <div class="flex justify-between space-x-2 my-8">
-      <NuxtLink
-        v-if="prev"
-        :to="prev._path"
-        class="underline text-cyan-600 hover:text-cyan-700 py-2 text-lg font-bold"
-        >Previous</NuxtLink
+    <div class="grid grid-cols-2 gap-8 sm:gap-16 my-12 sm:my-24">
+      <div
+        class="bg-gray-100 hover:bg-gray-200 group relative border border-gray-500 rounded-md p-4"
       >
+        <h3
+          class="mt-2 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600"
+        >
+          <NuxtLink :to="prev._path">
+            <span class="absolute inset-0" />
+            {{ prev.title }}
+          </NuxtLink>
+        </h3>
+        <p class="mt-3 line-clamp-3 text-sm leading-6 text-gray-600">
+          {{ prev.description }}
+        </p>
+        <ArrowLongLeftIcon class="h-8 w-8" />
+      </div>
 
-      <NuxtLink
-        v-if="next"
-        :to="next._path"
-        class="underline text-cyan-600 hover:text-cyan-700 py-2 text-lg font-bold"
-        >Next</NuxtLink
+      <div
+        class="bg-gray-100 hover:bg-gray-200 group relative border border-gray-500 rounded-md p-4"
       >
+        <h3
+          class="mt-2 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600"
+        >
+          <NuxtLink :to="next._path">
+            <span class="absolute inset-0" />
+            {{ next.title }}
+          </NuxtLink>
+        </h3>
+        <p class="mt-3 line-clamp-3 text-sm leading-6 text-gray-600">
+          {{ next.description }}
+        </p>
+        <div class="flex justify-end">
+          <ArrowLongRightIcon class="h-8 w-8" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import { ArrowLongLeftIcon, ArrowLongRightIcon } from "@heroicons/vue/20/solid";
+
 const { page } = useContent();
 const { data } = await useAsyncData(() =>
   queryContent("exercises")
