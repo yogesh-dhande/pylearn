@@ -1,9 +1,27 @@
-title: List Sorting with Key
+title: Sort students by age
 tags:
     - loops
     - lists
 level: 2
-prompt: "Question:\nWrite a function called `sort_students` that takes a list of dictionaries representing students as input and returns a new list with the students sorted in ascending order based on their age. Use a while loop to iterate through each element in the list and perform the sorting using the `key` argument.\n\nExample:\nInput: \n[\n  {\"name\": \"Alice\", \"age\": 20},\n  {\"name\": \"Bob\", \"age\": 18},\n  {\"name\": \"Charlie\", \"age\": 22}\n]\nOutput: \n[\n  {\"name\": \"Bob\", \"age\": 18},\n  {\"name\": \"Alice\", \"age\": 20},\n  {\"name\": \"Charlie\", \"age\": 22}\n]"
+prompt: |-
+    Question:
+
+    Write a function called `sort_students` that takes a list of dictionaries representing students as input and returns a new list with the students sorted in ascending order based on their age. Use a while loop to iterate through each element in the list and perform the sorting using the `key` argument.
+
+    Example:
+    Input: 
+    [
+        {"name": "Alice", "age": 20},
+        {"name": "Bob", "age": 18},
+        {"name": "Charlie", "age": 22}
+    ]
+
+    Output:
+    [
+        {"name": "Bob", "age": 18},
+        {"name": "Alice", "age": 20},
+        {"name": "Charlie", "age": 22}
+    ]
 starter: |-
     def sort_students(students):
         """
