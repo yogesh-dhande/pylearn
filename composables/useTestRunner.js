@@ -1,20 +1,21 @@
 export async function useTestRunner(testFileContent, exercise) {
-  let pass = false;
-  const filename = `${exercise._path.replace("/exercises/", "")}.py`;
-  const pyodide = await loadPyodide();
-  await pyodide.loadPackage("pytest");
-  await pyodide.runPythonAsync(`
+  const { $runPython } = useNuxtApp();
+
+  const filename = `${exercise._path.replace(
+    "/exercises/",
+    (Math.random() + 1).toString(36).substring(2, 5) + "_"
+  )}.py`;
+  await $runPython(`
 import js
+import os
 import pytest
 from io import StringIO
 import sys
 import pyodide
 filename = "${filename}"
 
-
-with open(filename, "w") as f:
+with open(filename, "w+") as f:
     f.write('''${testFileContent}''')
-
 
 # Capture the output
 output = StringIO()
@@ -34,11 +35,15 @@ js.document.getElementById("pytest-output").value = captured_output
                     
 `);
   const result = document.getElementById("pytest-output").value;
-  if (result.split("\n")[0].includes("F")) {
-    pass = false;
-  } else {
-    pass = true;
-  }
+  const regex = /FAILED .+\.py::(.*?) -/g;
+  const matches = result.matchAll(regex);
 
-  return { testFileContent, result, pass };
+  const failedTests = Array.from(matches, (match) => match[1]);
+
+  return {
+    testFileContent,
+    result,
+    pass: failedTests.length === 0,
+    failedTests,
+  };
 }

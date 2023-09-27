@@ -3,13 +3,11 @@
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto max-w-2xl">
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-          Python Exercises
+          Python Coding Exercises
         </h2>
         <p class="mt-2 text-xl leading-8 text-gray-600">
-          At PythonExercises.com, we believe in the power of hands-on practice.
-          Our platform allows you to write code and run it in real-time, giving
-          you instant feedback on your progress. Experience the thrill of seeing
-          your code come to life and watch your Python skills soar!
+          Write code and run it in real-time to get instant feedback on your
+          progress.
         </p>
         <ContentList
           :query="{
@@ -49,7 +47,7 @@
                 </div>
                 <div
                   v-else-if="exercise.level == 2"
-                  class="rounded bg-blue-600 text-gray-100 font-medium text-sm px-2 py-0.5 my-1 mr-1"
+                  class="rounded bg-indigo-600 text-gray-100 font-medium text-sm px-2 py-0.5 my-1 mr-1"
                 >
                   Intermediate
                 </div>

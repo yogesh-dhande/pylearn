@@ -1,0 +1,47 @@
+title: Extract Email Addresses
+tags:
+    - regex
+    - strings
+level: 3
+prompt: |-
+    Question:
+    Write a function called `extract_email_addresses` that takes a string as input and returns a new list containing all the email addresses found in the input string. Use regular expressions (regex) to extract the email addresses.
+
+    Example:
+    Input: "Contact us at info@example.com or support@example.com for assistance."
+    Output: ["info@example.com", "support@example.com"]
+
+starter: |-
+    import re
+
+    def extract_email_addresses(string):
+      """
+      Extracts email addresses from a given string using regex.
+
+      Args:
+        string (str): The input string.
+
+      Returns:
+        list: A new list with the extracted email addresses.
+      """
+      # TODO: Implement the extract_email_addresses function
+      pass
+
+solution: |-
+    import re
+
+    def extract_email_addresses(string):
+        # Create a regular expression to match email addresses.
+        pattern = r"\S+@\S+\.\S+"
+        # Find all matches for the regular expression in the text.
+        matches = re.findall(pattern, string)
+        # Return a list of the matches.
+        return matches
+
+tests: |-
+    def test_extract_email_addresses():
+      assert extract_email_addresses("Contact us at info@example.com or support@example.com for assistance.") == ["info@example.com", "support@example.com"]
+      assert extract_email_addresses("Please send your feedback to feedback@example.com") == ["feedback@example.com"]
+      assert extract_email_addresses("No email addresses in this string.") == []
+      assert extract_email_addresses("") == []
+      print("All test cases pass")

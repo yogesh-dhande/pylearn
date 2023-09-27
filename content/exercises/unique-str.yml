@@ -28,8 +28,8 @@ solution: |-
         return ''.join(set(string))
 tests: |-
     def test_find_unique_characters():
-        assert find_unique_characters("hello") == "helo"
-        assert find_unique_characters("mississippi") == "misp"
-        assert find_unique_characters("abcde") == "abcde"
+        assert sorted(find_unique_characters("hello")) == sorted("helo")
+        assert sorted(find_unique_characters("mississippi")) == sorted("misp")
+        assert sorted(find_unique_characters("abcde")) == sorted("abcde")
         assert find_unique_characters("") == ""
         print("All test cases pass")

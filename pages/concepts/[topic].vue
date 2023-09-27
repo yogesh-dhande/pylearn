@@ -8,6 +8,7 @@
     </ContentDoc>
     <div class="grid grid-cols-2 gap-8 sm:gap-16 my-12 sm:my-24">
       <div
+        v-if="prev"
         class="bg-gray-100 hover:bg-gray-200 group relative border border-gray-500 rounded-md p-4"
       >
         <h3
@@ -23,8 +24,10 @@
         </p>
         <ArrowLongLeftIcon class="h-8 w-8" />
       </div>
+      <div v-else></div>
 
       <div
+        v-if="next"
         class="bg-gray-100 hover:bg-gray-200 group relative border border-gray-500 rounded-md p-4"
       >
         <h3
@@ -42,6 +45,7 @@
           <ArrowLongRightIcon class="h-8 w-8" />
         </div>
       </div>
+      <div v-else></div>
     </div>
   </div>
 </template>
@@ -51,8 +55,8 @@ import { ArrowLongLeftIcon, ArrowLongRightIcon } from "@heroicons/vue/20/solid";
 
 const { page } = useContent();
 const { data } = await useAsyncData(() =>
-  queryContent("exercises")
-    .only(["_path", "title"])
+  queryContent("/concepts")
+    .sort({ $numeric: false })
     .findSurround(page.value._path)
 );
 const [prev, next] = data.value;

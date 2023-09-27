@@ -25,21 +25,28 @@ const { data: exercises } = await useAsyncData("exercises", () =>
     .find()
 );
 
-onMounted(() => {
+onMounted(async () => {
   if (process.client) {
-    exercises.value.forEach(async (exercise) => {
-      const testFileContent = `${exercise.solution}
+    let testFileContent = "";
+    exercises.value.forEach((exercise) => {
+      testFileContent =
+        testFileContent +
+        `
+${exercise.solution}
 
 ${exercise.tests}
 `;
-      const { result, pass } = await useTestRunner(testFileContent, exercise);
-
-      outputs.value.push({
-        path: exercise._path,
-        result,
-        pass,
-      });
     });
+    const { result, pass } = await useTestRunner(testFileContent, {
+      _path: "/exercises/all",
+    });
+
+    outputs.value.push({
+      path: "All tests passed",
+      result,
+      pass,
+    });
+    console.log(result);
   }
 });
 </script>

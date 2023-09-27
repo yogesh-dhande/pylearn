@@ -3,6 +3,78 @@
     <h1 class="text-3xl font-bold my-4">{{ page.title }}</h1>
     <p v-html="prompt"></p>
     <div class="my-8">
+      <TabGroup>
+        <TabList class="flex space-x-1 rounded-xl bg-indigo-900/20 p-1">
+          <Tab as="template" v-slot="{ selected }">
+            <button
+              :class="[
+                'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-indigo-700',
+                'ring-white ring-opacity-60 ring-offset-2 ring-offset-indigo-400 focus:outline-none focus:ring-2',
+                selected
+                  ? 'bg-white shadow'
+                  : 'text-indigo-100 hover:bg-white/[0.12] hover:text-indigo-400',
+              ]"
+            >
+              Code
+            </button>
+          </Tab>
+          <Tab as="template" v-slot="{ selected }">
+            <button
+              :class="[
+                'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-indigo-700',
+                'ring-white ring-opacity-60 ring-offset-2 ring-offset-indigo-400 focus:outline-none focus:ring-2',
+                selected
+                  ? 'bg-white shadow'
+                  : 'text-indigo-100 hover:bg-white/[0.12] hover:text-indigo-400',
+              ]"
+            >
+              Tests
+            </button>
+          </Tab>
+        </TabList>
+
+        <TabPanels class="mt-2">
+          <TabPanel
+            :class="[
+              'rounded-xl bg-white ',
+              'ring-white ring-opacity-60 ring-offset-2 ring-offset-indigo-400 focus:outline-none focus:ring-2',
+            ]"
+          >
+            <AceEditor v-model="code" :readonly="false"></AceEditor>
+          </TabPanel>
+          <TabPanel
+            :class="[
+              'rounded-xl bg-white ',
+              'ring-white ring-opacity-60 ring-offset-2 ring-offset-indigo-400 focus:outline-none focus:ring-2',
+            ]"
+          >
+            <AceEditor v-model="testFileContent" readonly></AceEditor>
+          </TabPanel>
+        </TabPanels>
+      </TabGroup>
+      <div class="flex justify-between space-x-2 my-2">
+        <NuxtLink
+          v-if="prev"
+          :to="prev._path"
+          class="bg-gray-700 hover:bg-gray-900 text-gray-100 px-6 py-2 rounded shadow text-lg font-bold"
+          >Previous</NuxtLink
+        >
+        <Submit
+          v-if="!success"
+          @click="runCode"
+          :is-loading="loading"
+          :errors="errors"
+          label="Run"
+          class="grow"
+        />
+        <div v-else></div>
+        <NuxtLink
+          v-if="next"
+          :to="next._path"
+          class="bg-gray-700 hover:bg-gray-900 text-gray-100 px-6 py-2 rounded shadow text-lg font-bold"
+          >Next</NuxtLink
+        >
+      </div>
       <textarea
         id="pytest-output"
         type="text"
@@ -30,79 +102,6 @@
           All tests passed!
         </p>
       </div>
-      <div class="flex justify-between space-x-2 my-2">
-        <NuxtLink
-          v-if="prev"
-          :to="prev._path"
-          class="bg-gray-700 hover:bg-gray-900 text-gray-100 px-6 py-2 rounded shadow text-lg font-bold"
-          >Previous</NuxtLink
-        >
-        <Submit
-          v-if="!success"
-          @click="runCode"
-          :is-loading="loading"
-          :errors="errors"
-          label="Run"
-          class="grow"
-        />
-        <div v-else></div>
-        <NuxtLink
-          v-if="next"
-          :to="next._path"
-          class="bg-gray-700 hover:bg-gray-900 text-gray-100 px-6 py-2 rounded shadow text-lg font-bold"
-          >Next</NuxtLink
-        >
-      </div>
-
-      <TabGroup>
-        <TabList class="flex space-x-1 rounded-xl bg-cyan-900/20 p-1">
-          <Tab as="template" v-slot="{ selected }">
-            <button
-              :class="[
-                'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-cyan-700',
-                'ring-white ring-opacity-60 ring-offset-2 ring-offset-cyan-400 focus:outline-none focus:ring-2',
-                selected
-                  ? 'bg-white shadow'
-                  : 'text-cyan-100 hover:bg-white/[0.12] hover:text-cyan-400',
-              ]"
-            >
-              Code
-            </button>
-          </Tab>
-          <Tab as="template" v-slot="{ selected }">
-            <button
-              :class="[
-                'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-cyan-700',
-                'ring-white ring-opacity-60 ring-offset-2 ring-offset-cyan-400 focus:outline-none focus:ring-2',
-                selected
-                  ? 'bg-white shadow'
-                  : 'text-cyan-100 hover:bg-white/[0.12] hover:text-cyan-400',
-              ]"
-            >
-              Tests
-            </button>
-          </Tab>
-        </TabList>
-
-        <TabPanels class="mt-2">
-          <TabPanel
-            :class="[
-              'rounded-xl bg-white ',
-              'ring-white ring-opacity-60 ring-offset-2 ring-offset-cyan-400 focus:outline-none focus:ring-2',
-            ]"
-          >
-            <AceEditor v-model="code" :readonly="false"></AceEditor>
-          </TabPanel>
-          <TabPanel
-            :class="[
-              'rounded-xl bg-white ',
-              'ring-white ring-opacity-60 ring-offset-2 ring-offset-cyan-400 focus:outline-none focus:ring-2',
-            ]"
-          >
-            <AceEditor v-model="testFileContent" readonly></AceEditor>
-          </TabPanel>
-        </TabPanels>
-      </TabGroup>
     </div>
   </div>
 </template>
@@ -122,6 +121,10 @@ function formatText(text) {
   //   text = text.replace("\\t", "&nbsp;&nbsp;&nbsp;&nbsp;");
   return text;
 }
+
+watch(code, () => {
+  testOutput.value = "";
+});
 
 // Update test file content when code changes so that the line numbers
 // in pytest output match the line numbers in the editor
