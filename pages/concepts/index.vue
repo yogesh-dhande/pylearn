@@ -6,7 +6,7 @@
           Bite-sized Python Concepts
         </h2>
         <p class="mt-2 text-xl leading-8 text-gray-600">
-          We get it - Python can be intimidating. That's why we've these crafted
+          We get it - Python can be intimidating. That's why we've crafted these
           bite-sized concept articles that break down complex Python topics into
           easy-to-digest nuggets. Our articles explain Python concepts in a
           language that even beginners can understand.
@@ -20,7 +20,7 @@
               :key="topic._path"
               class="flex max-w-xl flex-col items-start justify-between"
             >
-              <div class="group relative">
+              <div class="w-full hover:bg-gray-200 p-4 rounded group relative">
                 <h3
                   class="mt-2 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600"
                 >

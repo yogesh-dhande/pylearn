@@ -17,14 +17,14 @@
           v-slot="{ list }"
         >
           <div
-            class="mt-4 space-y-16 border-t border-gray-200 pt-4 sm:mt-8 sm:pt-8"
+            class="mt-4 space-y-4 border-t border-gray-200 pt-4 sm:mt-8 sm:pt-8"
           >
             <article
               v-for="(exercise, i) in list"
               :key="i"
               class="flex max-w-xl flex-col items-start justify-between"
             >
-              <div class="group relative">
+              <div class="w-full hover:bg-gray-200 p-4 rounded group relative">
                 <h3
                   class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600"
                 >
@@ -33,36 +33,32 @@
                     {{ exercise.title }}
                   </NuxtLink>
                 </h3>
-                <p class="my-2 line-clamp-3 text-sm leading-6 text-gray-600">
-                  {{ exercise.prompt }}
-                </p>
-              </div>
-
-              <div class="flex flex-wrap items-center">
-                <div
-                  v-if="exercise.level == 1"
-                  class="rounded bg-green-600 text-gray-100 font-medium text-sm px-2 py-0.5 my-1 mr-1"
-                >
-                  Beginner
-                </div>
-                <div
-                  v-else-if="exercise.level == 2"
-                  class="rounded bg-indigo-600 text-gray-100 font-medium text-sm px-2 py-0.5 my-1 mr-1"
-                >
-                  Intermediate
-                </div>
-                <div
-                  v-else-if="exercise.level == 3"
-                  class="rounded bg-purple-600 text-gray-100 font-medium text-sm px-2 py-0.5 my-1 mr-1"
-                >
-                  Advanced
-                </div>
-                <div
-                  v-for="tag in exercise.tags"
-                  :key="tag"
-                  class="rounded bg-gray-600 text-gray-100 font-medium text-sm px-2 py-0.5 my-1 mr-1"
-                >
-                  {{ tag }}
+                <div class="flex flex-wrap items-center">
+                  <div
+                    v-if="exercise.level == 1"
+                    class="rounded bg-teal-600 text-gray-100 font-medium text-sm px-2 py-0.5 my-1 mr-1"
+                  >
+                    Beginner
+                  </div>
+                  <div
+                    v-else-if="exercise.level == 2"
+                    class="rounded bg-indigo-600 text-gray-100 font-medium text-sm px-2 py-0.5 my-1 mr-1"
+                  >
+                    Intermediate
+                  </div>
+                  <div
+                    v-else-if="exercise.level == 3"
+                    class="rounded bg-purple-600 text-gray-100 font-medium text-sm px-2 py-0.5 my-1 mr-1"
+                  >
+                    Advanced
+                  </div>
+                  <div
+                    v-for="tag in exercise.tags"
+                    :key="tag"
+                    class="rounded bg-gray-600 text-gray-100 font-medium text-sm px-2 py-0.5 my-1 mr-1"
+                  >
+                    {{ tag }}
+                  </div>
                 </div>
               </div>
             </article>
