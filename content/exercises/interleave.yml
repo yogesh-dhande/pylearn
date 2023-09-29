@@ -1,0 +1,42 @@
+slug: interleave-function
+title: Interleave an arbitrary number of sequences
+tags:
+    - sequences
+level: 1
+prompt: |-
+    Question:
+    Write a function called interleave that takes an arbitrary number of sequences as input and interleaves them. The function should return a new sequence where the elements from each input sequence are interleaved in order.
+
+    Example:
+    Input: interleave([1, 2, 3], ['a', 'b', 'c'], [True, False, True])
+    Output: [1, 'a', True, 2, 'b', False, 3, 'c', True]
+starter: |-
+    def interleave(*sequences):
+        """
+        Interleaves an arbitrary number of sequences and returns a new sequence.
+
+        Args:
+        *sequences: The input sequences.
+
+        Returns:
+        list: The interleaved sequence.
+        """
+        # TODO: Implement the interleave function
+        pass
+solution: |-
+    def interleave(*sequences):
+        max_length = max(len(seq) for seq in sequences)
+        result = []
+        for i in range(max_length):
+            for seq in sequences:
+                if i < len(seq):
+                    result.append(seq[i])
+        return result
+tests: |-
+    def test_interleave():
+        assert interleave([1, 2, 3], ['a', 'b', 'c'], [True, False, True]) == [1, 'a', True, 2, 'b', False, 3, 'c', True]
+        assert interleave([10, 20, 30], [1, 2, 3], ['x', 'y', 'z']) == [10, 1, 'x', 20, 2, 'y', 30, 3, 'z']
+        assert interleave([], [], []) == []
+        assert interleave([1, 2, 3], []) == [1, 2, 3]
+        assert interleave([], [1, 2, 3]) == [1, 2, 3]
+        print("All test cases pass")

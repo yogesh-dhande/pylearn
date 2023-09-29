@@ -1,4 +1,4 @@
-title: Multiply list elements by their index
+title: Multiply each element in a list by its index
 tags:
     - loops
     - enumerate

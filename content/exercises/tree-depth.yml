@@ -1,0 +1,41 @@
+slug: calculate-depth-tree
+title: Calculate the depth of a tree
+tags:
+    - recursion
+level: 3
+prompt: |-
+    Question:
+    Write a function called calculate_depth_tree that takes a tree structure as input and calculates the depth of the tree. The tree structure is represented as nested lists, where each list can contain either numbers or nested lists. The depth of a tree is the maximum number of levels or nested lists in the tree. The function should return the calculated depth.
+
+    Example:
+    Input: [1, [2, [3, 4], 5], 6]
+    Output: 4
+starter: |-
+    def calculate_depth_tree(tree):
+        """
+        Calculates the depth of a tree structure.
+
+        Args:
+        tree (list): The input tree structure.
+
+        Returns:
+        int: The calculated depth.
+        """
+        # TODO: Implement the calculate_depth_tree function
+        pass
+solution: |-
+    def calculate_depth_tree(tree):
+        if not tree:
+            return 0
+        if isinstance(tree, int) or len(tree) == 1:
+            return 1
+        else:
+            return 1 + max(calculate_depth_tree(subtree) for subtree in tree[1:])
+tests: |-
+    def test_calculate_depth_tree():
+        assert calculate_depth_tree([1, [2, [3, 4], 5], 6]) == 4
+        assert calculate_depth_tree([10, [20, [30, 40], 50], 60]) == 4
+        assert calculate_depth_tree([0, [0, [0, 0]], 0]) == 3
+        assert calculate_depth_tree([1, [2, [3, [4, [5, [6, [7, [8, [9]]]]]]]]]) == 9
+        assert calculate_depth_tree([]) == 0
+        print("All test cases pass")

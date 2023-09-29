@@ -1,4 +1,4 @@
-title: Filter even values
+title: Filter a dictionary to include only the key-value pairs where the value is an even number
 tags:
     - comprehension
     - dictionaries

@@ -1,0 +1,39 @@
+title: Generate a dictionary of squared numbers
+tags:
+    - dictionaries
+level: 1
+prompt: |-
+    Question:
+    Write a function called generate_dictionary that takes a number as input and generates a dictionary containing (i, i*i) pairs for each integral number between 1 and the given number (both inclusive). The function should return the generated dictionary.
+
+    Example:
+    Input: 8
+    Output: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64}
+starter: |-
+    def generate_dictionary(n):
+        """
+        Generates a dictionary containing (i, i*i) pairs for each integral number between 1 and n (both inclusive).
+
+        Args:
+        n (int): The input number.
+
+        Returns:
+        dict: The generated dictionary.
+        """
+        # TODO: Implement the generate_dictionary function
+        pass
+solution: |-
+    def generate_dictionary(n):
+        d = {}
+        for i in range(1, n+1):
+            d[i] = i * i
+        return d
+tests: |-
+    def test_generate_dictionary():
+        assert generate_dictionary(1) == {1: 1}
+        assert generate_dictionary(2) == {1: 1, 2: 4}
+        assert generate_dictionary(3) == {1: 1, 2: 4, 3: 9}
+        assert generate_dictionary(4) == {1: 1, 2: 4, 3: 9, 4: 16}
+        assert generate_dictionary(5) == {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+        assert generate_dictionary(8) == {1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64}
+        print("All test cases pass")

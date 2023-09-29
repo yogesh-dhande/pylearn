@@ -1,0 +1,41 @@
+slug: compose-function
+title: Function composition by taking two functions as input and returning a composed function
+tags:
+    - functions
+level: 3
+prompt: |-
+    Question:
+    Write a function called compose that takes two functions as input and performs function composition. The composed function should first call the second function and then the first function on its argument. The function should return the composed function.
+
+    Example:
+    Input: compose(double, negate)
+    Output: A function that first calls negate and then double on its argument
+starter: |-
+    def compose(f, g):
+        """
+        Performs function composition by taking two functions as input and returning a composed function.
+
+        Args:
+        f: The first function.
+        g: The second function.
+
+        Returns:
+        function: The composed function.
+        """
+        # TODO: Implement the compose function
+        pass
+solution: |-
+    def compose(f, g):
+        def composed_function(x):
+            return f(g(x))
+        return composed_function
+tests: |-
+    def test_compose():
+        double = lambda x: x * 2
+        negate = lambda x: -x
+        composed = compose(double, negate)
+        assert composed(5) == -10
+        assert composed(10) == -20
+        assert composed(-3) == 6
+        assert composed(0) == 0
+        print("All test cases pass")

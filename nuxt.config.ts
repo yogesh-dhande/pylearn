@@ -9,15 +9,10 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
+      htmlAttrs: {
+        lang: "en",
+      },
       title: "Python Excercises",
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content:
-            "Build password-protected portals powered by Notion databases",
-        },
-      ],
       script: [
         {
           src: "https://cdn.jsdelivr.net/pyodide/v0.24.0/full/pyodide.js",

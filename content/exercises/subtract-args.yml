@@ -1,0 +1,39 @@
+slug: sub-function
+title: Subtract all the arguments from the first argument to the function
+tags:
+    - functions
+level: 1
+prompt: |-
+    Question:
+    Write a function called sub that takes multiple arguments and subtracts all the arguments (except the first one) from the first argument. The function should return the result of the subtraction.
+
+    Example:
+    Input: sub(10, 2, 3, 4)
+    Output: 1
+starter: |-
+    def sub(first, *args):
+        """
+        Subtracts all the arguments (except the first one) from the first argument and returns the result.
+
+        Args:
+        first: The first argument.
+        *args: The additional arguments.
+
+        Returns:
+        int or float: The result of the subtraction.
+        """
+        # TODO: Implement the sub function
+        pass
+solution: |-
+    def sub(first, *args):
+        for num in args:
+            first -= num
+        return first
+tests: |-
+    def test_sub():
+        assert sub(10, 2, 3, 4) == 1
+        assert sub(100, 20, 30, 40) == 10
+        assert sub(5.5, 1.2, 0.8, 2.1) == 1.4
+        assert sub(0) == 0
+        assert sub(-10, -2, -3, -4) == -1
+        print("All test cases pass")

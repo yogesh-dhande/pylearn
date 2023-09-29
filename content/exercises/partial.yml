@@ -1,0 +1,44 @@
+slug: partial-function
+title: Partial function application
+tags:
+    - functions
+level: 3
+prompt: |-
+    Question:
+    Write a function called partial that takes a function `f` and an arbitrary number of arguments. The function should return a new function that is `f` partially applied to the arguments.
+
+    Example:
+    Input: partial(sum, 1, 2, 3)(4)
+    Output: 10
+starter: |-
+    def partial(f, *args):
+        """
+        Returns a new function that is f partially applied to the arguments.
+
+        Args:
+        f: The function to partially apply.
+        *args: The arguments to partially apply.
+
+        Returns:
+        function: The new function that is f partially applied to the arguments.
+        """
+        # TODO: Implement the partial function
+        pass
+solution: |-
+    def partial(f, *args):
+        def new_function(*more_args):
+            return f(*args, *more_args)
+        return new_function
+tests: |-
+    def test_partial():
+        add = lambda a, b, c: a + b + c
+        partial_add = partial(add, 1, 2)
+        assert partial_add(3) == 6
+        assert partial_add(4) == 7
+        assert partial_add(5) == 8
+        multiply = lambda x, y, z: x * y * z
+        partial_multiply = partial(multiply, 2)
+        assert partial_multiply(3, 4) == 24
+        assert partial_multiply(5, 6) == 60
+        assert partial_multiply(7, 8) == 112
+        print("All test cases pass")

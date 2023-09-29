@@ -1,0 +1,37 @@
+slug: take-function
+title: Take the first n elements from a sequence
+tags:
+    - sequences
+level: 1
+prompt: |-
+    Question:
+    Write a function called take that takes a number `n` and a sequence `seq` as input. The function should return a list containing the first `n` elements of `seq`.
+
+    Example:
+    Input: take(3, [1, 2, 3, 4, 5])
+    Output: [1, 2, 3]
+starter: |-
+    def take(n, seq):
+        """
+        Returns a list containing the first n elements of seq.
+
+        Args:
+        n: The number of elements to take.
+        seq: The input sequence.
+
+        Returns:
+        list: The list of the first n elements.
+        """
+        # TODO: Implement the take function
+        pass
+solution: |-
+    def take(n, seq):
+        return seq[:n]
+tests: |-
+    def test_take():
+        assert take(3, [1, 2, 3, 4, 5]) == [1, 2, 3]
+        assert take(2, [10, 20, 30, 40, 50]) == [10, 20]
+        assert take(5, [1, 2, 3]) == [1, 2, 3]
+        assert take(0, [1, 2, 3, 4, 5]) == []
+        assert take(4, []) == []
+        print("All test cases pass")

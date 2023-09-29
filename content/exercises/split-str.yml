@@ -1,0 +1,34 @@
+title: Split a string into a list
+tags:
+    - input/output
+level: 1
+prompt: |-
+    Question:
+    Write a function called generate_list that takes a sequence of comma-separated numbers as input and generates a list containing each number. The function should return the generated list.
+
+    Example:
+    Input: "34,67,55,33,12,98"
+    Output: ['34', '67', '55', '33', '12', '98']
+starter: |-
+    def generate_list(values):
+        """
+        Generates a list containing each number from a sequence of comma-separated numbers.
+
+        Args:
+        values (str): The input sequence of comma-separated numbers.
+
+        Returns:
+        list: The generated list.
+        """
+        # TODO: Implement the generate_list function
+        pass
+solution: |-
+    def generate_list(values):
+        return values.split(",") if values else []
+tests: |-
+    def test_generate_list():
+        assert generate_list("34,67,55,33,12,98") == ['34', '67', '55', '33', '12', '98']
+        assert generate_list("1,2,3,4,5") == ['1', '2', '3', '4', '5']
+        assert generate_list("10,20,30,40,50") == ['10', '20', '30', '40', '50']
+        assert generate_list("") == []
+        print("All test cases pass")

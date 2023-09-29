@@ -1,0 +1,41 @@
+slug: find-largest-value-tree
+title: Find the largest value in a tree
+tags:
+    - recursion
+level: 1
+prompt: |-
+    Question:
+    Write a function called find_largest_value_tree that takes a tree structure as input and finds the largest value in the tree. The tree structure is represented as nested lists, where each list can contain either numbers or nested lists. The function should return the largest value found in the tree.
+
+    Example:
+    Input: [1, [2, [3, 4], 5], 6]
+    Output: 6
+starter: |-
+    def find_largest_value_tree(tree):
+        """
+        Finds the largest value in a tree structure.
+
+        Args:
+        tree (list): The input tree structure.
+
+        Returns:
+        int: The largest value found in the tree.
+        """
+        # TODO: Implement the find_largest_value_tree function
+        pass
+solution: |-
+    def find_largest_value_tree(tree):
+        if isinstance(tree, int):
+            return tree
+        else:
+            largest = float('-inf')
+            for subtree in tree:
+                largest = max(largest, find_largest_value_tree(subtree))
+            return largest
+tests: |-
+    def test_find_largest_value_tree():
+        assert find_largest_value_tree([1, [2, [3, 4], 5], 6]) == 6
+        assert find_largest_value_tree([10, [20, [30, 40], 50], 60]) == 60
+        assert find_largest_value_tree([0, [0, [0, 0], 0], 0]) == 0
+        assert find_largest_value_tree([1, [2, [3, [4, [5, [6, [7, [8, [9]]]]]]]]]) == 9
+        print("All test cases pass")

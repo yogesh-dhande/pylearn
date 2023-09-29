@@ -1,0 +1,37 @@
+slug: filter-function-lists
+title: Filter a list using a function
+tags:
+    - higher-order functions
+level: 1
+prompt: |-
+    Question:
+    Write a function called filter_lists that takes a function and a list as input and applies the function to each element in the list. The function should return a new list containing only the elements for which the function returns True.
+
+    Example:
+    Input: filter_lists(lambda x: x % 2 == 0, [1, 2, 3, 4, 5, 6])
+    Output: [2, 4, 6]
+starter: |-
+    def filter_lists(func, lst):
+        """
+        Applies a function to each element in a list and returns a new list containing only the elements for which the function returns True.
+
+        Args:
+        func (function): The function to apply to each element.
+        lst (list): The input list.
+
+        Returns:
+        list: The new list containing the filtered elements.
+        """
+        # TODO: Implement the filter_lists function
+        pass
+solution: |-
+    def filter_lists(func, lst):
+        return [x for x in lst if func(x)]
+tests: |-
+    def test_filter_lists():
+        assert filter_lists(lambda x: x % 2 == 0, [1, 2, 3, 4, 5, 6]) == [2, 4, 6]
+        assert filter_lists(lambda x: x > 0, [-2, -1, 0, 1, 2]) == [1, 2]
+        assert filter_lists(lambda x: x.isupper(), ["Hello", "WORLD", "Python"]) == ["WORLD"]
+        assert filter_lists(lambda x: len(x) > 3, ["apple", "banana", "cherry"]) == ["apple", "banana", "cherry"]
+        assert filter_lists(lambda x: x.startswith("a"), ["apple", "banana", "cherry"]) == ["apple"]
+        print("All test cases pass")

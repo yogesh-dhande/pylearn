@@ -1,0 +1,43 @@
+slug: group-by-function
+title: Group elements by applying a function to each element
+tags:
+    - sequences
+level: 2
+prompt: |-
+    Question:
+    Write a function called group_by that takes a function and a sequence as input. The function should group the elements of the sequence based on the result of applying the function to each element. It should return a dictionary where the keys are the unique results of the function and the values are lists of elements that produced the corresponding result.
+
+    Example:
+    Input: group_by(lambda x: x % 2, [1, 2, 3, 4, 5, 6])
+    Output: {1: [1, 3, 5], 0: [2, 4, 6]}
+starter: |-
+    def group_by(func, seq):
+        """
+        Groups the elements of the sequence based on the result of applying the function to each element.
+
+        Args:
+        func: The function to apply.
+        seq: The input sequence.
+
+        Returns:
+        dict: The dictionary with grouped elements.
+        """
+        # TODO: Implement the group_by function
+        pass
+solution: |-
+    def group_by(func, seq):
+        result = {}
+        for element in seq:
+            key = func(element)
+            if key not in result:
+                result[key] = []
+            result[key].append(element)
+        return result
+tests: |-
+    def test_group_by():
+        assert group_by(lambda x: x % 2, [1, 2, 3, 4, 5, 6]) == {1: [1, 3, 5], 0: [2, 4, 6]}
+        assert group_by(lambda x: len(x), ['apple', 'banana', 'cherry']) == {5: ['apple'], 6: ['banana', 'cherry']}
+        assert group_by(lambda x: x.isupper(), ['Hello', 'WORLD', 'Python']) == {True: ['WORLD'], False: ['Hello', 'Python']}
+        assert group_by(lambda x: x[0], ['apple', 'banana', 'cherry']) == {'a': ['apple'], 'b': ['banana'], 'c': ['cherry']}
+        assert group_by(lambda x: x % 2, []) == {}
+        print("All test cases pass")

@@ -1,0 +1,36 @@
+slug: add-function
+title: Add an arbitrary number of arguments together and return the sum
+tags:
+    - functions
+level: 2
+prompt: |-
+    Question:
+    Write a function called add that takes an arbitrary number of arguments and adds them all together. The function should return the sum of all the arguments.
+
+    Example:
+    Input: add(1, 2, 3, 4, 5)
+    Output: 15
+starter: |-
+    def add(*args):
+        """
+        Adds an arbitrary number of arguments together and returns the sum.
+
+        Args:
+        *args: The input arguments.
+
+        Returns:
+        int or float: The sum of all the arguments.
+        """
+        # TODO: Implement the add function
+        pass
+solution: |-
+    def add(*args):
+        return sum(args)
+tests: |-
+    def test_add():
+        assert add(1, 2, 3, 4, 5) == 15
+        assert add(10, 20, 30) == 60
+        assert add(2.5, 3.7, 1.8) == 8.0
+        assert add(0) == 0
+        assert add(-1, -2, -3, -4, -5) == -15
+        print("All test cases pass")

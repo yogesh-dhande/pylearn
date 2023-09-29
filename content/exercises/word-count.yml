@@ -1,4 +1,4 @@
-title: Word count
+title: Count the frequency of words in a file
 tags:
     - files
     - strings

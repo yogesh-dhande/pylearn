@@ -1,0 +1,37 @@
+slug: drop-function
+title: Drop the first n elements from a sequence
+tags:
+    - sequences
+level: 1
+prompt: |-
+    Question:
+    Write a function called drop that takes a number `n` and a sequence `seq` as input. The function should return a list containing the elements of `seq` with the first `n` elements dropped.
+
+    Example:
+    Input: drop(3, [1, 2, 3, 4, 5])
+    Output: [4, 5]
+starter: |-
+    def drop(n, seq):
+        """
+        Returns a list containing the elements of seq with the first n elements dropped.
+
+        Args:
+        n: The number of elements to drop.
+        seq: The input sequence.
+
+        Returns:
+        list: The list with the first n elements dropped.
+        """
+        # TODO: Implement the drop function
+        pass
+solution: |-
+    def drop(n, seq):
+        return seq[n:]
+tests: |-
+    def test_drop():
+        assert drop(3, [1, 2, 3, 4, 5]) == [4, 5]
+        assert drop(2, [10, 20, 30, 40, 50]) == [30, 40, 50]
+        assert drop(5, [1, 2, 3]) == []
+        assert drop(0, [1, 2, 3, 4, 5]) == [1, 2, 3, 4, 5]
+        assert drop(4, []) == []
+        print("All test cases pass")

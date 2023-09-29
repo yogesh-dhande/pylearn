@@ -1,0 +1,37 @@
+slug: map-function-lists
+title: Map a function to each element in a list
+tags:
+    - higher-order functions
+level: 2
+prompt: |-
+    Question:
+    Write a function called map_lists that takes a function and a list as input and applies the function to each element in the list. The function should return a new list containing the results of applying the function to each element.
+
+    Example:
+    Input: map_lists(lambda x: x * 2, [1, 2, 3, 4])
+    Output: [2, 4, 6, 8]
+starter: |-
+    def map_lists(func, lst):
+        """
+        Applies a function to each element in a list and returns a new list containing the results.
+
+        Args:
+        func (function): The function to apply to each element.
+        lst (list): The input list.
+
+        Returns:
+        list: The new list containing the results of applying the function to each element.
+        """
+        # TODO: Implement the map_lists function
+        pass
+solution: |-
+    def map_lists(func, lst):
+        return [func(x) for x in lst]
+tests: |-
+    def test_map_lists():
+        assert map_lists(lambda x: x * 2, [1, 2, 3, 4]) == [2, 4, 6, 8]
+        assert map_lists(lambda x: x ** 2, [1, 2, 3, 4]) == [1, 4, 9, 16]
+        assert map_lists(lambda x: x + 1, [1, 2, 3, 4]) == [2, 3, 4, 5]
+        assert map_lists(lambda x: x.upper(), ["hello", "world"]) == ["HELLO", "WORLD"]
+        assert map_lists(lambda x: len(x), ["apple", "banana", "cherry"]) == [5, 6, 6]
+        print("All test cases pass")
