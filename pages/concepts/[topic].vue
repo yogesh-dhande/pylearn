@@ -68,6 +68,10 @@ p {
   margin: 1rem 0;
 }
 
+p[data-v-inspector] a {
+  @apply underline text-cyan-600 hover:text-cyan-700;
+}
+
 .language-python {
   padding: 1rem;
   border-radius: 0.25rem;
