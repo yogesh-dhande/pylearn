@@ -122,6 +122,11 @@ function formatText(text) {
   return text;
 }
 
+onMounted(() => {
+  const { $initializePyodide } = useNuxtApp();
+  $initializePyodide();
+});
+
 watch(code, () => {
   testOutput.value = "";
 });
