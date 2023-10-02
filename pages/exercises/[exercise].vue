@@ -54,7 +54,7 @@
       </TabGroup>
       <div class="flex justify-between space-x-2 my-2">
         <NuxtLink
-          v-if="prev"
+          v-if="prev?._path.includes('/exercises/')"
           :to="prev._path"
           class="bg-gray-700 hover:bg-gray-900 text-gray-100 px-6 py-2 rounded shadow text-lg font-bold"
           >Previous</NuxtLink
@@ -69,7 +69,7 @@
         />
         <div v-else></div>
         <NuxtLink
-          v-if="next"
+          v-if="next?._path.includes('/exercises/')"
           :to="next._path"
           class="bg-gray-700 hover:bg-gray-900 text-gray-100 px-6 py-2 rounded shadow text-lg font-bold"
           >Next</NuxtLink

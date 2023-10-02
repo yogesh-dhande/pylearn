@@ -12,9 +12,11 @@
     >
       <div @click="open = !open" class="hover:text-gray-300 cursor-pointer">
         <div class="flex items-center justify-between">
-          <div class="w-full text-center font-semibold leading-6">
-            The best way to learn is through hands-on practice. Code along as
-            you read the article!
+          <div class="w-full text-center">
+            The best way to learn is through
+            <span class="text-cyan-500 font-semibold italic"
+              >hands-on practice</span
+            >. Code along as you read the article!
           </div>
           <ChevronDoubleDownIcon v-if="open" class="h-6 w-6" />
           <ChevronDoubleUpIcon v-else class="h-6 w-6" />
@@ -50,7 +52,7 @@
     <!-- Prev and next links -->
     <div class="grid grid-cols-2 gap-8 sm:gap-16 my-12 sm:my-24">
       <div
-        v-if="prev"
+        v-if="prev?._path.includes('/concepts/')"
         class="bg-gray-100 hover:bg-gray-200 group relative border border-gray-500 rounded-md p-4"
       >
         <h3
@@ -69,7 +71,7 @@
       <div v-else></div>
 
       <div
-        v-if="next"
+        v-if="next?._path.includes('/concepts/')"
         class="bg-gray-100 hover:bg-gray-200 group relative border border-gray-500 rounded-md p-4"
       >
         <h3
