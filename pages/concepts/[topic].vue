@@ -6,6 +6,47 @@
         <h2>Topic ({{ $route.params.topic }}) not found</h2>
       </template>
     </ContentDoc>
+    <!-- Code Along -->
+    <div
+      class="bg-gray-100 hover:bg-gray-200 px-4 sm:px-6 pt-2 fixed inset-x-0 bottom-0 z-10"
+    >
+      <div @click="open = !open" class="cursor-pointer">
+        <div class="flex items-start justify-between">
+          <div class="text-base font-semibold leading-6 text-gray-900">
+            Code Along
+          </div>
+          <ChevronDoubleDownIcon v-if="open" class="h-6 w-6" />
+          <ChevronDoubleUpIcon v-else class="h-6 w-6" />
+        </div>
+      </div>
+      <div class="relative mt-2 flex-1">
+        <!-- Content -->
+        <div v-if="open" class="grid grid-cols-2 bg-gray-800">
+          <div>
+            <div
+              class="flex justify-between items-center text-gray-200 px-6 py-2"
+            >
+              <div class="font-bold">Code</div>
+              <button
+                class="flex items-center bg-gray-700 hover:bg-gray-600 text-gray-100 px-3 py-1 rounded-md"
+                @click="runCode(code)"
+              >
+                <PlayIcon class="h-5 w-5 inline-block mr-1" />
+                <div>Run</div>
+              </button>
+            </div>
+
+            <AceEditor v-model="code" :readonly="false"></AceEditor>
+          </div>
+          <div class="px-6 bg-gray-700 text-gray-100">
+            <div class="text-gray-200 py-3 font-bold">Output</div>
+            <div id="pyodide-output" class="text-gray-300 leading-loose"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Prev and next links -->
     <div class="grid grid-cols-2 gap-8 sm:gap-16 my-12 sm:my-24">
       <div
         v-if="prev"
@@ -51,8 +92,17 @@
 </template>
 
 <script setup>
-import { ArrowLongLeftIcon, ArrowLongRightIcon } from "@heroicons/vue/20/solid";
+import {
+  ArrowLongLeftIcon,
+  ArrowLongRightIcon,
+  ChevronDoubleDownIcon,
+  ChevronDoubleUpIcon,
+  PlayIcon,
+} from "@heroicons/vue/20/solid";
 
+const open = ref(true);
+
+const code = ref("");
 const { page } = useContent();
 const { data } = await useAsyncData(() =>
   queryContent("/concepts")
@@ -60,6 +110,41 @@ const { data } = await useAsyncData(() =>
     .findSurround(page.value._path)
 );
 const [prev, next] = data.value;
+
+const { $runPython, $initializePyodide } = useNuxtApp();
+
+onMounted(() => {
+  $initializePyodide();
+});
+
+async function runCode(code) {
+  const toRun = `
+import js
+import sys
+from io import StringIO
+# Capture the output
+output = StringIO()
+sys.stdout = output
+
+# Run the code
+${code}
+
+# Get the captured output
+captured_output = output.getvalue()
+
+# Restore the original stdout
+sys.stdout = sys.__stdout__
+
+# Send the captured output to HTML
+captured_output = captured_output.replace("\\n", "<br>")
+captured_output = captured_output.replace(" ", "&nbsp;")
+captured_output = captured_output.replace("\\t", "&nbsp;&nbsp;&nbsp;&nbsp;")
+js.document.getElementById("pyodide-output").innerHTML = captured_output
+print(captured_output)
+`;
+
+  return await $runPython(toRun);
+}
 </script>
 
 

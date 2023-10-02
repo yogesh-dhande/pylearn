@@ -3,7 +3,7 @@
     v-model:value="code"
     lang="python"
     theme="dracula"
-    :minLines="10"
+    :minLines="6"
     :maxLines="40"
     :options="{
       useWorker: true,
@@ -36,9 +36,15 @@ const props = defineProps({
 });
 
 function editorInit(editor) {
-  editor.renderer.setScrollMargin(24, 24, 24, 24);
+  editor.renderer.setScrollMargin(12, 12, 12, 12);
 }
 
 const emit = defineEmits(["update:modelValue"]);
 const code = useVModel(props, emit);
 </script>
+
+<style scoped>
+.ace_editor {
+  @apply bg-gray-800;
+}
+</style>
