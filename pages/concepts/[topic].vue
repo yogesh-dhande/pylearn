@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-5xl mx-auto my-12 sm:my-24">
+  <div class="max-w-5xl mx-auto my-8 sm:my-12">
     <h1 class="text-3xl sm:text-5xl font-bold my-8">{{ page.title }}</h1>
     <ContentDoc>
       <template #not-found>
@@ -8,12 +8,13 @@
     </ContentDoc>
     <!-- Code Along -->
     <div
-      class="bg-gray-100 hover:bg-gray-200 px-4 sm:px-6 pt-2 fixed inset-x-0 bottom-0 z-10"
+      class="bg-gray-600 text-gray-100 px-4 sm:px-6 pt-3 fixed inset-x-0 bottom-0 z-10 border-top-2 border-gray-400"
     >
-      <div @click="open = !open" class="cursor-pointer">
-        <div class="flex items-start justify-between">
-          <div class="text-base font-semibold leading-6 text-gray-900">
-            Code Along
+      <div @click="open = !open" class="hover:text-gray-300 cursor-pointer">
+        <div class="flex items-center justify-between">
+          <div class="w-full text-center font-semibold leading-6">
+            The best way to learn is through hands-on practice. Code along as
+            you read the article!
           </div>
           <ChevronDoubleDownIcon v-if="open" class="h-6 w-6" />
           <ChevronDoubleUpIcon v-else class="h-6 w-6" />
@@ -21,7 +22,7 @@
       </div>
       <div class="relative mt-2 flex-1">
         <!-- Content -->
-        <div v-if="open" class="grid grid-cols-2 bg-gray-800">
+        <div v-if="open" class="sm:grid sm:grid-cols-2 bg-gray-800">
           <div>
             <div
               class="flex justify-between items-center text-gray-200 px-6 py-2"
