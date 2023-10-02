@@ -35,15 +35,17 @@ js.document.getElementById("pytest-output").value = captured_output
                     
 `);
   const result = document.getElementById("pytest-output").value;
-  const regex = /FAILED .+\.py::(.*?) -/g;
-  const matches = result.matchAll(regex);
+  console.log(result);
+  const failedRegex = /FAILED .+\.py::(.*?) -/g;
+  const matches = result.matchAll(failedRegex);
+  const errorRegex = /ERROR .+\.py/g;
 
   const failedTests = Array.from(matches, (match) => match[1]);
 
   return {
     testFileContent,
     result,
-    pass: failedTests.length === 0,
+    pass: failedTests.length === 0 && !result.match(errorRegex),
     failedTests,
   };
 }
