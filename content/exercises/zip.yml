@@ -1,22 +1,22 @@
 slug: myzip-function
-title: Zip an arbitrary number of sequences together
+title: Zip an arbitrary number of lists together
 tags:
     - functions
 level: 2
 prompt: |-
     Question:
-    Write a function called myzip that takes an arbitrary number of sequences as input and zips them together. The function should create a list of lists, where the inner lists consist of the first elements from the given sequences, then the second elements from the given sequences, and so on. The function should return the zipped list.
+    Write a function called myzip that takes an arbitrary number of lists as input and zips them together. The function should create a list of lists, where the inner lists consist of the first elements from the given lists, then the second elements from the given lists, and so on. The function should return the zipped list.
 
     Example:
     Input: myzip([1, 2, 3], ['a', 'b', 'c'], [True, False, True])
     Output: [[1, 'a', True], [2, 'b', False], [3, 'c', True]]
 starter: |-
-    def myzip(*sequences):
+    def myzip(*lists):
         """
-        Zips an arbitrary number of sequences together and returns the zipped list.
+        Zips an arbitrary number of lists together and returns the zipped list.
 
         Args:
-        *sequences: The input sequences.
+        *lists: The input lists.
 
         Returns:
         list: The zipped list.
@@ -24,8 +24,8 @@ starter: |-
         # TODO: Implement the myzip function
         pass
 solution: |-
-    def myzip(*sequences):
-        return list([list(t) for t in zip(*sequences)])
+    def myzip(*lists):
+        return list([list(t) for t in zip(*lists)])
 tests: |-
     def test_myzip():
         assert myzip([1, 2, 3], ['a', 'b', 'c'], [True, False, True]) == [[1, 'a', True], [2, 'b', False], [3, 'c', True]]

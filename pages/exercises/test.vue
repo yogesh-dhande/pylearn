@@ -32,11 +32,12 @@ onMounted(async () => {
       testFileContent =
         testFileContent +
         `
-${exercise.solution}
+${exercise.solution ?? ""}
 
-${exercise.tests}
+${exercise.tests ?? ""}
 `;
     });
+
     const { result, pass } = await useTestRunner(testFileContent, {
       _path: "/exercises/all",
     });
@@ -46,7 +47,6 @@ ${exercise.tests}
       result,
       pass,
     });
-    console.log(result);
   }
 });
 </script>

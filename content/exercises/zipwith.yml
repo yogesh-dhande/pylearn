@@ -1,23 +1,23 @@
 slug: zipwith-function
-title: Apply a function to corresponding elements of multiple sequences
+title: Apply a function to corresponding elements of multiple lists
 tags:
     - higher-order functions
 level: 2
 prompt: |-
     Question:
-    Write a function called zipwith that takes a function `f` and an arbitrary number of sequences as input. The function should return a list where each element is the result of applying `f` to the corresponding elements of the given sequences.
+    Write a function called zipwith that takes a function `f` and an arbitrary number of lists as input. The function should return a list where each element is the result of applying `f` to the corresponding elements of the given lists.
 
     Example:
     Input: zipwith(lambda x, y: x + y, [1, 2, 3], [10, 20, 30])
     Output: [11, 22, 33]
 starter: |-
-    def zipwith(f, *sequences):
+    def zipwith(f, *lists):
         """
-        Applies a function to the corresponding elements of the given sequences and returns a list of the results.
+        Applies a function to the corresponding elements of the given lists and returns a list of the results.
 
         Args:
         f: The function to apply.
-        *sequences: The input sequences.
+        *lists: The input lists.
 
         Returns:
         list: The list of results.
@@ -25,8 +25,8 @@ starter: |-
         # TODO: Implement the zipwith function
         pass
 solution: |-
-    def zipwith(f, *sequences):
-        return [f(*args) for args in zip(*sequences)]
+    def zipwith(f, *lists):
+        return [f(*args) for args in zip(*lists)]
 tests: |-
     def test_zipwith():
         assert zipwith(lambda x, y: x + y, [1, 2, 3], [10, 20, 30]) == [11, 22, 33]

@@ -1,7 +1,7 @@
 slug: group-by-function
 title: Group elements by applying a function to each element
 tags:
-    - sequences
+    - lists
 level: 2
 prompt: |-
     Question:

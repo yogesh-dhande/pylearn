@@ -1,22 +1,22 @@
 slug: interleave-function
-title: Interleave an arbitrary number of sequences
+title: Interleave an arbitrary number of lists
 tags:
-    - sequences
+    - lists
 level: 1
 prompt: |-
     Question:
-    Write a function called interleave that takes an arbitrary number of sequences as input and interleaves them. The function should return a new sequence where the elements from each input sequence are interleaved in order.
+    Write a function called interleave that takes an arbitrary number of lists as input and interleaves them. The function should return a new sequence where the elements from each input sequence are interleaved in order.
 
     Example:
     Input: interleave([1, 2, 3], ['a', 'b', 'c'], [True, False, True])
     Output: [1, 'a', True, 2, 'b', False, 3, 'c', True]
 starter: |-
-    def interleave(*sequences):
+    def interleave(*lists):
         """
-        Interleaves an arbitrary number of sequences and returns a new sequence.
+        Interleaves an arbitrary number of lists and returns a new sequence.
 
         Args:
-        *sequences: The input sequences.
+        *lists: The input lists.
 
         Returns:
         list: The interleaved sequence.
@@ -24,11 +24,11 @@ starter: |-
         # TODO: Implement the interleave function
         pass
 solution: |-
-    def interleave(*sequences):
-        max_length = max(len(seq) for seq in sequences)
+    def interleave(*lists):
+        max_length = max(len(seq) for seq in lists)
         result = []
         for i in range(max_length):
-            for seq in sequences:
+            for seq in lists:
                 if i < len(seq):
                     result.append(seq[i])
         return result
