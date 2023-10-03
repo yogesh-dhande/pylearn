@@ -1,18 +1,18 @@
 <template>
-  <div class="max-w-5xl mx-auto my-12">
+  <div class="max-w-4xl mx-auto my-12">
     <h1 class="text-3xl font-bold my-4">{{ page.title }}</h1>
     <p v-html="prompt"></p>
     <div class="my-8">
       <TabGroup>
-        <TabList class="flex space-x-1 rounded-xl bg-indigo-900/20 p-1">
+        <TabList class="flex space-x-1 rounded-xl p-1">
           <Tab as="template" v-slot="{ selected }">
             <button
               :class="[
-                'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-indigo-700',
+                'rounded-lg px-6 py-2.5 text-sm font-medium leading-5 text-indigo-700 ',
                 'ring-white ring-opacity-60 ring-offset-2 ring-offset-indigo-400 focus:outline-none focus:ring-2',
                 selected
-                  ? 'bg-white shadow'
-                  : 'text-indigo-100 hover:bg-white/[0.12] hover:text-indigo-400',
+                  ? 'shadow bg-indigo-200 text-indigo-100  '
+                  : 'bg-gray-200 shadow hover:bg-indigo-500 hover:text-white',
               ]"
             >
               Code
@@ -21,16 +21,26 @@
           <Tab as="template" v-slot="{ selected }">
             <button
               :class="[
-                'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-indigo-700',
+                'rounded-lg px-6 py-2.5 text-sm font-medium leading-5 text-indigo-700',
                 'ring-white ring-opacity-60 ring-offset-2 ring-offset-indigo-400 focus:outline-none focus:ring-2',
                 selected
-                  ? 'bg-white shadow'
-                  : 'text-indigo-100 hover:bg-white/[0.12] hover:text-indigo-400',
+                  ? 'shadow bg-indigo-200  text-indigo-100  '
+                  : 'bg-gray-200 shadow hover:bg-indigo-500 hover:text-white',
               ]"
             >
               Tests
             </button>
           </Tab>
+          <div class="flex grow justify-end">
+            <Submit
+              v-if="!success"
+              @click="runCode"
+              :is-loading="loading"
+              :errors="errors"
+              label="Run"
+              btnClasses="bg-green-600 hover:bg-green-700"
+            />
+          </div>
         </TabList>
 
         <TabPanels class="mt-2">
@@ -40,7 +50,11 @@
               'ring-white ring-opacity-60 ring-offset-2 ring-offset-indigo-400 focus:outline-none focus:ring-2',
             ]"
           >
-            <AceEditor v-model="code" :readonly="false"></AceEditor>
+            <AceEditor
+              v-model="code"
+              :readonly="false"
+              :showLineNumbers="false"
+            ></AceEditor>
           </TabPanel>
           <TabPanel
             :class="[
@@ -52,29 +66,7 @@
           </TabPanel>
         </TabPanels>
       </TabGroup>
-      <div class="flex justify-between space-x-2 my-2">
-        <NuxtLink
-          v-if="prev?._path.includes('/exercises/')"
-          :to="prev._path"
-          class="bg-gray-700 hover:bg-gray-900 text-gray-100 px-6 py-2 rounded shadow text-lg font-bold"
-          >Previous</NuxtLink
-        >
-        <Submit
-          v-if="!success"
-          @click="runCode"
-          :is-loading="loading"
-          :errors="errors"
-          label="Run"
-          class="grow"
-        />
-        <div v-else></div>
-        <NuxtLink
-          v-if="next?._path.includes('/exercises/')"
-          :to="next._path"
-          class="bg-gray-700 hover:bg-gray-900 text-gray-100 px-6 py-2 rounded shadow text-lg font-bold"
-          >Next</NuxtLink
-        >
-      </div>
+
       <textarea
         id="pytest-output"
         type="text"
@@ -82,9 +74,7 @@
         v-model="testOutput"
       />
       <div v-if="testOutput && !success">
-        <p
-          class="bg-red-500 text-gray-100 font-bold text-center px-3 py-2 my-2"
-        >
+        <p class="text-red-500 font-bold text-center px-3 py-2 my-2">
           Tests failed!
         </p>
         <AceEditor
@@ -92,6 +82,7 @@
           :key="testOutput"
           readonly
           :showLineNumbers="false"
+          theme="xcode"
         />
       </div>
 
@@ -102,6 +93,21 @@
           All tests passed!
         </p>
       </div>
+    </div>
+    <div class="flex justify-between space-x-2 my-2">
+      <NuxtLink
+        v-if="prev?._path.includes('/exercises/')"
+        :to="prev._path"
+        class="bg-gray-600 hover:bg-gray-700 text-gray-100 px-6 py-2 rounded shadow"
+        >Previous</NuxtLink
+      >
+
+      <NuxtLink
+        v-if="next?._path.includes('/exercises/')"
+        :to="next._path"
+        class="bg-gray-600 hover:bg-gray-700 text-gray-100 px-6 py-2 rounded shadow"
+        >Next</NuxtLink
+      >
     </div>
   </div>
 </template>

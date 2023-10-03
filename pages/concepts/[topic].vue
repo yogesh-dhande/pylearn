@@ -9,7 +9,7 @@
     <!-- Code Along -->
 
     <div
-      class="bg-gray-600 text-gray-100 px-4 sm:px-6 pt-3 fixed inset-x-0 bottom-0 z-10 border-top-2 border-gray-400"
+      class="bg-gray-600 text-gray-100 pt-3 fixed inset-x-0 bottom-0 z-10 max-h-96 overflow-auto"
     >
       <div class="lg:hidden text-center pb-2">
         Open this page on desktop to code along as you read the article.
@@ -29,28 +29,22 @@
         </div>
         <div class="relative mt-2 flex-1">
           <!-- Content -->
-          <div v-if="open" class="grid grid-cols-2 bg-gray-800">
-            <div>
-              <div
-                class="flex justify-between items-center text-gray-200 px-6 py-2"
-              >
-                <div class="font-bold">Code</div>
-                <button
-                  class="flex items-center bg-gray-700 hover:bg-gray-600 text-gray-100 px-3 py-1 rounded-md"
-                  @click="runCode(code)"
-                >
-                  <PlayIcon class="h-5 w-5 inline-block mr-1" />
-                  <div>Run</div>
-                </button>
-              </div>
-
+          <div v-if="open" class="grid grid-cols-2">
+            <div class="bg-slate-800">
               <AceEditor v-model="code" :readonly="false"></AceEditor>
             </div>
-            <div class="px-6 bg-gray-700 text-gray-100">
-              <div class="text-gray-200 py-3 font-bold">Output</div>
+            <div class="p-4 bg-gray-100">
+              <button
+                class="flex items-center bg-gray-600 hover:bg-gray-700 text-gray-100 px-3 py-1 rounded-md"
+                @click="runCode(code)"
+              >
+                <PlayIcon class="h-5 w-5 inline-block mr-1" />
+                <div>Run</div>
+              </button>
               <div
+                v-if="showOutput"
                 id="pyodide-output"
-                class="text-gray-300 leading-loose"
+                class="text-gray-700 leading-loose"
               ></div>
             </div>
           </div>
@@ -115,6 +109,7 @@ import {
 const open = ref(true);
 
 const code = ref("");
+const showOutput = ref(false);
 const { page } = useContent();
 const { data } = await useAsyncData(() =>
   queryContent("/concepts")
@@ -157,6 +152,7 @@ captured_output = captured_output.replace("\\t", "&nbsp;&nbsp;&nbsp;&nbsp;")
 js.document.getElementById("pyodide-output").innerHTML = captured_output
 print(captured_output)
 `;
+  showOutput.value = true;
 
   return await $runPython(toRun);
 }

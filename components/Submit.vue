@@ -43,7 +43,7 @@ const props = defineProps({
   },
   btnClasses: {
     type: String,
-    default: "",
+    default: "bg-indigo-500 hover:bg-indigo-600",
   },
 });
 const emit = defineEmits(["click"]);

@@ -2,7 +2,7 @@
   <VAceEditor
     v-model:value="code"
     lang="python"
-    theme="dracula"
+    :theme="theme"
     :minLines="6"
     :maxLines="40"
     :options="{
@@ -33,6 +33,10 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  theme: {
+    type: String,
+    default: "dracula",
+  },
 });
 
 function editorInit(editor) {
@@ -42,9 +46,3 @@ function editorInit(editor) {
 const emit = defineEmits(["update:modelValue"]);
 const code = useVModel(props, emit);
 </script>
-
-<style scoped>
-.ace_editor {
-  @apply bg-gray-800;
-}
-</style>
