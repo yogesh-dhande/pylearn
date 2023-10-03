@@ -150,7 +150,6 @@ captured_output = captured_output.replace("\\n", "<br>")
 captured_output = captured_output.replace(" ", "&nbsp;")
 captured_output = captured_output.replace("\\t", "&nbsp;&nbsp;&nbsp;&nbsp;")
 js.document.getElementById("pyodide-output").innerHTML = captured_output
-print(captured_output)
 `;
   showOutput.value = true;
 
