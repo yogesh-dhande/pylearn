@@ -121,9 +121,9 @@ function formatText(text) {
   //   text = text.replace("\\t", "&nbsp;&nbsp;&nbsp;&nbsp;");
   return text;
 }
+const { $initializePyodide, $analytics } = useNuxtApp();
 
 onMounted(() => {
-  const { $initializePyodide } = useNuxtApp();
   $initializePyodide();
 });
 
@@ -151,6 +151,10 @@ const {
   );
   testOutput.value = result;
   success.value = pass;
+  $analytics.track("TEST_ATTEMPT", {
+    exercise: page.value._path,
+    pass: pass,
+  });
 });
 
 const { data } = await useAsyncData(() =>

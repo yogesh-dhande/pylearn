@@ -7,43 +7,52 @@
       </template>
     </ContentDoc>
     <!-- Code Along -->
+
     <div
       class="bg-gray-600 text-gray-100 px-4 sm:px-6 pt-3 fixed inset-x-0 bottom-0 z-10 border-top-2 border-gray-400"
     >
-      <div @click="open = !open" class="hover:text-gray-300 cursor-pointer">
-        <div class="flex items-center justify-between">
-          <div class="w-full text-center">
-            The best way to learn is through
-            <span class="text-cyan-500 font-semibold italic"
-              >hands-on practice</span
-            >. Code along as you read the article!
-          </div>
-          <ChevronDoubleDownIcon v-if="open" class="h-6 w-6" />
-          <ChevronDoubleUpIcon v-else class="h-6 w-6" />
-        </div>
+      <div class="lg:hidden text-center pb-2">
+        Open this page on desktop to code along as you read the article.
       </div>
-      <div class="relative mt-2 flex-1">
-        <!-- Content -->
-        <div v-if="open" class="sm:grid sm:grid-cols-2 bg-gray-800">
-          <div>
-            <div
-              class="flex justify-between items-center text-gray-200 px-6 py-2"
-            >
-              <div class="font-bold">Code</div>
-              <button
-                class="flex items-center bg-gray-700 hover:bg-gray-600 text-gray-100 px-3 py-1 rounded-md"
-                @click="runCode(code)"
-              >
-                <PlayIcon class="h-5 w-5 inline-block mr-1" />
-                <div>Run</div>
-              </button>
+      <div class="hidden lg:block">
+        <div @click="open = !open" class="hover:text-gray-300 cursor-pointer">
+          <div class="flex items-center justify-between">
+            <div class="w-full text-center">
+              The best way to learn is through
+              <span class="text-cyan-500 font-semibold italic"
+                >hands-on practice</span
+              >. Code along as you read the article!
             </div>
-
-            <AceEditor v-model="code" :readonly="false"></AceEditor>
+            <ChevronDoubleDownIcon v-if="open" class="h-6 w-6" />
+            <ChevronDoubleUpIcon v-else class="h-6 w-6" />
           </div>
-          <div class="px-6 bg-gray-700 text-gray-100">
-            <div class="text-gray-200 py-3 font-bold">Output</div>
-            <div id="pyodide-output" class="text-gray-300 leading-loose"></div>
+        </div>
+        <div class="relative mt-2 flex-1">
+          <!-- Content -->
+          <div v-if="open" class="grid grid-cols-2 bg-gray-800">
+            <div>
+              <div
+                class="flex justify-between items-center text-gray-200 px-6 py-2"
+              >
+                <div class="font-bold">Code</div>
+                <button
+                  class="flex items-center bg-gray-700 hover:bg-gray-600 text-gray-100 px-3 py-1 rounded-md"
+                  @click="runCode(code)"
+                >
+                  <PlayIcon class="h-5 w-5 inline-block mr-1" />
+                  <div>Run</div>
+                </button>
+              </div>
+
+              <AceEditor v-model="code" :readonly="false"></AceEditor>
+            </div>
+            <div class="px-6 bg-gray-700 text-gray-100">
+              <div class="text-gray-200 py-3 font-bold">Output</div>
+              <div
+                id="pyodide-output"
+                class="text-gray-300 leading-loose"
+              ></div>
+            </div>
           </div>
         </div>
       </div>
@@ -114,13 +123,16 @@ const { data } = await useAsyncData(() =>
 );
 const [prev, next] = data.value;
 
-const { $runPython, $initializePyodide } = useNuxtApp();
+const { $runPython, $initializePyodide, $analytics } = useNuxtApp();
 
 onMounted(() => {
   $initializePyodide();
 });
 
 async function runCode(code) {
+  $analytics.track("CODE_ALONG", {
+    topic: page.value._path,
+  });
   const toRun = `
 import js
 import sys
