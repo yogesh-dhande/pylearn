@@ -73,6 +73,57 @@
         class="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-white sm:h-32"
       />
     </div>
+    <div class="bg-gray-200 py-24 sm:py-32">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl lg:text-center">
+          <h2 class="text-base font-semibold leading-7 text-indigo-600">
+            Learn faster
+          </h2>
+          <p
+            class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+          >
+            Learn By Doing
+          </p>
+          <p class="mt-6 text-lg leading-8 text-gray-600">
+            We believe that the best way to learn Python is through hands-on
+            practice. Our platform allows you to write code directly in the
+            browser and run it in real-time, so you can get instant feedback on
+            your progress.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="bg-white py-24 sm:py-32">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl lg:text-center">
+          <h2 class="text-base font-semibold leading-7 text-indigo-600">
+            Learn for free
+          </h2>
+          <p
+            class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+          >
+            No Sign-ups, No Hassle
+          </p>
+          <p class="mt-6 text-lg leading-8 text-gray-600">
+            Unlike other platforms, PythonExercises.com doesn't require you to
+            create an account. Simply visit our website and start coding right
+            away.
+          </p>
+        </div>
+      </div>
+      <div class="mt-10 flex justify-center items-center gap-x-6">
+        <NuxtLink
+          href="/exercises"
+          class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >Coding Challenges</NuxtLink
+        >
+        <NuxtLink
+          href="/concepts"
+          class="text-sm font-semibold leading-6 text-gray-900"
+          >Read Articles <span aria-hidden="true">→</span></NuxtLink
+        >
+      </div>
+    </div>
   </div>
 </template>
 
