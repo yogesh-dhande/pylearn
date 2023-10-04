@@ -101,9 +101,6 @@ import {
 } from "@heroicons/vue/20/solid";
 
 const { page } = useContent();
-useSeoMeta({
-  title: page.value.description,
-});
 
 const open = ref(true);
 const code = ref("");
