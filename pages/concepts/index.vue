@@ -6,10 +6,10 @@
           Bite-sized Python Concepts
         </h1>
         <p class="mt-2 text-xl leading-8 text-gray-600">
-          We get it - Python can be intimidating. That's why we've crafted these
-          bite-sized concept articles that break down complex Python topics into
-          easy-to-digest nuggets. Our articles explain Python concepts in a
-          language that even beginners can understand.
+          We get it - learning to code can be intimidating. That's why we've
+          crafted these bite-sized concept articles that break down complex
+          Python topics into easy-to-digest nuggets. These articles explain
+          Python concepts in a language that even beginners can understand.
         </p>
       </div>
 
@@ -22,7 +22,7 @@
               :to="topic._path"
               class="underline text-gray-900 hover:text-cyan-600 text-lg font-semibold leading-6"
             >
-              {{ topic.title }}
+              {{ topic.heading }}
             </NuxtLink>
           </div>
         </div>

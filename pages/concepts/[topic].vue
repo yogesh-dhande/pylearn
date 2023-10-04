@@ -1,6 +1,6 @@
 <template>
   <div class="max-w-5xl mx-auto my-8 sm:my-12">
-    <h1 class="text-3xl sm:text-5xl font-bold my-8">{{ page.title }}</h1>
+    <h1 class="text-3xl sm:text-5xl font-bold my-8">{{ page.heading }}</h1>
     <ContentDoc>
       <template #not-found>
         <h2>Topic ({{ $route.params.topic }}) not found</h2>
@@ -63,12 +63,9 @@
         >
           <NuxtLink :to="prev._path">
             <span class="absolute inset-0" />
-            {{ prev.title }}
+            {{ prev.heading }}
           </NuxtLink>
         </h3>
-        <p class="mt-3 line-clamp-3 text-sm leading-6 text-gray-600">
-          {{ prev.description }}
-        </p>
         <ArrowLongLeftIcon class="h-8 w-8" />
       </div>
       <div v-else></div>
@@ -82,12 +79,9 @@
         >
           <NuxtLink :to="next._path">
             <span class="absolute inset-0" />
-            {{ next.title }}
+            {{ next.heading }}
           </NuxtLink>
         </h3>
-        <p class="mt-3 line-clamp-3 text-sm leading-6 text-gray-600">
-          {{ next.description }}
-        </p>
         <div class="flex justify-end">
           <ArrowLongRightIcon class="h-8 w-8" />
         </div>
@@ -106,11 +100,15 @@ import {
   PlayIcon,
 } from "@heroicons/vue/20/solid";
 
-const open = ref(true);
+const { page } = useContent();
+useSeoMeta({
+  title: page.value.description,
+});
 
+const open = ref(true);
 const code = ref("");
 const showOutput = ref(false);
-const { page } = useContent();
+
 const { data } = await useAsyncData(() =>
   queryContent("/concepts")
     .sort({ $numeric: false })
