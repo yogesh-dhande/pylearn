@@ -4,13 +4,13 @@
       class="relative isolate overflow-hidden bg-gradient-to-b from-indigo-100/20"
     >
       <div
-        class="mx-auto max-w-7xl pb-24 pt-10 sm:pb-32 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:py-40"
+        class="mx-auto max-w-7xl pb-24 pt-10 sm:pb-32 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:py-24"
       >
         <div class="px-6 lg:px-0 lg:pt-4">
           <div class="mx-auto max-w-5xl">
             <div class="max-w-lg">
               <h1
-                class="mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
+                class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
               >
                 Practice
                 <span class="text-purple-600">Python</span> with Hands-on
@@ -45,18 +45,18 @@
           />
           <div class="shadow-lg md:rounded-3xl">
             <div
-              class="bg-indigo-500 [clip-path:inset(0)] md:[clip-path:inset(0_round_theme(borderRadius.3xl))]"
+              class="bg-gray-50 [clip-path:inset(0)] md:[clip-path:inset(0_round_theme(borderRadius.3xl))]"
             >
               <div
                 class="absolute -inset-y-px left-1/2 -z-10 ml-10 w-[200%] skew-x-[-30deg] bg-indigo-100 opacity-20 ring-1 ring-inset ring-white md:ml-20 lg:ml-36"
                 aria-hidden="true"
               />
-              <div class="relative px-6 pt-8 sm:pt-16 md:pl-16 md:pr-0">
+              <div class="relative">
                 <div class="mx-auto max-w-2xl md:mx-0 md:max-w-none">
-                  <div class="overflow-hidden rounded-tl-xl bg-gray-900">
-                    <div class="px-6 pb-14 pt-6">
+                  <div class="overflow-hidden rounded-tl-xl bg-gray-50">
+                    <div class="px-8 py-8">
                       <img src="/code.png?url" />
-                      <img src="/failure.png?url" class="mt-8 sm:mt-16" />
+                      <!-- <img src="/failure.png?url" class="mt-8 sm:mt-16" /> -->
                     </div>
                   </div>
                 </div>
