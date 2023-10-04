@@ -2,8 +2,8 @@
   <div class="py-24 sm:py-32">
     <div class="mx-auto max-w-5xl px-6 lg:px-8">
       <div class="p-4">
-        <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-          Bite-sized Python Concepts
+        <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-gray-900">
+          Python Concepts
         </h1>
         <p class="mt-2 text-xl leading-8 text-gray-600">
           We get it - learning to code can be intimidating. That's why we've

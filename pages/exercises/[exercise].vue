@@ -1,14 +1,14 @@
 <template>
   <div class="max-w-4xl mx-auto my-12">
-    <h1 class="text-3xl font-bold my-4">{{ page.title }}</h1>
-    <p v-html="prompt"></p>
+    <h1 class="text-2xl sm:text-4xl font-bold my-4">{{ page.title }}</h1>
+    <p v-html="prompt" class="text-lg"></p>
     <div class="my-8">
       <TabGroup>
         <TabList class="flex space-x-1 rounded-xl p-1">
           <Tab as="template" v-slot="{ selected }">
             <button
               :class="[
-                'rounded-lg px-6 py-2.5 text-sm font-medium leading-5 text-indigo-700 ',
+                'rounded-lg px-6 py-2.5 text-lg font-medium leading-5 text-indigo-700 ',
                 'ring-white ring-opacity-60 ring-offset-2 ring-offset-indigo-400 focus:outline-none focus:ring-2',
                 selected
                   ? 'shadow bg-indigo-200 text-indigo-100  '
@@ -21,7 +21,7 @@
           <Tab as="template" v-slot="{ selected }">
             <button
               :class="[
-                'rounded-lg px-6 py-2.5 text-sm font-medium leading-5 text-indigo-700',
+                'rounded-lg px-6 py-2.5 text-lg font-medium leading-5 text-indigo-700',
                 'ring-white ring-opacity-60 ring-offset-2 ring-offset-indigo-400 focus:outline-none focus:ring-2',
                 selected
                   ? 'shadow bg-indigo-200  text-indigo-100  '
