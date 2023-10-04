@@ -2,8 +2,10 @@
   <div></div>
 </template>
 
-<script>
-export default {};
+<script setup>
+definePageMeta({
+  documentDriven: false,
+});
 </script>
 
 <style>
