@@ -7,7 +7,7 @@
         <div class="absolute inset-y-0 left-0 flex items-center lg:hidden">
           <!-- Mobile menu button-->
           <button
-            class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-100"
+            class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-cyan-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-100"
             aria-expanded="false"
             @click="showMobileMenu = !showMobileMenu"
           >
@@ -60,11 +60,11 @@
           class="flex-1 flex space-x-4 items-center justify-center lg:justify-start"
         >
           <div
-            class="flex-shrink-0 text-gray-700 hover:text-gray-900 text-2xl flex items-center border-transparent"
+            class="flex-shrink-0 text-gray-700 hover:text-cyan-600 text-2xl flex items-center border-transparent"
           >
             <nuxt-link to="/" class="">
               <span
-                class="text-lg leading-tight text-gray-700 hover:text-gray-900"
+                class="text-lg font-semibold leading-tight text-gray-700 hover:text-cyan-600"
               >
                 🐍
               </span>
@@ -77,20 +77,15 @@
             <div class="flex space-x-4 items-center">
               <nuxt-link
                 to="/exercises"
-                class="px-4 py-2 text-lg text-gray-700 hover:text-gray-900 border-transparent"
+                class="px-4 py-2 text-lg font-semibold text-gray-700 hover:text-cyan-600 border-transparent"
                 >Exercises
               </nuxt-link>
 
               <nuxt-link
                 to="/concepts"
-                class="px-4 py-2 text-lg text-gray-700 hover:text-gray-900 border-transparent"
+                class="px-4 py-2 text-lg font-semibold text-gray-700 hover:text-cyan-600 border-transparent"
                 >Concepts
               </nuxt-link>
-              <a
-                href="/console.html"
-                class="px-4 py-2 text-lg text-gray-700 hover:text-gray-900 border-transparent"
-                >Python Console
-              </a>
             </div>
           </div>
         </div>
@@ -107,20 +102,15 @@
       >
         <nuxt-link
           to="/exercises"
-          class="block px-4 py-2 text-lg text-gray-700 hover:text-gray-900 border-transparent"
+          class="block px-4 py-2 text-lg font-semibold text-gray-700 hover:text-cyan-600 border-transparent"
           >Exercises
         </nuxt-link>
 
         <nuxt-link
           to="/concepts"
-          class="block px-4 py-2 text-lg text-gray-700 hover:text-gray-900 border-transparent"
+          class="block px-4 py-2 text-lg font-semibold text-gray-700 hover:text-cyan-600 border-transparent"
           >Concepts
         </nuxt-link>
-        <a
-          href="/console.html"
-          class="block px-4 py-2 text-lg text-gray-700 hover:text-gray-900 border-transparent"
-          >Python Console
-        </a>
       </div>
     </div>
   </nav>

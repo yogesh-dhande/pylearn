@@ -1,8 +1,9 @@
 slug: filter-function-lists
-title: Filter a list using a function
+title: Filter a list using the given function
 tags:
-    - higher-order functions
-level: 1
+    - lists
+    - functional-programming
+level: 2
 prompt: |-
     Question:
     Write a function called filter_lists that takes a function and a list as input and applies the function to each element in the list. The function should return a new list containing only the elements for which the function returns True.

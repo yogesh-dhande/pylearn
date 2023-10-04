@@ -1,8 +1,9 @@
 slug: reduce-function-lists
 title: Reduce a list to a single value
 tags:
-    - higher-order functions
-level: 1
+    - lists
+    - functional-programming
+level: 2
 prompt: |-
     Question:
     Write a function called reduce_lists that takes a function and a list as input and applies the function to the elements of the list in a cumulative way. The function should return a single value that represents the result of applying the function to the entire list.

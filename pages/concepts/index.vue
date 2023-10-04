@@ -15,27 +15,16 @@
 
       <ContentList path="/concepts" v-slot="{ list }">
         <div
-          class="mt-4 space-y-8 border-t border-gray-200 pt-4 sm:mt-8 sm:pt-8"
+          class="grid grid-cols-2 auto-rows-max border-t border-gray-200 px-4 mt-4 sm:mt-8 sm:pt-8"
         >
-          <article
-            v-for="topic in list"
-            :key="topic._path"
-            class="flex flex-col items-start justify-between"
-          >
-            <div class="w-full hover:bg-gray-200 p-4 rounded group relative">
-              <h3
-                class="mt-2 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600"
-              >
-                <NuxtLink :to="topic._path">
-                  <span class="absolute inset-0" />
-                  {{ topic.title }}
-                </NuxtLink>
-              </h3>
-              <p class="mt-3 line-clamp-3 text-sm leading-6 text-gray-600">
-                {{ topic.description }}
-              </p>
-            </div>
-          </article>
+          <div v-for="topic in list" :key="topic._path" class="my-4">
+            <NuxtLink
+              :to="topic._path"
+              class="underline text-gray-900 hover:text-cyan-600 text-lg font-semibold leading-6"
+            >
+              {{ topic.title }}
+            </NuxtLink>
+          </div>
         </div>
       </ContentList>
     </div>

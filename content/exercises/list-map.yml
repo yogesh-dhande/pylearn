@@ -1,7 +1,8 @@
 slug: map-function-lists
 title: Map a function to each element in a list
 tags:
-    - higher-order functions
+    - lists
+    - functional-programming
 level: 2
 prompt: |-
     Question:

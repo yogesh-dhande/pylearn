@@ -1,7 +1,8 @@
 slug: zipwith-function
 title: Apply a function to corresponding elements of multiple lists
 tags:
-    - higher-order functions
+    - lists
+    - functional-programming
 level: 2
 prompt: |-
     Question:

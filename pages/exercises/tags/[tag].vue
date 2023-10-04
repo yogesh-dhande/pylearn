@@ -3,7 +3,7 @@
     <div class="mx-auto max-w-5xl px-6 lg:px-8">
       <div class="p-4">
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-          Python Coding Exercises
+          Python coding exercises with {{ tag }}
         </h2>
         <p class="mt-2 text-xl leading-8 text-gray-600">
           Write code and run it in real-time to get instant feedback on your
@@ -17,5 +17,17 @@
 </template>
 
 <script setup>
-const exercises = await queryContent("exercises").sort({ level: 1 }).find();
+definePageMeta({
+  documentDriven: false,
+});
+const route = useRoute();
+const tag = route.params.tag;
+if (!tag) {
+  throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
+}
+
+const exercises = await queryContent("exercises")
+  .where({ tags: { $contains: tag } })
+  .sort({ level: 1 })
+  .find();
 </script>
