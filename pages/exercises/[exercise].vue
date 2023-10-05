@@ -1,6 +1,9 @@
 <template>
   <div class="max-w-4xl mx-auto my-12">
     <h1 class="text-2xl sm:text-4xl font-bold my-4">{{ page.title }}</h1>
+    <div class="flex mt-4 mb-8">
+      <ExerciseTags :exercise="page" />
+    </div>
     <p v-html="prompt" class="text-lg"></p>
     <div class="my-8">
       <TabGroup>
