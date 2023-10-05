@@ -1,0 +1,26 @@
+slug: fix-syntax-6
+title: "Fix the code syntax #6"
+tags:
+  - syntax
+level: 1
+prompt: |
+  The title of this exercise is intentionally vague to avoid giving any hints.
+  
+  A syntax error in the code means that there is something written incorrectly and the computer does not understand what you are trying to do. Let's see if you can spot the syntax error in the following code!
+
+starter: |
+  # Fix the syntaxt in the code below
+  def add(a, b):
+    return a + b
+
+  total = add(2; 6)
+  print(total)
+solution: |
+  # Fix: inputs to the function are separated by commas (2, 6), not semicolons
+  def add(a, b):
+    return a + b
+
+  total = add(2, 6)
+  print(total)
+tests: |
+  # There are no tests for this code as it is just a syntax fix

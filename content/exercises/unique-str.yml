@@ -2,7 +2,7 @@ title: Find unique elements in a given list
 tags:
     - sets
     - strings
-level: 2
+level: 3
 prompt: |-
     Question:
     Write a function called `find_unique_characters` that takes a string as input and returns a new string containing the unique characters from the input string. Use sets to find the unique characters.

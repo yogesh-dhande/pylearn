@@ -2,7 +2,7 @@ slug: balanced-function
 title: Check for balanced parentheses, brackets, and braces
 tags:
     - strings
-level: 3
+level: 4
 prompt: |-
     Question:
     Write a function called balanced that takes a string `s` as input. The function should return `True` if the string contains only balanced parentheses, brackets, and braces (i.e., `()`, `[]`, `{}`), otherwise it should return `False`.

@@ -1,7 +1,7 @@
 title: Classify the given number
 tags:
     - conditionals
-level: 1
+level: 2
 prompt: |-
     Question:
     Write a function called `classify_number` that takes an integer as input and returns a string indicating whether the number is positive, negative, or zero. Use conditional statements (if-elif-else) to perform the classification.

@@ -2,7 +2,7 @@ title: Square the even numbers in a list
 tags:
     - comprehension
     - lists
-level: 2
+level: 3
 prompt: |-
     Question:
     Write a function called `square_even_numbers` that takes a list of integers as input and returns a new list containing the squares of the even numbers in the input list. Use list comprehension to create the new list.

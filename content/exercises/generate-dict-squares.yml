@@ -1,7 +1,7 @@
 title: Generate a dictionary of squared numbers
 tags:
     - dictionaries
-level: 1
+level: 2
 prompt: |-
     Question:
     Write a function called generate_dictionary that takes a number as input and generates a dictionary containing (i, i*i) pairs for each integral number between 1 and the given number (both inclusive). The function should return the generated dictionary.

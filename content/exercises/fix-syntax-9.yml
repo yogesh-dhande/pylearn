@@ -1,0 +1,21 @@
+slug: fix-syntax-9
+title: "Fix the code syntax #9"
+tags:
+  - syntax
+level: 1
+prompt: |
+  The title of this exercise is intentionally vague to avoid giving any hints.
+  
+  A syntax error in the code means that there is something written incorrectly and the computer does not understand what you are trying to do. Let's see if you can spot the syntax error in the following code!
+
+starter: |
+  # Fix the syntaxt in the code below
+  message = "hello'
+  print(message)  # output: hello
+solution: |
+  # Fix: opening and closing quotes for a string should match
+  message = "hello"
+  print(message)  # output: hello
+  
+tests: |
+  # There are no tests for this code as it is just a syntax fix

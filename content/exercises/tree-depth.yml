@@ -2,7 +2,7 @@ slug: calculate-depth-tree
 title: Calculate the depth of a tree
 tags:
     - recursion
-level: 3
+level: 4
 prompt: |-
     Question:
     Write a function called calculate_depth_tree that takes a tree structure as input and calculates the depth of the tree. The tree structure is represented as nested lists, where each list can contain either numbers or nested lists. The depth of a tree is the maximum number of levels or nested lists in the tree. The function should return the calculated depth.

@@ -2,7 +2,7 @@ title: Count the frequency of words in a file
 tags:
     - files
     - strings
-level: 2
+level: 3
 prompt: |-
     Question:
     Write a function called `count_word_frequency` that takes a file path as input and returns a dictionary containing the frequency of each word in the file. The function should read the file, tokenize the words, and count their occurrences.

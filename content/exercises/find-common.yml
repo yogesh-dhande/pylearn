@@ -2,7 +2,7 @@ title: Find common elements across multiple lists
 tags:
     - sets
     - lists
-level: 3
+level: 4
 prompt: |-
     Question:
     Write a function called `find_common_elements` that takes multiple lists as input and returns a new list containing the common elements across all the input lists. Use sets to find the common elements.

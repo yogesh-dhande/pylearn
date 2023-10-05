@@ -2,7 +2,7 @@ title: Double each number in a list
 tags:
     - loops
     - lists
-level: 1
+level: 2
 prompt: |-
     Question:
     Write a function called `multiply_list` that takes a list of numbers as input and returns a new list where each element is multiplied by 2. Use a while loop to iterate through each element in the list and perform the multiplication.

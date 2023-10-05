@@ -28,6 +28,6 @@ if (!tag) {
 
 const exercises = await queryContent("exercises")
   .where({ tags: { $contains: tag } })
-  .sort({ level: 1 })
+  .sort({ level: 2 })
   .find();
 </script>

@@ -2,7 +2,7 @@ title: Extract phone numbers from a string
 tags:
     - regex
     - strings
-level: 2
+level: 3
 prompt: |-
     Question:
     Write a function called `extract_phone_numbers` that takes a string as input and returns a new list containing all the phone numbers found in the input string. Use regular expressions (regex) to extract the phone numbers.

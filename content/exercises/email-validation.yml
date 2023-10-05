@@ -2,7 +2,7 @@ title: Validate an email addresses
 tags:
     - regex
     - strings
-level: 2
+level: 3
 prompt: |-
     Question:
     Write a function called `validate_email_address` that takes a string as input and returns `True` if the input string is a valid email address, and `False` otherwise. A valid email address must satisfy the following criteria:

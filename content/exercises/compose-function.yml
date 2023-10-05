@@ -2,7 +2,7 @@ slug: compose-function
 title: Function composition by taking two functions as input and returning a composed function
 tags:
     - functions
-level: 3
+level: 4
 prompt: |-
     Question:
     Write a function called compose that takes two functions as input and performs function composition. The composed function should first call the second function and then the first function on its argument. The function should return the composed function.

@@ -2,7 +2,7 @@ slug: flatten-function
 title: Flatten a tree
 tags:
     - recursion
-level: 1
+level: 2
 prompt: |-
     Question:
     Write a function called flatten that takes a tree structure as input and returns a flattened list of all the elements in the tree. The tree structure is represented as nested lists, where each list can contain either numbers or nested lists.

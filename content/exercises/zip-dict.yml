@@ -2,7 +2,7 @@ title: Create a dictionary from two lists
 tags:
     - zip
     - dictionaries
-level: 2
+level: 3
 prompt: |-
     Question:
     Write a function called `create_dictionary` that takes two lists, one containing keys and the other containing values, as input and returns a dictionary by combining the elements from both lists. Use `zip` to pair the elements and create the dictionary.

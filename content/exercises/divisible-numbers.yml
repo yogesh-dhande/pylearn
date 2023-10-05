@@ -1,7 +1,7 @@
 title: Find numbers that are divisible by 3 but not a multiple of 7
 tags:
     - loops
-level: 1
+level: 2
 prompt: |-
     Question:
     Write a function called divisible_numbers that takes a list of numbers as input and returns a comma-separated sequence of numbers that are divisible by 3 but not a multiple of 7. The numbers should be between 2000 and 3200 (both inclusive).

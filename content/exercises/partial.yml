@@ -2,7 +2,7 @@ slug: partial-function
 title: Partial function application
 tags:
     - functions
-level: 3
+level: 4
 prompt: |-
     Question:
     Write a function called partial that takes a function `f` and an arbitrary number of arguments. The function should return a new function that is `f` partially applied to the arguments.

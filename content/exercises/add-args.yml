@@ -2,7 +2,7 @@ slug: add-function
 title: Add an arbitrary number of arguments together and return the sum
 tags:
     - functions
-level: 2
+level: 3
 prompt: |-
     Question:
     Write a function called add that takes an arbitrary number of arguments and adds them all together. The function should return the sum of all the arguments.

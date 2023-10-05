@@ -2,7 +2,7 @@ slug: group-by-function
 title: Group elements by applying a function to each element
 tags:
     - lists
-level: 2
+level: 3
 prompt: |-
     Question:
     Write a function called group_by that takes a function and a sequence as input. The function should group the elements of the sequence based on the result of applying the function to each element. It should return a dictionary where the keys are the unique results of the function and the values are lists of elements that produced the corresponding result.

@@ -3,7 +3,7 @@ title: Map a function to each element in a list
 tags:
     - lists
     - functional-programming
-level: 2
+level: 3
 prompt: |-
     Question:
     Write a function called map_lists that takes a function and a list as input and applies the function to each element in the list. The function should return a new list containing the results of applying the function to each element.

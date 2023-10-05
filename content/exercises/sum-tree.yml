@@ -2,7 +2,7 @@ slug: calculate-sum-tree
 title: Calculate the sum of all the numbers in a tree structure
 tags:
     - recursion
-level: 3
+level: 4
 prompt: |-
     Question:
     Write a function called calculate_sum_tree that takes a tree structure as input and calculates the sum of all the numbers in the tree. The tree structure is represented as nested lists, where each list can contain either numbers or nested lists. The function should return the calculated sum.

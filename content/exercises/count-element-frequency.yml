@@ -2,7 +2,7 @@ title: Count the frequency of each element in the given list
 tags:
     - loops
     - lists
-level: 2
+level: 3
 prompt: |-
     Question:
     Write a function called `count_element_frequency` that takes a list as input and returns a dictionary containing the frequency of each element in the list. Use a for loop with `Counter` from the `collections` module to perform the counting.

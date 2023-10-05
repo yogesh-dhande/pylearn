@@ -1,0 +1,22 @@
+slug: fix-syntax-5
+title: "Fix the code syntax #5"
+tags:
+  - syntax
+level: 1
+prompt: |
+  The title of this exercise is intentionally vague to avoid giving any hints.
+  
+  A syntax error in the code means that there is something written incorrectly and the computer does not understand what you are trying to do. Let's see if you can spot the syntax error in the following code!
+
+starter: |
+  # Fix the syntaxt in the code below
+  fruits = ["apple", "mango", "pear"]
+  favorite = fruits(1)  # mango
+  print(favorite)
+solution: |
+  # Fix: items are retrieved from lists with brackets `[]`, not parenthesis `()`
+  fruits = ["apple", "mango", "pear"]
+  favorite = fruits(1)  # mango
+  print(favorite)
+tests: |
+  # There are no tests for this code as it is just a syntax fix

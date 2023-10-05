@@ -2,7 +2,7 @@ slug: interleave-function
 title: Interleave an arbitrary number of lists
 tags:
     - lists
-level: 1
+level: 2
 prompt: |-
     Question:
     Write a function called interleave that takes an arbitrary number of lists as input and interleaves them. The function should return a new sequence where the elements from each input sequence are interleaved in order.

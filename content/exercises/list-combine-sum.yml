@@ -2,7 +2,7 @@ title: Combine two lists by summing corresponding elements
 tags:
     - comprehension
     - lists
-level: 2
+level: 3
 prompt: |-
     Question:
     Write a function called `combine_lists` that takes two lists of integers as input and returns a new list by combining the elements from both lists. The new list should contain the sum of corresponding elements from the input lists. Use list comprehension to create the new list.

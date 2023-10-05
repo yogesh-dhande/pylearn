@@ -2,7 +2,7 @@ title: Order a list of strings in alphabetical order
 tags:
     - loops
     - lists
-level: 1
+level: 2
 prompt: |-
     Question:
     Write a function called `order_list` that takes a list of strings as input and returns a new list with the strings sorted in a reversed alphabetical order.

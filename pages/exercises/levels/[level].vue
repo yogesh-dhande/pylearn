@@ -23,12 +23,14 @@ definePageMeta({
 const route = useRoute();
 
 const paramToLevel = {
-  beginner: 1,
-  intermediate: 2,
-  advanced: 3,
+  newbie: 1,
+  beginner: 2,
+  intermediate: 3,
+  advanced: 4,
 };
 
 const paramToTitle = {
+  newbie: "Newbie",
   beginner: "Beginner",
   intermediate: "Intermediate",
   advanced: "Advanced",
@@ -36,6 +38,7 @@ const paramToTitle = {
 
 const level = paramToLevel[route.params.level];
 const title = paramToTitle[route.params.level];
+
 if (!level) {
   throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
 }

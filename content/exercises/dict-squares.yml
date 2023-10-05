@@ -2,7 +2,7 @@ title: Create a dictionary where the values are the squares of the original valu
 tags:
     - comprehension
     - dictionaries
-level: 2
+level: 3
 prompt: |-
     Question:
     Write a function called `square_dict_values` that takes a dictionary as input and returns a new dictionary where the values are the squares of the original values. Use dictionary comprehension to create the new dictionary.

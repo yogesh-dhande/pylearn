@@ -2,7 +2,7 @@ slug: myzip-function
 title: Zip an arbitrary number of lists together
 tags:
     - functions
-level: 2
+level: 3
 prompt: |-
     Question:
     Write a function called myzip that takes an arbitrary number of lists as input and zips them together. The function should create a list of lists, where the inner lists consist of the first elements from the given lists, then the second elements from the given lists, and so on. The function should return the zipped list.

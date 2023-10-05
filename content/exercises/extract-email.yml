@@ -2,7 +2,7 @@ title: Extract email addresses
 tags:
     - regex
     - strings
-level: 3
+level: 4
 prompt: |-
     Question:
     Write a function called `extract_email_addresses` that takes a string as input and returns a new list containing all the email addresses found in the input string. Use regular expressions (regex) to extract the email addresses.

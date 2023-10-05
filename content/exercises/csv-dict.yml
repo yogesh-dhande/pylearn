@@ -2,7 +2,7 @@ title: Read a CSV file and extracts data from specific columns
 tags:
     - files
     - CSV
-level: 3
+level: 4
 prompt: |-
     Question:
     Write a function called `read_csv_file` that takes a file path and a list of column names as input, and returns a list of dictionaries containing the data from the specified columns in the CSV file. The function should read the CSV file, extract the data from the specified columns, and return a list of dictionaries where each dictionary represents a row of data.

@@ -1,7 +1,7 @@
 title: Count the number of odd numbers in a given list
 tags:
     - loops
-level: 1
+level: 2
 prompt: |-
     Question:
     Write a function called `count_odd_numbers` that takes a list of integers as input and returns the count of odd numbers in the list. Use a while loop to iterate through each element in the list and count the number of odd numbers.

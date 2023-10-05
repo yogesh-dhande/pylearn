@@ -2,7 +2,7 @@ title: Find common elements between two lists
 tags:
     - zip
     - lists
-level: 2
+level: 3
 prompt: |-
     Question:
     Write a function called `find_common_elements` that takes two lists as input and returns a new list containing the common elements between the two input lists. Use `zip` to pair the elements and find the common elements.

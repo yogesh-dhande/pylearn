@@ -2,7 +2,7 @@ title: Filter a dictionary to include only the key-value pairs where the value i
 tags:
     - comprehension
     - dictionaries
-level: 2
+level: 3
 prompt: |-
     Question:
     Write a function called `filter_even_values` that takes a dictionary as input and returns a new dictionary containing only the key-value pairs where the value is an even number. Use dictionary comprehension to create the new dictionary.

@@ -2,7 +2,7 @@ title: Find unique elements in a given list
 tags:
     - sets
     - lists
-level: 2
+level: 3
 prompt: |-
     Question:
     Write a function called `find_unique_elements` that takes a list as input and returns a new list containing the unique elements from the input list. Use sets to find the unique elements.

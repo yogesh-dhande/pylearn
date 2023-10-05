@@ -1,7 +1,7 @@
 title: Count the number of vowels in a given string
 tags:
     - loops
-level: 1
+level: 2
 prompt: |-
     Question:
     Write a function called count_vowels that takes a string as input and returns the count of vowels (a, e, i, o, u) in the string. Use a for loop to iterate through each character in the string and count the number of vowels. Ignore case sensitivity, meaning 'A' and 'a' should be considered the same vowel.

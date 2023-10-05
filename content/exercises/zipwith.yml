@@ -3,7 +3,7 @@ title: Apply a function to corresponding elements of multiple lists
 tags:
     - lists
     - functional-programming
-level: 2
+level: 3
 prompt: |-
     Question:
     Write a function called zipwith that takes a function `f` and an arbitrary number of lists as input. The function should return a list where each element is the result of applying `f` to the corresponding elements of the given lists.

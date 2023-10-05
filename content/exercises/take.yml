@@ -2,7 +2,7 @@ slug: take-function
 title: Take the first n elements from a sequence
 tags:
     - lists
-level: 1
+level: 2
 prompt: |-
     Question:
     Write a function called take that takes a number `n` and a sequence `seq` as input. The function should return a list containing the first `n` elements of `seq`.

@@ -2,7 +2,7 @@ title: Calculate the square root of each element in the given list
 tags:
     - loops
     - math
-level: 2
+level: 3
 prompt: |-
     Question:
     Write a function called `calculate_square_root` that takes a list of numbers as input and returns a new list where each element is the square root of the corresponding element in the input list. Use a for loop with the `math` library to perform the square root calculation.

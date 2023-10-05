@@ -2,7 +2,7 @@ slug: find-largest-value-tree
 title: Find the largest value in a tree
 tags:
     - recursion
-level: 1
+level: 2
 prompt: |-
     Question:
     Write a function called find_largest_value_tree that takes a tree structure as input and finds the largest value in the tree. The tree structure is represented as nested lists, where each list can contain either numbers or nested lists. The function should return the largest value found in the tree.

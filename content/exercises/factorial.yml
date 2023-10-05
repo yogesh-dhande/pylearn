@@ -2,7 +2,7 @@ title: Calculate the factorial of the given number
 tags:
     - loops
     - math
-level: 2
+level: 3
 prompt: |-
     Question:
     Write a function called `calculate_factorial` that takes an integer as input and returns the factorial of that number. Use a for loop with the `math` library to perform the factorial calculation.

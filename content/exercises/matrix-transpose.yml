@@ -2,7 +2,7 @@ title: Transpose a matrix
 tags:
     - zip
     - matrices
-level: 3
+level: 4
 prompt: |-
     Question:
     Write a function called `transpose_matrix` that takes a matrix represented as a list of lists and returns the transposed matrix. Use `zip` to transpose the matrix.
