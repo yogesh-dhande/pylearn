@@ -56,33 +56,31 @@
     <div class="grid grid-cols-2 gap-8 sm:gap-16 my-12 sm:my-24">
       <div
         v-if="prev?._path.includes('/concepts/')"
-        class="bg-gray-100 hover:bg-gray-200 group relative border border-gray-500 rounded-md p-4"
+        class="bg-gray-100 hover:bg-gray-200 border border-gray-500 rounded-md p-4"
       >
-        <h3
-          class="mt-2 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600"
-        >
-          <NuxtLink :to="prev._path">
-            <span class="absolute inset-0" />
+        <div class="flex flex-col items-start">
+          <NuxtLink
+            :to="prev._path"
+            class="text-right mt-2 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600"
+          >
             {{ prev.heading }}
           </NuxtLink>
-        </h3>
-        <ArrowLongLeftIcon class="h-8 w-8" />
+          <ArrowLongLeftIcon class="h-8 w-8" />
+        </div>
       </div>
       <div v-else></div>
 
       <div
         v-if="next?._path.includes('/concepts/')"
-        class="bg-gray-100 hover:bg-gray-200 group relative border border-gray-500 rounded-md p-4"
+        class="bg-gray-100 hover:bg-gray-200 border border-gray-500 rounded-md p-4"
       >
-        <h3
-          class="mt-2 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600"
-        >
-          <NuxtLink :to="next._path">
-            <span class="absolute inset-0" />
+        <div class="flex flex-col items-end">
+          <NuxtLink
+            :to="next._path"
+            class="text-right mt-2 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600"
+          >
             {{ next.heading }}
           </NuxtLink>
-        </h3>
-        <div class="flex justify-end">
           <ArrowLongRightIcon class="h-8 w-8" />
         </div>
       </div>
