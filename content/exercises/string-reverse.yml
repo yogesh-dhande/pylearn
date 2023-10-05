@@ -40,4 +40,3 @@ tests: |-
         assert reverse_string("Python is awesome") == "emosewa si nohtyP"
         assert reverse_string("No reversal here") == "ereh lasrever oN"
         assert reverse_string("") == ""
-        print("All test cases pass")

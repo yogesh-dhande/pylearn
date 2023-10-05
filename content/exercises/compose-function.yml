@@ -38,4 +38,3 @@ tests: |-
         assert composed(10) == -20
         assert composed(-3) == 6
         assert composed(0) == 0
-        print("All test cases pass")

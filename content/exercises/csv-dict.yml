@@ -52,4 +52,3 @@ tests: |-
 
         data = read_csv_file(file_path, ["Name", "Age", "City"])
         assert data == [{"Name": "John", "Age": "25", "City": "New York"}, {"Name": "Emma", "Age": "30", "City": "London"}]
-        print("All test cases pass")

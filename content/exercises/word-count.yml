@@ -56,5 +56,3 @@ tests: |-
             file.write("")
         word_frequency = count_word_frequency(file_path)
         assert word_frequency == {}
-
-        print("All test cases pass")

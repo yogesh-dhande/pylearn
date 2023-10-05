@@ -2,7 +2,7 @@ slug: sub-function
 title: Subtract all the arguments from the first argument to the function
 tags:
     - functions
-level: 2
+level: 3
 prompt: |-
     Question:
     Write a function called sub that takes multiple arguments and subtracts all the arguments (except the first one) from the first argument. The function should return the result of the subtraction.
@@ -36,4 +36,3 @@ tests: |-
         assert sub(5.5, 1.2, 0.8, 2.1) == 1.4
         assert sub(0) == 0
         assert sub(-10, -2, -3, -4) == -1
-        print("All test cases pass")

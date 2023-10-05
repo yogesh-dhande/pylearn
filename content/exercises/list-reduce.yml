@@ -38,4 +38,3 @@ tests: |-
         assert reduce_lists(lambda x, y: x - y, [10, 5, 2]) == 3
         assert reduce_lists(lambda x, y: x + y, ["hello", " ", "world"]) == "hello world"
         assert reduce_lists(lambda x, y: x + y, ["apple", " ", "banana", " ", "cherry"]) == "apple banana cherry"
-        print("All test cases pass")

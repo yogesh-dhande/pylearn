@@ -39,4 +39,3 @@ tests: |-
         assert calculate_square_root([1, 2, 3, 4, 5]) == [1.0, 1.4142135623730951, 1.7320508075688772, 2.0, 2.23606797749979]
         assert calculate_square_root([0, 10, 20, 30]) == [0.0, 3.1622776601683795, 4.47213595499958, 5.477225575051661]
         assert calculate_square_root([]) == []
-        print("All test cases pass")

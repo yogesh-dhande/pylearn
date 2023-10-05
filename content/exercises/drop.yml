@@ -34,4 +34,3 @@ tests: |-
         assert drop(5, [1, 2, 3]) == []
         assert drop(0, [1, 2, 3, 4, 5]) == [1, 2, 3, 4, 5]
         assert drop(4, []) == []
-        print("All test cases pass")

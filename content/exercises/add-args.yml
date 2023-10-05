@@ -33,4 +33,3 @@ tests: |-
         assert add(2.5, 3.7, 1.8) == 8.0
         assert add(0) == 0
         assert add(-1, -2, -3, -4, -5) == -15
-        print("All test cases pass")

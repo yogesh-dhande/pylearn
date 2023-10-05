@@ -2,7 +2,7 @@ slug: partition-function
 title: Partition a sequence into sublists
 tags:
     - lists
-level: 2
+level: 3
 prompt: |-
     Question:
     Write a function called partition that takes the arguments `n`, `step`, and `seq` (a number, a number, and a sequence) as input. The function should partition the sequence into sublists of `n` elements, stepping forward `step` steps each time. It should return a list of the sublists.
@@ -40,4 +40,3 @@ tests: |-
         assert partition(4, 1, [1, 2, 3, 4, 5, 6, 7, 8, 9]) == [[1, 2, 3, 4], [2, 3, 4, 5], [3, 4, 5, 6], [4, 5, 6, 7], [5, 6, 7, 8], [6, 7, 8, 9]]
         assert partition(3, 4, [1, 2, 3, 4, 5, 6, 7, 8, 9]) == [[1, 2, 3], [5, 6, 7]]
         assert partition(5, 5, [1, 2, 3, 4, 5, 6, 7, 8, 9]) == [[1, 2, 3, 4, 5]]
-        print("All test cases pass")

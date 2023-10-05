@@ -36,4 +36,3 @@ tests: |-
         assert count_element_frequency([1, 1, 1, 1, 1]) == {1: 5}
         assert count_element_frequency([]) == {}
         assert count_element_frequency(["apple", "banana", "apple", "banana", "cherry"]) == {"apple": 2, "banana": 2, "cherry": 1}
-        print("All test cases pass")

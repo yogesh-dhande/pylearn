@@ -40,4 +40,3 @@ tests: |-
         assert group_by(lambda x: x.isupper(), ['Hello', 'WORLD', 'Python']) == {True: ['WORLD'], False: ['Hello', 'Python']}
         assert group_by(lambda x: x[0], ['apple', 'banana', 'cherry']) == {'a': ['apple'], 'b': ['banana'], 'c': ['cherry']}
         assert group_by(lambda x: x % 2, []) == {}
-        print("All test cases pass")

@@ -2,7 +2,7 @@ slug: interleave-function
 title: Interleave an arbitrary number of lists
 tags:
     - lists
-level: 2
+level: 3
 prompt: |-
     Question:
     Write a function called interleave that takes an arbitrary number of lists as input and interleaves them. The function should return a new sequence where the elements from each input sequence are interleaved in order.
@@ -39,4 +39,3 @@ tests: |-
         assert interleave([], [], []) == []
         assert interleave([1, 2, 3], []) == [1, 2, 3]
         assert interleave([], [1, 2, 3]) == [1, 2, 3]
-        print("All test cases pass")

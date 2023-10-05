@@ -36,4 +36,3 @@ tests: |-
         assert calculate_sum_of_squares([1, 2, 3, 4, 5]) == 55
         assert calculate_sum_of_squares([0, 10, 20, 30]) == 1400
         assert calculate_sum_of_squares([]) == 0
-        print("All test cases pass")

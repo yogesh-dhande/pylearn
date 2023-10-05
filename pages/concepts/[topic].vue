@@ -27,20 +27,20 @@
             <ChevronDoubleUpIcon v-else class="h-6 w-6" />
           </div>
         </div>
-        <div class="relative mt-2 flex-1">
+        <div class="mt-2 flex-1">
           <!-- Content -->
           <div v-if="open" class="grid grid-cols-2">
-            <div class="bg-slate-800">
-              <AceEditor v-model="code" :readonly="false"></AceEditor>
-            </div>
-            <div class="p-4 bg-gray-100">
+            <div class="bg-slate-800 relative">
               <button
-                class="flex items-center bg-gray-600 hover:bg-gray-700 text-gray-100 px-3 py-1 rounded-md"
+                class="absolute right-2 top-2 z-10 inline-flex items-center bg-cyan-600 hover:bg-cyan-700 text-gray-100 px-3 py-1 rounded-md"
                 @click="runCode(code)"
               >
                 <PlayIcon class="h-5 w-5 inline-block mr-1" />
                 <div>Run</div>
               </button>
+              <AceEditor v-model="code" :readonly="false"></AceEditor>
+            </div>
+            <div class="p-4 bg-gray-100">
               <div
                 v-if="showOutput"
                 id="pyodide-output"

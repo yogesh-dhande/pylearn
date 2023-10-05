@@ -32,4 +32,3 @@ tests: |-
         assert sorted(find_unique_characters("mississippi")) == sorted("misp")
         assert sorted(find_unique_characters("abcde")) == sorted("abcde")
         assert find_unique_characters("") == ""
-        print("All test cases pass")

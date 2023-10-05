@@ -44,4 +44,3 @@ tests: |-
       assert extract_email_addresses("Please send your feedback to feedback@example.com") == ["feedback@example.com"]
       assert extract_email_addresses("No email addresses in this string.") == []
       assert extract_email_addresses("") == []
-      print("All test cases pass")

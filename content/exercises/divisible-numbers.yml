@@ -36,4 +36,3 @@ tests: |-
         assert divisible_numbers([2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029]) == "2022,2025,2028"
         assert divisible_numbers([2030, 2031, 2032, 2033, 2034, 2035, 2036, 2037, 2038, 2039]) == "2031,2034"
         assert divisible_numbers([]) == ""
-        print("All test cases pass")

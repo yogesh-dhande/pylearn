@@ -81,5 +81,3 @@ tests: |-
             {"name": "Sarah", "age": 30}
         ]
         assert sort_students(students) == sorted_students
-
-        print("All test cases pass")

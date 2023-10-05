@@ -37,4 +37,3 @@ tests: |-
         assert count_odd_numbers([2, 4, 6, 8, 10]) == 0
         assert count_odd_numbers([1, 3, 5, 7, 9]) == 5
         assert count_odd_numbers([]) == 0
-        print("All test cases pass")

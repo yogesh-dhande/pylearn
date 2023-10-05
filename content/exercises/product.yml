@@ -36,4 +36,3 @@ tests: |-
         assert calculate_product([1, 2, 3, 4, 5]) == 120
         assert calculate_product([0, 10, 20, 30]) == 0
         assert calculate_product([]) == 1
-        print("All test cases pass")

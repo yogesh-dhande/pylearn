@@ -35,4 +35,3 @@ tests: |-
         assert combine_lists([0, 0, 0, 0, 0], [1, 2, 3, 4, 5]) == [1, 2, 3, 4, 5]
         assert combine_lists([-1, -2, -3, -4, -5], [1, 2, 3, 4, 5]) == [0, 0, 0, 0, 0]
         assert combine_lists([], []) == []
-        print("All test cases pass")

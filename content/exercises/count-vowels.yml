@@ -36,4 +36,3 @@ tests: |-
         assert count_vowels("No vowels here") == 5
         assert count_vowels("AEIOU") == 5
         assert count_vowels("") == 0
-        print("All test cases pass")

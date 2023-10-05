@@ -32,4 +32,3 @@ tests: |-
         assert find_unique_elements([1, 1, 1, 1, 1]) == [1]
         assert find_unique_elements([]) == []
         assert sorted(find_unique_elements(["apple", "banana", "apple", "banana", "cherry"])) == ["apple", "banana", "cherry"]
-        print("All test cases pass")

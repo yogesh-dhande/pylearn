@@ -45,4 +45,3 @@ tests: |-
         assert validate_email_address("user@domain.") == False
         assert validate_email_address("user@domain.c") == False
         assert validate_email_address("user@domain.com") == True
-        print("All test cases pass")

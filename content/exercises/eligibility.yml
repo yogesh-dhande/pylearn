@@ -37,4 +37,3 @@ tests: |-
         assert check_voting_eligibility(20) == "Eligible to vote"
         assert check_voting_eligibility(16) == "Not eligible to vote"
         assert check_voting_eligibility(18) == "Eligible to vote"
-        print("All test cases pass")

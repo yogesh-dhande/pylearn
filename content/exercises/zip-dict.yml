@@ -35,4 +35,3 @@ tests: |-
         assert create_dictionary(["x", "y", "z"], [10, 20, 30]) == {"x": 10, "y": 20, "z": 30}
         assert create_dictionary([], []) == {}
         assert create_dictionary(["key"], [100]) == {"key": 100}
-        print("All test cases pass")

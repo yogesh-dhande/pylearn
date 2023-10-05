@@ -45,4 +45,3 @@ tests: |-
         assert balanced(")))") == False
         assert balanced("({[})") == False
         assert balanced("") == True
-        print("All test cases pass")

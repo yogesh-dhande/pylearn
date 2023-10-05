@@ -35,4 +35,3 @@ tests: |-
         assert classify_number(5) == "Positive"
         assert classify_number(-10) == "Negative"
         assert classify_number(0) == "Zero"
-        print("All test cases pass")

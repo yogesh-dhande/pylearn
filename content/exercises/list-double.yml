@@ -37,4 +37,3 @@ tests: |-
         assert multiply_list([0, 10, 20, 30]) == [0, 20, 40, 60]
         assert multiply_list([-1, -2, -3, -4]) == [-2, -4, -6, -8]
         assert multiply_list([]) == []
-        print("All test cases pass")

@@ -35,4 +35,3 @@ tests: |-
         assert filter_lists(lambda x: x.isupper(), ["Hello", "WORLD", "Python"]) == ["WORLD"]
         assert filter_lists(lambda x: len(x) > 3, ["apple", "banana", "cherry"]) == ["apple", "banana", "cherry"]
         assert filter_lists(lambda x: x.startswith("a"), ["apple", "banana", "cherry"]) == ["apple"]
-        print("All test cases pass")

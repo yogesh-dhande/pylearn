@@ -32,4 +32,3 @@ tests: |-
         assert order_list(["zebra", "lion", "tiger", "elephant"]) == ['zebra', 'tiger', 'lion', 'elephant']
         assert order_list(["orange", "apple", "banana", "grapefruit"]) == ['orange', 'grapefruit', 'banana', 'apple']
         assert order_list([]) == []
-        print("All test cases pass")

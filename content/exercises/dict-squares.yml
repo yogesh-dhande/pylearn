@@ -32,4 +32,3 @@ tests: |-
         assert square_dict_values({"x": 0, "y": 1, "z": 2}) == {"x": 0, "y": 1, "z": 4}
         assert square_dict_values({}) == {}
         assert square_dict_values({"p": 5, "q": 6, "r": 7}) == {"p": 25, "q": 36, "r": 49}
-        print("All test cases pass")

@@ -1,36 +1,36 @@
 slug: exclude-first-last-items
 title: Exclude the first and last items in a list
 tags:
-  - lists
+    - lists
 level: 2
 prompt: |-
-  Question:
-  Write a function called exclude_first_last_items that takes a list as input and returns a new list that contains all elements of the original list except for the first and last items.
+    Question:
+    Write a function called exclude_first_last_items that takes a list as input and returns a new list that contains all elements of the original list except for the first and last items.
 
-  Example:
-  Input: exclude_first_last_items([1, 2, 3, 4, 5])
-  Output: [2, 3, 4]
+    Example:
+    Input: exclude_first_last_items([1, 2, 3, 4, 5])
+    Output: [2, 3, 4]
 starter: |-
-  def exclude_first_last_items(lst):
-    """
-    Returns a new list that contains all elements of the original list except for the first and last items.
+    def exclude_first_last_items(lst):
+      """
+      Returns a new list that contains all elements of the original list except for the first and last items.
 
-    Args:
-      lst (list): The input list.
+      Args:
+        lst (list): The input list.
 
-    Returns:
-      list: The new list with excluded first and last items.
-    """
-    # TODO: Implement the exclude_first_last_items function
-    pass
+      Returns:
+        list: The new list with excluded first and last items.
+      """
+      # TODO: Implement the exclude_first_last_items function
+      pass
 solution: |-
-  def exclude_first_last_items(lst):
-    return lst[1:-1]
+    def exclude_first_last_items(lst):
+      return lst[1:-1]
 tests: |-
-  def test_exclude_first_last_items():
-    assert exclude_first_last_items([1, 2, 3, 4, 5]) == [2, 3, 4]
-    assert exclude_first_last_items(["apple", "banana", "cherry"]) == ["banana"]
-    assert exclude_first_last_items(["Hello", "World"]) == []
-    assert exclude_first_last_items([1]) == []
-    assert exclude_first_last_items([]) == []
-    print("All test cases pass")
+    def test_exclude_first_last_items():
+      assert exclude_first_last_items([1, 2, 3, 4, 5]) == [2, 3, 4]
+      assert exclude_first_last_items(["apple", "banana", "cherry"]) == ["banana"]
+      assert exclude_first_last_items(["Hello", "World"]) == []
+      assert exclude_first_last_items([1]) == []
+      assert exclude_first_last_items([]) == []
+

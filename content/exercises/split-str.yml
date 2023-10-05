@@ -31,4 +31,3 @@ tests: |-
         assert generate_list("1,2,3,4,5") == ['1', '2', '3', '4', '5']
         assert generate_list("10,20,30,40,50") == ['10', '20', '30', '40', '50']
         assert generate_list("") == []
-        print("All test cases pass")

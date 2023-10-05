@@ -38,4 +38,3 @@ tests: |-
         assert calculate_depth_tree([0, [0, [0, 0]], 0]) == 3
         assert calculate_depth_tree([1, [2, [3, [4, [5, [6, [7, [8, [9]]]]]]]]]) == 9
         assert calculate_depth_tree([]) == 0
-        print("All test cases pass")
