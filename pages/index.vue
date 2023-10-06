@@ -1,25 +1,32 @@
 <template>
   <div>
     <div
-      class="relative isolate overflow-hidden bg-gradient-to-b from-indigo-100/20"
+      class="relative isolate overflow-hidden bg-gradient-to-b from-indigo-100/20 max-w-7xl"
     >
+      <h2
+        class="mt-12 sm:my-24 text-center text-4xl sm:text-6xl lg::text-7xl font-bold tracking-tight text-gray-900"
+      >
+        Coding videos are great.<br />
+        <span class="text-purple-600">Hands-on practice is better!</span>
+      </h2>
       <div
-        class="mx-auto max-w-7xl pb-24 pt-10 sm:pb-32 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:py-24"
+        class="mx-auto pb-24 pt-4 sm:pb-32 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8"
       >
         <div class="px-6 lg:px-0 lg:pt-4">
           <div class="mx-auto max-w-5xl">
             <div class="max-w-lg">
-              <h1
-                class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
+              <h2
+                class="mt-12 text-3xl sm:text-5xl font-bold tracking-tight text-gray-900"
               >
-                Practice
-                <span class="text-purple-600">Python</span> with Hands-on
-                <span class="text-purple-600">Exercises!</span>
-              </h1>
+                The fastest way to learn Python online.
+              </h2>
               <p class="mt-6 text-lg leading-8 text-gray-600">
-                No sign-ups, no payments, no commitments - just pure Python
-                learning. Start coding, exploring, and discovering the wonders
-                of Python today!
+                Learn python by solving coding challenges.
+                <span class="text-purple-600 font-semibold"
+                  >No sign-ups, no payments, no commitments</span
+                >
+                - just pure Python learning. Start coding, exploring, and
+                discovering the wonders of Python today!
               </p>
               <div class="mt-10 flex items-center gap-x-6">
                 <NuxtLink
@@ -29,7 +36,7 @@
                 >
                 <NuxtLink
                   href="/concepts"
-                  class="text-sm font-semibold leading-6 text-gray-900"
+                  class="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600"
                   >Read Articles <span aria-hidden="true">→</span></NuxtLink
                 >
               </div>
@@ -82,7 +89,7 @@
           <p
             class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
           >
-            Learn By Doing
+            Learn by doing
           </p>
           <p class="mt-6 text-lg sm:text-xl leading-8 text-gray-600">
             We believe that the best way to learn Python is through hands-on
@@ -102,7 +109,7 @@
           <p
             class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
           >
-            No Sign-ups, No Hassle
+            No sign-ups, no hassle
           </p>
           <p class="mt-6 text-lg sm:text-xl leading-8 text-gray-600">
             Unlike other platforms, PythonExercises.com doesn't require you to
@@ -121,7 +128,7 @@
           <p
             class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
           >
-            Code in the browser
+            Code directly in the browser
           </p>
           <p class="mt-6 text-lg sm:text-xl leading-8 text-gray-600">
             Don’t let the complexity of installing python and managing
@@ -129,7 +136,7 @@
             the browser.
           </p>
         </div>
-        <div class="mt-10 flex justify-center items-center gap-x-6">
+        <div class="mt-10 flex sm:justify-center items-center gap-x-6">
           <NuxtLink
             href="/exercises"
             class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -137,7 +144,7 @@
           >
           <NuxtLink
             href="/concepts"
-            class="text-sm font-semibold leading-6 text-gray-900"
+            class="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600"
             >Read Articles <span aria-hidden="true">→</span></NuxtLink
           >
         </div>
