@@ -3,12 +3,12 @@
     <div
       class="relative isolate overflow-hidden bg-gradient-to-b from-indigo-100/20 max-w-7xl"
     >
-      <h2
+      <h1
         class="mt-12 sm:my-24 text-center text-4xl sm:text-6xl lg::text-7xl font-bold tracking-tight text-gray-900"
       >
         Coding videos are great.<br />
         <span class="text-purple-600">Hands-on practice is better!</span>
-      </h2>
+      </h1>
       <div
         class="mx-auto pb-24 pt-4 sm:pb-32 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8"
       >
@@ -16,7 +16,7 @@
           <div class="mx-auto max-w-5xl">
             <div class="max-w-lg">
               <h2
-                class="mt-12 text-3xl sm:text-5xl font-bold tracking-tight text-gray-900"
+                class=" text-3xl sm:text-5xl font-bold tracking-tight text-gray-900"
               >
                 The fastest way to learn Python online.
               </h2>
@@ -44,7 +44,7 @@
           </div>
         </div>
         <div
-          class="mt-20 sm:mt-24 md:mx-auto md:max-w-2xl lg:mx-0 lg:mt-0 lg:w-screen"
+          class="mt-20 sm:mt-24 md:mx-auto md:max-w-2xl lg:mx-0 lg:mt-0 "
         >
           <div
             class="absolute inset-y-0 right-1/2 -z-10 -mr-10 w-[200%] skew-x-[-30deg] bg-gray-50 shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 md:-mr-20 lg:-mr-36"
@@ -55,7 +55,7 @@
               class="bg-gray-50 [clip-path:inset(0)] md:[clip-path:inset(0_round_theme(borderRadius.3xl))]"
             >
               <div
-                class="absolute -inset-y-px left-1/2 -z-10 ml-10 w-[200%] skew-x-[-30deg] bg-indigo-100 opacity-20 ring-1 ring-inset ring-white md:ml-20 lg:ml-36"
+                class="absolute -z-10 ml-10 w-[200%] skew-x-[-30deg] bg-indigo-100 opacity-20 ring-1 ring-inset ring-white md:ml-20 lg:ml-36"
                 aria-hidden="true"
               />
               <div class="relative">
