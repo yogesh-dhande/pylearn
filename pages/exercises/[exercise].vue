@@ -4,6 +4,7 @@
     <div class="flex mt-4 mb-8">
       <ExerciseTags :exercise="page" />
     </div>
+
     <p v-html="prompt" class="text-lg"></p>
     <div class="my-8">
       <TabGroup>
@@ -97,21 +98,13 @@
         </p>
       </div>
     </div>
-    <div class="flex justify-between space-x-2 my-2">
-      <NuxtLink
-        v-if="prev?._path.includes('/exercises/')"
-        :to="prev._path"
-        class="bg-gray-600 hover:bg-gray-700 text-gray-100 px-6 py-2 rounded shadow"
-        >Previous</NuxtLink
-      >
 
-      <NuxtLink
-        v-if="next?._path.includes('/exercises/')"
-        :to="next._path"
-        class="bg-gray-600 hover:bg-gray-700 text-gray-100 px-6 py-2 rounded shadow"
-        >Next</NuxtLink
-      >
-    </div>
+    <h5 class="font-bold text-lg">Related exercises</h5>
+    <ul class="my-2">
+      <li class="list-disc ml-4" v-for="relatedExercise in related" :key="relatedExercise._path" >
+        <NuxtLink :to="relatedExercise._path" class="block my-2 underline text-cyan-600 hover:text-cyan-700">{{ relatedExercise.title }}</NuxtLink>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -166,14 +159,9 @@ const {
   });
 });
 
-const { data } = await useAsyncData(() =>
-  queryContent("exercises")
-    .only(["_path", "title"])
-    .findSurround(page.value._path)
-);
-const [prev, next] = data.value;
+const exercises = await queryContent("exercises").only(["_path", "title", "tags"]).find();
+
+const related = exercises.filter(e => e.tags && e.tags.includes(page.value.tags[0]) && e._path != page.value._path)
 </script>
 
 
-<style scoped>
-</style>
