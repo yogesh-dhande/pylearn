@@ -155,4 +155,7 @@
 
 <script setup>
 import { ChevronRightIcon } from "@heroicons/vue/20/solid";
+definePageMeta({
+  documentDriven: false,
+});
 </script>
