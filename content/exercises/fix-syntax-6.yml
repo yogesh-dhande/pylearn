@@ -10,17 +10,17 @@ prompt: |
 
 starter: |
   # Fix the syntaxt in the code below
-  def add(a, b):
+  def add_two(a, b):
     return a + b
 
-  total = add(2; 6)
+  total = add_two(2; 6)
   print(total)
 solution: |
   # Fix: inputs to the function are separated by commas (2, 6), not semicolons
-  def add(a, b):
+  def add_two(a, b):
     return a + b
 
-  total = add(2, 6)
+  total = add_two(2, 6)
   print(total)
 tests: |
   # There are no tests for this code as it is just a syntax fix

@@ -17,7 +17,7 @@ solution: |
   # we can enclose the string in double quotes
 
   # Approach # 1
-  message = 'It\'s so good!'
+  message = 'Its so good!'
   print(message)  # output: It's so good!
 
   # Approach # 2

@@ -17,7 +17,7 @@ starter: |
 solution: |
   # Fix: remove indentation (extra space at the beginnng) from the line ` fruits.append("pear")`
   fruits = ["mango", "banana", "guava"]
-    fruits.append("pear")
+  fruits.append("pear")
   print(fruits)
 tests: |
   # There are no tests for this code as it is just a syntax fix

@@ -10,17 +10,17 @@ prompt: |
 
 starter: |
   # Fix the syntaxt in the code below
-  def add(a, b):
+  def add_two(a, b):
     return a + b
 
-  total = add[2, 6]
+  total = add_two[2, 6]
   print(total)
 solution: |
   # Fix: functions are invoked with parenthesis `()`, not brackets `[]`
-  def add(a, b):
+  def add_two(a, b):
     return a + b
 
-  total = add(2, 6)
+  total = add_two(2, 6)
   print(total)
 tests: |
   # There are no tests for this code as it is just a syntax fix

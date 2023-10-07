@@ -16,7 +16,7 @@ starter: |
 solution: |
   # Fix: it should be `for fruit in fruits`, not `for fruit of fruits`
   fruits = ["apple", "banana", "pear"]
-  for fruit of fruits:
+  for fruit in fruits:
     print(fruit)
 tests: |
   # There are no tests for this code as it is just a syntax fix

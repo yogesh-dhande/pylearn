@@ -16,7 +16,7 @@ starter: |
 solution: |
   # Fix: items are retrieved from lists with brackets `[]`, not parenthesis `()`
   fruits = ["apple", "mango", "pear"]
-  favorite = fruits(1)  # mango
+  favorite = fruits[1]  # mango
   print(favorite)
 tests: |
   # There are no tests for this code as it is just a syntax fix

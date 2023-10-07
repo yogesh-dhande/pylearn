@@ -62,4 +62,7 @@ export default defineNuxtConfig({
       routes: ["/sitemap.xml"],
     },
   },
+  ignore: [
+    'pages/exercises/test',
+  ]
 });
