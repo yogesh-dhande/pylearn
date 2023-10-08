@@ -20,7 +20,7 @@
           <div v-for="topic in list" :key="topic._path" class="my-4">
             <NuxtLink
               :to="topic._path"
-              class="underline text-gray-900 hover:text-cyan-600 text-lg font-semibold leading-6"
+              class="underline text-gray-900 hover:text-indigo-600 text-lg font-semibold leading-6"
             >
               {{ topic.heading }}
             </NuxtLink>

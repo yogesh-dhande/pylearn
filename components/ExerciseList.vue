@@ -5,7 +5,7 @@
         <div class="max-w-lg mr-4">
           <NuxtLink
             :to="exercise._path"
-            class="text-lg sm:text-xl font-semibold leading-6 text-gray-900 hover:text-cyan-600"
+            class="text-lg sm:text-xl font-semibold leading-6 text-gray-900 hover:text-indigo-600"
           >
             {{ exercise.title }}
           </NuxtLink>

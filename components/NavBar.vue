@@ -7,7 +7,7 @@
         <div class="absolute inset-y-0 left-0 flex items-center lg:hidden">
           <!-- Mobile menu button-->
           <button
-            class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-cyan-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-100"
+            class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-indigo-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-100"
             aria-expanded="false"
             @click="showMobileMenu = !showMobileMenu"
           >
@@ -60,11 +60,11 @@
           class="flex-1 flex space-x-4 items-center justify-center lg:justify-start"
         >
           <div
-            class="flex-shrink-0 text-gray-700 hover:text-cyan-600 text-2xl flex items-center border-transparent"
+            class="flex-shrink-0 text-gray-700 hover:text-indigo-600 text-2xl flex items-center border-transparent"
           >
             <nuxt-link to="/" class="">
               <span
-                class="text-lg sm:text-xl font-semibold leading-tight text-gray-700 hover:text-cyan-600"
+                class="text-lg sm:text-xl font-semibold leading-tight text-gray-700 hover:text-indigo-600"
               >
                 🐍
               </span>
@@ -77,13 +77,13 @@
             <div class="flex space-x-4 items-center">
               <nuxt-link
                 to="/exercises"
-                class="px-4 py-2 text-lg sm:text-xl font-semibold text-gray-700 hover:text-cyan-600 border-transparent"
+                class="px-4 py-2 text-lg sm:text-xl font-semibold text-gray-700 hover:text-indigo-600 border-transparent"
                 >Exercises
               </nuxt-link>
 
               <nuxt-link
                 to="/concepts"
-                class="px-4 py-2 text-lg sm:text-xl font-semibold text-gray-700 hover:text-cyan-600 border-transparent"
+                class="px-4 py-2 text-lg sm:text-xl font-semibold text-gray-700 hover:text-indigo-600 border-transparent"
                 >Concepts
               </nuxt-link>
             </div>
@@ -102,13 +102,13 @@
       >
         <nuxt-link
           to="/exercises"
-          class="block px-4 py-2 text-lg sm:text-xl font-semibold text-gray-700 hover:text-cyan-600 border-transparent"
+          class="block px-4 py-2 text-lg sm:text-xl font-semibold text-gray-700 hover:text-indigo-600 border-transparent"
           >Exercises
         </nuxt-link>
 
         <nuxt-link
           to="/concepts"
-          class="block px-4 py-2 text-lg sm:text-xl font-semibold text-gray-700 hover:text-cyan-600 border-transparent"
+          class="block px-4 py-2 text-lg sm:text-xl font-semibold text-gray-700 hover:text-indigo-600 border-transparent"
           >Concepts
         </nuxt-link>
       </div>

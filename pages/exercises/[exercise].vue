@@ -12,7 +12,7 @@
           <Tab as="template" v-slot="{ selected }">
             <button
               :class="[
-                'rounded-lg px-6 py-2.5 text-lg font-medium leading-5 text-indigo-700 ',
+                'rounded-lg px-6 py-2 text-sm font-bold leading-5 text-indigo-700 ',
                 'ring-white ring-opacity-60 ring-offset-2 ring-offset-indigo-400 focus:outline-none focus:ring-2',
                 selected
                   ? 'shadow bg-indigo-200 text-indigo-100  '
@@ -25,7 +25,7 @@
           <Tab as="template" v-slot="{ selected }">
             <button
               :class="[
-                'rounded-lg px-6 py-2.5 text-lg font-medium leading-5 text-indigo-700',
+                'rounded-lg px-6 py-2 text-sm font-bold leading-5 text-indigo-700',
                 'ring-white ring-opacity-60 ring-offset-2 ring-offset-indigo-400 focus:outline-none focus:ring-2',
                 selected
                   ? 'shadow bg-indigo-200  text-indigo-100  '
@@ -99,10 +99,10 @@
       </div>
     </div>
 
-    <h5 class="font-bold text-lg">Related exercises</h5>
+    <h5 class="mt-8 sm:mt-16 font-bold text-lg">Related exercises</h5>
     <ul class="my-2">
       <li class="list-disc ml-4" v-for="relatedExercise in related" :key="relatedExercise._path" >
-        <NuxtLink :to="relatedExercise._path" class="block my-2 underline text-cyan-600 hover:text-cyan-700">{{ relatedExercise.title }}</NuxtLink>
+        <NuxtLink :to="relatedExercise._path" class="my-2 underline text-indigo-600 hover:text-indigo-700">{{ relatedExercise.title }}</NuxtLink>
       </li>
     </ul>
   </div>
