@@ -1,7 +1,7 @@
 <template>
   <div class="py-12 sm:py-24">
     <div class="mx-auto max-w-5xl px-6 lg:px-8">
-      <div class="p-4">
+      <div class="p-4 text-center">
         <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-gray-900">
           {{ title }} Python Coding Exercises
         </h1>
@@ -9,9 +9,15 @@
           Write code and run it in real-time to get instant feedback on your
           progress.
         </p>
+        
+      </div>
+      <ExerciseList :exercises="exercises"> </ExerciseList>
+      <div class="mt-16 sm:mt-32">
+        <h3 class="text-2xl sm:text-4xl font-bold text-center">Looking for more?</h3>
+        <AllTags />
       </div>
 
-      <ExerciseList :exercises="exercises"> </ExerciseList>
+
     </div>
   </div>
 </template>

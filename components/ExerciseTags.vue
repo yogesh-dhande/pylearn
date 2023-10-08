@@ -32,7 +32,7 @@
       v-for="tag in exercise.tags"
       :key="tag"
       :to="`/exercises/tags/${tag}`"
-      class="rounded bg-gray-600 hover:bg-cyan-600 hover:shadow-lg text-gray-100 font-medium text-base px-2 py-0.5 mr-1"
+      class="rounded bg-gray-600 hover:bg-cyan-600 hover:shadow-lg text-gray-100 font-medium text-base px-2 py-0.5 mr-1 mt-1"
     >
       {{ tag }}
     </NuxtLink>
