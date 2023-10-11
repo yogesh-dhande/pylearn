@@ -45,9 +45,9 @@
                 <div class="relative group">
                   <div class="z-10 absolute top-0 right-0 flex flex-col items-center hidden mr-8 group-hover:flex">
                     <p class="bg-gray-700 text-gray-100 w-80 px-3 py-2 rounded shadow text-sm">Code is executed with <a
-                        href="https://pyodide.org/">Pyodide</a>,
+                        href="https://pyodide.org/" class="underline text-indigo-400 hover:text-indigo-500">Pyodide</a>,
                       a port of CPython to WebAssembly/Emscripten. Some <a
-                        href="https://pyodide.org/en/stable/usage/wasm-constraints.html">functionality</a> in Python may
+                        href="https://pyodide.org/en/stable/usage/wasm-constraints.html" class="underline text-indigo-400 hover:text-indigo-500">functionality</a> in Python may
                       not be avaiable or may not work as expected.</p>
 
                   </div>
