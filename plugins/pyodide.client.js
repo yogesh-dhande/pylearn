@@ -1,24 +1,32 @@
-let pyodide = null;
+
 
 export default defineNuxtPlugin(async () => {
-  async function initializePyodide() {
-    if (!pyodide) {
-      // only load pyodide once and when needed
-      const _pyodide = await loadPyodide();
-      await _pyodide.loadPackage("pytest");
-      pyodide = _pyodide;
-      console.log("pyodide initialized");
+  
+
+  function getPyWorker(outputHandler) {
+    const pyWorker = new Worker("/sw.js");
+    pyWorker.postMessage({ type: "initialize" })
+    pyWorker.onmessage = e => {
+      if (e.data.type == "message") {
+        console.log(e.data.value)
+      } else if (e.data.type == "output") {
+        outputHandler(e.data.value)
+      }
     }
-  }
-  async function runPython(code) {
-    await initializePyodide();
-    return pyodide.runPythonAsync(code);
-  }
+
+    const worker = {
+      run(code) {
+        pyWorker.postMessage({ type: "run", code })
+      }
+    }
+      return worker
+
+    }
+
 
   return {
     provide: {
-      initializePyodide,
-      runPython,
+      getPyWorker,
     },
   };
 });

@@ -39,8 +39,7 @@
             <Submit
               v-if="!success"
               @click="runCode"
-              :is-loading="loading"
-              :errors="errors"
+              :is-loading="isLoading"
               label="Run"
               btnClasses="bg-green-600 hover:bg-green-700"
             />
@@ -116,6 +115,7 @@ const prompt = formatText(page.value.prompt);
 const code = ref(page.value.starter);
 const success = ref(false);
 const testOutput = ref("");
+const isLoading = ref(false)
 
 function formatText(text) {
   text = text.replaceAll("\n", "<br>");
@@ -123,10 +123,27 @@ function formatText(text) {
   //   text = text.replace("\\t", "&nbsp;&nbsp;&nbsp;&nbsp;");
   return text;
 }
-const { $initializePyodide, $analytics } = useNuxtApp();
+const { $getPyWorker, $analytics } = useNuxtApp();
+
+let pyWorker
+
+function outputHandler(output) {
+  testOutput.value = output
+  const failedRegex = /FAILED .+\.py::(.*?) -/g;
+  const matches = output.matchAll(failedRegex);
+  const failedTests = Array.from(matches, (match) => match[1]);
+
+  const errorRegex = /ERROR .+\.py/g;
+  success.value = failedTests.length === 0 && !output.match(errorRegex)
+  isLoading.value = false
+  $analytics.track("TEST_ATTEMPT", {
+    exercise: page.value._path,
+    pass: success.value,
+  });
+}
 
 onMounted(() => {
-  $initializePyodide();
+  pyWorker = $getPyWorker(outputHandler)
 });
 
 watch(code, () => {
@@ -142,22 +159,44 @@ ${page.value.tests}
 `;
 });
 
-const {
-  loading,
-  errors,
-  asyncHandler: runCode,
-} = useAsyncHandler(async () => {
-  const { result, pass } = await useTestRunner(
-    testFileContent.value,
-    page.value
-  );
-  testOutput.value = result;
-  success.value = pass;
-  $analytics.track("TEST_ATTEMPT", {
-    exercise: page.value._path,
-    pass: pass,
-  });
-});
+
+function runCode() {
+  isLoading.value = true
+  const filename = `${page.value._path.replace(
+    "/exercises/",
+    (Math.random() + 1).toString(36).substring(2, 5) + "_"
+  )}.py`;
+  const toRun = `
+import js
+import os
+import pytest
+from io import StringIO
+import sys
+import pyodide
+filename = "${filename}"
+
+with open(filename, "w+") as f:
+    f.write('''${testFileContent.value}''')
+
+# Capture the output
+output = StringIO()
+sys.stdout = output
+
+# Run the tests
+pytest.main(["-qq", filename])
+
+# Get the captured output
+captured_output = output.getvalue()
+
+# Restore the original stdout
+sys.stdout = sys.__stdout__
+
+captured_output
+                    
+`
+pyWorker.run(toRun)
+
+};
 
 const exercises = await queryContent("exercises").only(["_path", "title", "tags"]).find();
 

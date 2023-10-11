@@ -40,11 +40,10 @@
               </button>
               <AceEditor v-model="code" :readonly="false"></AceEditor>
             </div>
-            <div class="p-4 bg-gray-100">
+            <div class="p-4 bg-gray-200">
               <div
-                v-if="showOutput"
                 id="pyodide-output"
-                class="text-gray-700 leading-loose"
+                class="font-mono text-gray-700 leading-loose"
               ></div>
             </div>
           </div>
@@ -102,7 +101,7 @@ const { page } = useContent();
 
 const open = ref(true);
 const code = ref("");
-const showOutput = ref(false);
+const isLoading = ref(false)
 
 const { data } = await useAsyncData(() =>
   queryContent("/concepts")
@@ -111,16 +110,22 @@ const { data } = await useAsyncData(() =>
 );
 const [prev, next] = data.value;
 
-const { $runPython, $initializePyodide, $analytics } = useNuxtApp();
+const { $getPyWorker, $analytics } = useNuxtApp();
+
+let pyWorker
+
+function outputHandler(output) {
+  document.getElementById("pyodide-output").innerHTML = output
+  isLoading.value = false
+}
 
 onMounted(() => {
-  $initializePyodide();
+  pyWorker = $getPyWorker(outputHandler)
 });
 
 async function runCode(code) {
-  $analytics.track("CODE_ALONG", {
-    topic: page.value._path,
-  });
+  isLoading.value = true
+
   const toRun = `
 import js
 import sys
@@ -142,11 +147,13 @@ sys.stdout = sys.__stdout__
 captured_output = captured_output.replace("\\n", "<br>")
 captured_output = captured_output.replace(" ", "&nbsp;")
 captured_output = captured_output.replace("\\t", "&nbsp;&nbsp;&nbsp;&nbsp;")
-js.document.getElementById("pyodide-output").innerHTML = captured_output
+captured_output
 `;
-  showOutput.value = true;
-
-  return await $runPython(toRun);
+  
+  pyWorker.run(toRun);
+  $analytics.track("CODE_ALONG", {
+    topic: page.value._path,
+  });
 }
 </script>
 

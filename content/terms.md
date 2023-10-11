@@ -6,7 +6,7 @@ By accessing and using Python Exercises (referred to as "the website," "we," or 
 
 ### Use of Service
 
-- Python Exercises provides an online platform for users to write, run, and share Python code.
+- Python Exercises provides an online platform for users to read, write, and run Python code online. The service is provided as is without any guarantees regarding the accuracy or completeness.
 
 - You understand and agree that the use of our service is at your own risk. Python Exercises is not responsible for any damages or loss incurred while using our platform.
 

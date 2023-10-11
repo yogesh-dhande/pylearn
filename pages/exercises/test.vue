@@ -25,8 +25,26 @@ const { data: exercises } = await useAsyncData("exercises", () =>
     .find()
 );
 
-onMounted(async () => {
-  if (process.client) {
+const { $getPyWorker } = useNuxtApp();
+
+let pyWorker
+
+function outputHandler(output) {
+  const failedRegex = /FAILED .+\.py::(.*?) -/g;
+  const matches = output.matchAll(failedRegex);
+  const failedTests = Array.from(matches, (match) => match[1]);
+
+  const errorRegex = /ERROR .+\.py/g;
+  const pass = failedTests.length === 0 && !output.match(errorRegex)
+  outputs.value.push({
+    path: "All tests passed",
+    pass,
+  });
+}
+
+onMounted(() => {
+  pyWorker = $getPyWorker(outputHandler)
+    if (process.client) {
     let testFileContent = "";
     exercises.value.forEach((exercise) => {
       testFileContent =
@@ -38,15 +56,36 @@ ${exercise.tests ?? ""}
 `;
     });
 
-    const { result, pass } = await useTestRunner(testFileContent, {
-      _path: "/exercises/all",
-    });
+    const toRun = `
+import js
+import os
+import pytest
+from io import StringIO
+import sys
+import pyodide
+filename = "all.py"
 
-    outputs.value.push({
-      path: "All tests passed",
-      result,
-      pass,
-    });
+with open(filename, "w+") as f:
+    f.write('''${testFileContent}''')
+
+# Capture the output
+output = StringIO()
+sys.stdout = output
+
+# Run the tests
+pytest.main(["-qq", filename])
+
+# Get the captured output
+captured_output = output.getvalue()
+
+# Restore the original stdout
+sys.stdout = sys.__stdout__
+
+captured_output
+                    
+`
+    pyWorker.run(toRun)
   }
 });
+
 </script>

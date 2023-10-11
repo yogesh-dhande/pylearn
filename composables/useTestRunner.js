@@ -45,7 +45,6 @@ js.document.getElementById("pytest-output").value = captured_output
   return {
     testFileContent,
     result,
-    pass: failedTests.length === 0 && !result.match(errorRegex),
     failedTests,
   };
 }
