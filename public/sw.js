@@ -13,7 +13,7 @@ async function initializePyodide() {
 }
 async function runPython(code) {
     await initializePyodide();
-    return pyodide.runPythonAsync(code);
+    return pyodide.runPython(code)
 }
 
 onmessage = async (e) => {
@@ -21,8 +21,12 @@ onmessage = async (e) => {
         initializePyodide()
         postMessage({ type: "message", value: "Initializing pyodide..." });
     } else if (e.data.type == "run") {
-        output = await runPython(e.data.code)
-        postMessage({ type: "output", value: output })
+        try {
+            output = await runPython(e.data.code)
+            postMessage({ type: "output", value: output })
+        } catch (err) {
+            postMessage({ type: "output", value: err.message.split(`File "<exec>", `).pop() })
+        }
     }
 
 };

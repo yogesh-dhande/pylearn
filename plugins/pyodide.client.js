@@ -10,6 +10,8 @@ export default defineNuxtPlugin(async () => {
       if (e.data.type == "message") {
         console.log(e.data.value)
       } else if (e.data.type == "output") {
+        console.log(e.data.value)
+
         outputHandler(e.data.value)
       }
     }

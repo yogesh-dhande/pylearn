@@ -37,9 +37,9 @@
             </div>
             <div class="p-4 bg-gray-200 relative">
 
-              <div id="pyodide-output" class=" font-mono text-gray-700 leading-loose">
+              <pre id="pyodide-output" class=" font-mono text-gray-700 leading-loose">
 
-              </div>
+              </pre>
               <div class="absolute right-2 top-2 z-10">
                 <!-- Pyodide warning -->
                 <div class="relative group">
@@ -66,25 +66,25 @@
     <!-- Prev and next links -->
     <div class="grid grid-cols-2 gap-8 sm:gap-16 my-12 sm:my-24">
       <div v-if="prev?._path.includes('/concepts/')"
-        class="bg-gray-100 hover:bg-gray-200 border border-gray-500 rounded-md p-4">
-        <div class="flex flex-col items-start">
+        >
+        <div class="flex justify-start items-center">
           <NuxtLink :to="prev._path"
-            class="text-right mt-2 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-            {{ prev.heading }}
+            class="underline text-right mt-2 text-lg font-semibold leading-6 text-indigo-600 hover:text-indigo-700">
+            <ArrowLeftIcon class="inline h-6 w-6" />{{ prev.heading }}
           </NuxtLink>
-          <ArrowLongLeftIcon class="h-8 w-8" />
+          
         </div>
       </div>
       <div v-else></div>
 
       <div v-if="next?._path.includes('/concepts/')"
-        class="bg-gray-100 hover:bg-gray-200 border border-gray-500 rounded-md p-4">
-        <div class="flex flex-col items-end">
+        >
+        <div class="flex justify-end items-center">
           <NuxtLink :to="next._path"
-            class="text-right mt-2 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-            {{ next.heading }}
+            class="underline text-right text-lg font-semibold leading-6 text-indigo-600 hover:text-indigo-700">
+            {{ next.heading }} <ArrowRightIcon class="inline h-6 w-6" />
           </NuxtLink>
-          <ArrowLongRightIcon class="h-8 w-8" />
+          
         </div>
       </div>
       <div v-else></div>
@@ -98,8 +98,8 @@ import {
   ExclamationTriangleIcon,
 } from "@heroicons/vue/24/outline";
 import {
-  ArrowLongLeftIcon,
-  ArrowLongRightIcon,
+  ArrowLeftIcon,
+  ArrowRightIcon,
   ChevronDoubleDownIcon,
   ChevronDoubleUpIcon,
   PlayIcon,
@@ -134,17 +134,15 @@ onMounted(() => {
 async function runCode(code) {
   isLoading.value = true
 
-  const toRun = `
+  pyWorker.run(`
 import js
 import sys
 from io import StringIO
 # Capture the output
 output = StringIO()
 sys.stdout = output
-
-# Run the code
-${code}
-
+`)
+  pyWorker.run(`${code}
 # Get the captured output
 captured_output = output.getvalue()
 
@@ -156,9 +154,7 @@ captured_output = captured_output.replace("\\n", "<br>")
 captured_output = captured_output.replace(" ", "&nbsp;")
 captured_output = captured_output.replace("\\t", "&nbsp;&nbsp;&nbsp;&nbsp;")
 captured_output
-`;
-
-  pyWorker.run(toRun);
+`)
   $analytics.track("CODE_ALONG", {
     topic: page.value._path,
   });
