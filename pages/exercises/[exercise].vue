@@ -165,7 +165,7 @@ import pyodide
 filename = "${filename}"
 
 with open(filename, "w+") as f:
-    f.write('''${testFileContent.value}''')
+    f.write(r'''${testFileContent.value}''')
 
 # Capture the output
 output = StringIO()

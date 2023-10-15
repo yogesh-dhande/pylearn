@@ -1,15 +1,13 @@
-slug: fix-syntax-5
-title: "Fix the code syntax #5"
+slug: fix-error-5
+title: "Fix the code error #5"
 tags:
   - syntax
 level: 1
 prompt: |
-  The title of this exercise is intentionally vague to avoid giving any hints.
-  
-  A syntax error in the code means that there is something written incorrectly and the computer does not understand what you are trying to do. Let's see if you can spot the syntax error in the following code!
+  Can you spot the error in the code below? An error may occur when the computer does not understand what you are trying to do. The title of this exercise is intentionally vague to avoid giving you any hints.
 
 starter: |
-  # Fix the syntaxt in the code below
+  # Fix the error in the code below
   fruits = ["apple", "mango", "pear"]
   favorite = fruits(1)  # mango
   print(favorite)

@@ -55,7 +55,6 @@ ${exercise.solution ?? ""}
 ${exercise.tests ?? ""}
 `;
     });
-
     const toRun = `
 import js
 import os
@@ -66,7 +65,7 @@ import pyodide
 filename = "all.py"
 
 with open(filename, "w+") as f:
-    f.write('''${testFileContent}''')
+    f.write(r'''${testFileContent}''')
 
 # Capture the output
 output = StringIO()

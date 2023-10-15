@@ -1,0 +1,24 @@
+slug: fix-error-6
+title: "Fix the code error #6"
+tags:
+  - syntax
+level: 1
+prompt: |
+  Can you spot the error in the code below? An error may occur when the computer does not understand what you are trying to do. The title of this exercise is intentionally vague to avoid giving you any hints.
+
+starter: |
+  # Fix the error in the code below
+  def add_two(a, b):
+    return a + b
+
+  total = add_two(2; 6)
+  print(total)
+solution: |
+  # Fix: inputs to the function are separated by commas (2, 6), not semicolons
+  def add_two(a, b):
+    return a + b
+
+  total = add_two(2, 6)
+  print(total)
+tests: |
+  # There are no tests for this code as it is just a syntax fix

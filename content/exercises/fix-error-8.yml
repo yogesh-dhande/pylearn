@@ -1,0 +1,18 @@
+slug: fix-error-8
+title: "Fix the code error #8"
+tags:
+  - syntax
+level: 1
+prompt: |
+  Can you spot the error in the code below? An error may occur when the computer does not understand what you are trying to do. The title of this exercise is intentionally vague to avoid giving you any hints.
+
+starter: |
+  # Fix the error in the code below
+  print(hello)  # output: hello
+solution: |
+  # Fix: strings are defined using quotes; otherwise python looks for a variable named `hello` 
+  # and fails to find one
+  print("hello")
+  
+tests: |
+  # There are no tests for this code as it is just a syntax fix

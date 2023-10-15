@@ -1,0 +1,19 @@
+slug: fix-error-9
+title: "Fix the code error #9"
+tags:
+  - syntax
+level: 1
+prompt: |
+  Can you spot the error in the code below? An error may occur when the computer does not understand what you are trying to do. The title of this exercise is intentionally vague to avoid giving you any hints.
+
+starter: |
+  # Fix the error in the code below
+  message = "hello'
+  print(message)  # output: hello
+solution: |
+  # Fix: opening and closing quotes for a string should match
+  message = "hello"
+  print(message)  # output: hello
+  
+tests: |
+  # There are no tests for this code as it is just a syntax fix
