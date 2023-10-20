@@ -1,7 +1,7 @@
 slug: fix-error-11
 title: "Fix the code error #11"
 tags:
-  - syntax
+  - errors
 level: 2
 prompt: |
   Can you spot the error in the code below? An error may occur when the computer does not understand what you are trying to do. The title of this exercise is intentionally vague to avoid giving you any hints.
@@ -10,7 +10,7 @@ starter: |
   # Fix the error in the code below
   def compose_welcome_email(name):
     """
-    Generated a welcome message for a new subscriber based in their name.
+    Generates a welcome message for a new subscriber based in their name.
 
     Args:
       name (str): Name of the subscriber
