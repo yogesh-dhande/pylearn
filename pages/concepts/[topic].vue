@@ -8,7 +8,9 @@
     </ContentDoc>
     <!-- Code Along -->
 
-    <div class="bg-gray-600 text-gray-100 pt-3 fixed inset-x-0 bottom-0 z-10 max-h-96 overflow-auto">
+    <div
+      class="bg-gray-600 text-gray-100 pt-3 fixed inset-x-0 bottom-0 z-10 max-h-96 overflow-auto"
+    >
       <div class="lg:hidden text-center pb-2">
         Open this page on desktop to code along as you read the article.
       </div>
@@ -17,8 +19,9 @@
           <div class="flex items-center justify-between">
             <div class="w-full text-center">
               The best way to learn is through
-              <span class="text-cyan-500 font-semibold italic">hands-on practice</span>. Code along as you read the
-              article!
+              <span class="text-cyan-500 font-semibold italic"
+                >hands-on practice</span
+              >. Code along as you read the article!
             </div>
             <ChevronDoubleDownIcon v-if="open" class="h-6 w-6" />
             <ChevronDoubleUpIcon v-else class="h-6 w-6" />
@@ -29,34 +32,49 @@
             <div class="bg-slate-800 relative">
               <button
                 class="absolute right-2 top-2 z-10 inline-flex items-center bg-cyan-600 hover:bg-cyan-700 text-gray-100 px-3 py-1 rounded-md"
-                @click="runCode(code)">
+                @click="runCode(code)"
+              >
                 <PlayIcon class="h-5 w-5 inline-block mr-1" />
                 <div>Run</div>
               </button>
               <AceEditor v-model="code" :readonly="false"></AceEditor>
             </div>
             <div class="p-4 bg-gray-200 relative">
-
-              <pre id="pyodide-output" class=" font-mono text-gray-700 leading-loose">
-
-              </pre>
+              <pre
+                id="pyodide-output"
+                class="font-mono text-gray-700 leading-loose"
+              ></pre>
               <div class="absolute right-2 top-2 z-10">
                 <!-- Pyodide warning -->
                 <div class="relative group">
-                  <div class="z-10 absolute top-0 right-0 flex flex-col items-center hidden mr-8 group-hover:flex">
-                    <p class="bg-gray-700 text-gray-100 w-80 px-3 py-2 rounded shadow text-sm">Code is executed with <a
-                        href="https://pyodide.org/" class="underline text-indigo-400 hover:text-indigo-500">Pyodide</a>,
-                      a port of CPython to WebAssembly/Emscripten. Some <a
-                        href="https://pyodide.org/en/stable/usage/wasm-constraints.html" class="underline text-indigo-400 hover:text-indigo-500">functionality</a> in Python may
-                      not be avaiable or may not work as expected.</p>
-
+                  <div
+                    class="z-10 absolute top-0 right-0 flex flex-col items-center hidden mr-8 group-hover:flex"
+                  >
+                    <p
+                      class="bg-gray-700 text-gray-100 w-80 px-3 py-2 rounded shadow text-sm"
+                    >
+                      Code is executed with
+                      <a
+                        href="https://pyodide.org/"
+                        class="underline text-indigo-400 hover:text-indigo-500"
+                        >Pyodide</a
+                      >, a port of CPython to WebAssembly/Emscripten. Some
+                      <a
+                        href="https://pyodide.org/en/stable/usage/wasm-constraints.html"
+                        class="underline text-indigo-400 hover:text-indigo-500"
+                        >functionality</a
+                      >
+                      in Python may not be available or may not work as
+                      expected.
+                    </p>
                   </div>
-                  <ExclamationTriangleIcon class="text-yellow-600 h-7 w-7" aria-hidden="true" />
-
+                  <ExclamationTriangleIcon
+                    class="text-yellow-600 h-7 w-7"
+                    aria-hidden="true"
+                  />
                 </div>
                 <!-- End Pyodide warning -->
               </div>
-
             </div>
           </div>
         </div>
@@ -65,26 +83,26 @@
 
     <!-- Prev and next links -->
     <div class="grid grid-cols-2 gap-8 sm:gap-16 my-12 sm:my-24">
-      <div v-if="prev?._path.includes('/concepts/')"
-        >
+      <div v-if="prev?._path.includes('/concepts/')">
         <div class="flex justify-start items-center">
-          <NuxtLink :to="prev._path"
-            class="underline text-right mt-2 text-lg font-semibold leading-6 text-indigo-600 hover:text-indigo-700">
+          <NuxtLink
+            :to="prev._path"
+            class="underline text-right mt-2 text-lg font-semibold leading-6 text-indigo-600 hover:text-indigo-700"
+          >
             <ArrowLeftIcon class="inline h-6 w-6" />{{ prev.heading }}
           </NuxtLink>
-          
         </div>
       </div>
       <div v-else></div>
 
-      <div v-if="next?._path.includes('/concepts/')"
-        >
+      <div v-if="next?._path.includes('/concepts/')">
         <div class="flex justify-end items-center">
-          <NuxtLink :to="next._path"
-            class="underline text-right text-lg font-semibold leading-6 text-indigo-600 hover:text-indigo-700">
+          <NuxtLink
+            :to="next._path"
+            class="underline text-right text-lg font-semibold leading-6 text-indigo-600 hover:text-indigo-700"
+          >
             {{ next.heading }} <ArrowRightIcon class="inline h-6 w-6" />
           </NuxtLink>
-          
         </div>
       </div>
       <div v-else></div>
@@ -93,10 +111,8 @@
 </template>
 
 <script setup>
-import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
-import {
-  ExclamationTriangleIcon,
-} from "@heroicons/vue/24/outline";
+import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
+import { ExclamationTriangleIcon } from "@heroicons/vue/24/outline";
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
@@ -109,7 +125,7 @@ const { page } = useContent();
 
 const open = ref(true);
 const code = ref("");
-const isLoading = ref(false)
+const isLoading = ref(false);
 
 const { data } = await useAsyncData(() =>
   queryContent("/concepts")
@@ -120,28 +136,31 @@ const [prev, next] = data.value;
 
 const { $getPyWorker, $analytics } = useNuxtApp();
 
-let pyWorker
+let pyWorker;
 
 function outputHandler(output) {
-  document.getElementById("pyodide-output").innerHTML = output
-  isLoading.value = false
+  document.getElementById("pyodide-output").innerHTML = output;
+  isLoading.value = false;
 }
 
 onMounted(() => {
-  pyWorker = $getPyWorker(outputHandler)
+  pyWorker = $getPyWorker(outputHandler);
 });
 
 async function runCode(code) {
-  isLoading.value = true
+  isLoading.value = true;
 
-  pyWorker.run(`
+  pyWorker.run(
+    `
 import js
 import sys
 from io import StringIO
 # Capture the output
 output = StringIO()
 sys.stdout = output
-`)
+`,
+    true
+  );
   pyWorker.run(`${code}
 # Get the captured output
 captured_output = output.getvalue()
@@ -154,7 +173,7 @@ captured_output = captured_output.replace("\\n", "<br>")
 captured_output = captured_output.replace(" ", "&nbsp;")
 captured_output = captured_output.replace("\\t", "&nbsp;&nbsp;&nbsp;&nbsp;")
 captured_output
-`)
+`);
   $analytics.track("CODE_ALONG", {
     topic: page.value._path,
   });

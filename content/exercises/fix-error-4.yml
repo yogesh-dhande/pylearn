@@ -1,24 +1,24 @@
 slug: fix-error-4
-title: "Fix the code error #4"
+title: "Fix the error in python code #4"
 tags:
-  - errors
+    - errors
 level: 1
 prompt: |
-  Can you spot the error in the code below? An error may occur when the computer does not understand what you are trying to do. The title of this exercise is intentionally vague to avoid giving you any hints.
+    Can you spot the error in the code below? An error may occur when the computer does not understand what you are trying to do. The title of this exercise is intentionally vague to avoid giving you any hints.
 
 starter: |
-  # Fix the error in the code below
-  def add_two(a, b):
-    return a + b
+    # Fix the error in the code below
+    def add_two(a, b):
+      return a + b
 
-  total = add_two[2, 6]
-  print(total)
+    total = add_two[2, 6]
+    print(total)
 solution: |
-  # Fix: functions are invoked with parenthesis `()`, not brackets `[]`
-  def add_two(a, b):
-    return a + b
+    # Fix: functions are invoked with parenthesis `()`, not brackets `[]`
+    def add_two(a, b):
+      return a + b
 
-  total = add_two(2, 6)
-  print(total)
+    total = add_two(2, 6)
+    print(total)
 tests: |
-  # There are no tests for this code as it is just a syntax fix
+    # There are no tests for this code as it is just a syntax fix

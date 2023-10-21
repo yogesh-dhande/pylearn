@@ -1,26 +1,26 @@
 slug: fix-error-10
-title: "Fix the code error #10"
+title: "Fix the error in python code #10"
 tags:
-  - errors
+    - errors
 level: 2
 prompt: |
-  Can you spot the error in the code below? An error may occur when the computer does not understand what you are trying to do. The title of this exercise is intentionally vague to avoid giving you any hints.
+    Can you spot the error in the code below? An error may occur when the computer does not understand what you are trying to do. The title of this exercise is intentionally vague to avoid giving you any hints.
 
 starter: |
-  # Fix the error in the code below
-  message = 'It's so good!'
-  print(message)  # output: It's so good!
+    # Fix the error in the code below
+    message = 'It's so good!'
+    print(message)  # output: It's so good!
 solution: |
-  # Fix: a single quote inside a string enclosed within single quotes should be escaped with a \, or 
-  # we can enclose the string in double quotes
+    # Fix: a single quote inside a string enclosed within single quotes should be escaped with a \, or 
+    # we can enclose the string in double quotes
 
-  # Approach # 1
-  message = 'It\'s so good!'
-  print(message)  # output: It's so good!
+    # Approach # 1
+    message = 'It\'s so good!'
+    print(message)  # output: It's so good!
 
-  # Approach # 2
-  message = "It's so good!"
-  print(message)  # output: It's so good!
-  
+    # Approach # 2
+    message = "It's so good!"
+    print(message)  # output: It's so good!
+
 tests: |
-  # There are no tests for this code as it is just a syntax fix
+    # There are no tests for this code as it is just a syntax fix

@@ -1,50 +1,50 @@
 slug: fix-error-13
-title: "Fix the code error #13"
+title: "Fix the error in python code #13"
 tags:
-  - errors
+    - errors
 level: 3
 prompt: |
-  Can you spot the error in the code below? An error may occur when the computer does not understand what you are trying to do. The title of this exercise is intentionally vague to avoid giving you any hints.
+    Can you spot the error in the code below? An error may occur when the computer does not understand what you are trying to do. The title of this exercise is intentionally vague to avoid giving you any hints.
 
 starter: |
-  # Fix the error in the code below
-  def add_to_shopping_list(item, current_list=[]):
-    """
-    Adds an item to the shopping list.
+    # Fix the error in the code below
+    def add_to_shopping_list(item, current_list=[]):
+      """
+      Adds an item to the shopping list.
 
-    Args:
-      item (str): Item to be added
-      current_list (list): (optional), the current list of items; assume empty if not provided
+      Args:
+        item (str): Item to be added
+        current_list (list): (optional), the current list of items; assume empty if not provided
 
-    Returns:
-      list: List of items in the shopping list
-    """
-      current_list.append(item)
-      return current_list
+      Returns:
+        list: List of items in the shopping list
+      """
+        current_list.append(item)
+        return current_list
 
 solution: |
-  # Fix: Initiliaze an empty list during each function execution instead of setting an empty list as the default.
-  # Default arguments to the function are only evaluated once when the function is defined.
-  # When a mutable object like a list is used as the default argument and mutated during 
-  # function execution, the updated value is used as the default when the function is called the next time.
-  
-  def add_to_shopping_list(item, current_list=None):
-    """
-    Adds an item to the shopping list.
+    # Fix: Initiliaze an empty list during each function execution instead of setting an empty list as the default.
+    # Default arguments to the function are only evaluated once when the function is defined.
+    # When a mutable object like a list is used as the default argument and mutated during 
+    # function execution, the updated value is used as the default when the function is called the next time.
 
-    Args:
-      item (str): Item to be added
-      current_list (list): (optional), the current list of items; assume empty if not provided
+    def add_to_shopping_list(item, current_list=None):
+      """
+      Adds an item to the shopping list.
 
-    Returns:
-      list: List of items in the shopping list
-    """
-      current_list = current_list if current_list else []
-      current_list.append(item)
-      return current_list
+      Args:
+        item (str): Item to be added
+        current_list (list): (optional), the current list of items; assume empty if not provided
+
+      Returns:
+        list: List of items in the shopping list
+      """
+        current_list = current_list if current_list else []
+        current_list.append(item)
+        return current_list
 
 tests: |
-  def test_add_to_shopping_list():
-    assert sorted(add_to_shopping_list("banana")) == sorted(["banana"])
-    assert sorted(add_to_shopping_list("apple")) == sorted(["apple"])
-    assert sorted(add_to_shopping_list("apple", ["yogurt"])) == sorted(["yogurt", "apple"])
+    def test_add_to_shopping_list():
+      assert sorted(add_to_shopping_list("banana")) == sorted(["banana"])
+      assert sorted(add_to_shopping_list("apple")) == sorted(["apple"])
+      assert sorted(add_to_shopping_list("apple", ["yogurt"])) == sorted(["yogurt", "apple"])

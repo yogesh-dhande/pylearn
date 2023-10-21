@@ -1,20 +1,20 @@
 slug: fix-error-3
-title: "Fix the code error #3"
+title: "Fix the error in python code #3"
 tags:
-  - errors
+    - errors
 level: 1
 prompt: |
-  Can you spot the error in the code below? An error may occur when the computer does not understand what you are trying to do. The title of this exercise is intentionally vague to avoid giving you any hints.
+    Can you spot the error in the code below? An error may occur when the computer does not understand what you are trying to do. The title of this exercise is intentionally vague to avoid giving you any hints.
 
 starter: |
-  # Fix the error in the code below
-  fruits = ["apple", "banana", "pear"]
-  for fruit of fruits:
-    print(fruit)
+    # Fix the error in the code below
+    fruits = ["apple", "banana", "pear"]
+    for fruit of fruits:
+      print(fruit)
 solution: |
-  # Fix: it should be `for fruit in fruits`, not `for fruit of fruits`
-  fruits = ["apple", "banana", "pear"]
-  for fruit in fruits:
-    print(fruit)
+    # Fix: it should be `for fruit in fruits`, not `for fruit of fruits`
+    fruits = ["apple", "banana", "pear"]
+    for fruit in fruits:
+      print(fruit)
 tests: |
-  # There are no tests for this code as it is just a syntax fix
+    # There are no tests for this code as it is just a syntax fix
