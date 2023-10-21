@@ -8,7 +8,7 @@
     >
       <div
         class="px-3 py-1 rounded flex justify-between text-gray-100"
-        :class="{ 'bg-green-600': output.pass, 'bg-red-600': !output.pass }"
+        :class="{ 'bg-emerald-600': output.pass, 'bg-red-600': !output.pass }"
       >
         <div>{{ output.path }}</div>
         <div>{{ output.pass }}</div>
@@ -27,7 +27,7 @@ const { data: exercises } = await useAsyncData("exercises", () =>
 
 const { $getPyWorker } = useNuxtApp();
 
-let pyWorker
+let pyWorker;
 
 function outputHandler(output) {
   const failedRegex = /FAILED .+\.py::(.*?) -/g;
@@ -35,7 +35,7 @@ function outputHandler(output) {
   const failedTests = Array.from(matches, (match) => match[1]);
 
   const errorRegex = /ERROR .+\.py/g;
-  const pass = failedTests.length === 0 && !output.match(errorRegex)
+  const pass = failedTests.length === 0 && !output.match(errorRegex);
   outputs.value.push({
     path: "All tests passed",
     pass,
@@ -43,8 +43,8 @@ function outputHandler(output) {
 }
 
 onMounted(() => {
-  pyWorker = $getPyWorker(outputHandler)
-    if (process.client) {
+  pyWorker = $getPyWorker(outputHandler);
+  if (process.client) {
     let testFileContent = "";
     exercises.value.forEach((exercise) => {
       testFileContent =
@@ -82,9 +82,8 @@ sys.stdout = sys.__stdout__
 
 captured_output
                     
-`
-    pyWorker.run(toRun)
+`;
+    pyWorker.run(toRun);
   }
 });
-
 </script>

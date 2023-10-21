@@ -69,7 +69,7 @@
               @click="runCode"
               :is-loading="isLoading"
               label="Run"
-              btnClasses="bg-green-600 hover:bg-green-700"
+              btnClasses="bg-emerald-600 hover:bg-emerald-700"
             />
           </div>
         </TabList>
@@ -119,7 +119,7 @@
 
       <div v-else-if="success">
         <p
-          class="bg-green-500 text-gray-100 font-bold text-center px-3 py-2 my-2"
+          class="bg-emerald-600 text-gray-100 font-bold text-center px-3 py-2 my-2"
         >
           All tests passed!
         </p>
